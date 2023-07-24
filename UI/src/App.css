@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
 }
@@ -44,7 +43,7 @@ header .site-logo {
 .logo-name {
   padding: 0;
   margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 25px;
   font-weight: 700;
   font-size: 25px;
 }
@@ -56,6 +55,44 @@ header .site-logo {
 main {
   margin-bottom: 84px;
 }
+
+.home-container {
+  margin-top: 100px;
+}
+
+.home-header {
+  font-size: 50px;
+}
+
+.home-img-1 {
+  height: 300px;
+}
+
+.home-img-2 {
+  height: 300px;
+}
+
+.about-page-container {
+  margin-top: 100px;
+}
+
+.about-image {
+  height: 250px;
+  padding-right: 20px;
+}
+
+.about-header {
+  font-size: 50px;
+}
+
+.about-page-content {
+  display: flex;
+  padding: 30px;
+  max-width: 1000px;
+  top: 50%;
+  left: 50%;
+}
+
 
 footer {
   background-color: #161616;

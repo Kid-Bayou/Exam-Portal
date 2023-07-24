@@ -1,9 +1,12 @@
+import image from "../assets/about-exam.jpg"
+
 function About() {
   return (
     <>
       <div className="about-page-container">
-        <div className="about-page-content">
           <h1 className="about-header">About</h1>
+        <div className="about-page-content">
+          <img src={image} className="about-image" />
           <p className="about-paragraph">
             Discover our site! Welcome to a world of online exams
             reimagined for learners worldwide. We offer a diverse range of
