@@ -7,10 +7,10 @@ function ModuleList() {
   const [module, setModule] = useState([]);
 
  const moduleElements = module.map((module) => (
-   <div key={module.id} className="module-tile">
+   <div key={module.id} className="grid mt-16">
 
      <Link to={`/modules/${module.id}`}>
-       <div className="module-info">
+       <div className="shadow-lg p-12 pl-16 pr-16">
          <h3>{module.title}</h3>
        </div>
      </Link>
@@ -38,6 +38,11 @@ function ModuleList() {
         <div className="module-list">
           {moduleElements}
         </div>
+      </div>
+      <div>
+      <Link to="/courses/createcourse">
+          Create Course
+        </Link>
       </div>
     </>
   );

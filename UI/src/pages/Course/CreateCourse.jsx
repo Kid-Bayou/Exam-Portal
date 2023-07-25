@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { post } from "../../service/APIService";
+import { useNavigate } from "react-router-dom";
 
 function CreateCourse() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
   });
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,6 +18,7 @@ function CreateCourse() {
         "https://localhost:7182/api/Course/CreateCourse",
         formData
       );
+      navigate("/courses");
       console.log("post request successful:", response);
     } catch (error) {
       console.error("Error making post request:", error);
