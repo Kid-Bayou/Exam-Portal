@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import {get} from "../../service/APIService"
 
@@ -38,7 +37,6 @@ function CourseList() {
         <div className="course-list">
           {courseElements}
         </div>
-
 {/*         <table>
           <thead>
             <td>Id</td>
