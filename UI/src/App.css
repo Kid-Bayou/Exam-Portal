@@ -1,42 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  padding-right: 25px;
+  padding-left: 5px;
+}
+
+header a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  padding: 5px 20px;
+}
+
+header a:hover {
+  color: #7b7b7b;
+}
+
+header .site-logo {
+  color: black;
+  margin-right: auto;
+  display: flex;
+}
+
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  height: 4.5em;
+  padding: 0em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-name {
+  padding: 0;
+  margin-left: 20px;
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav {
+  padding-top: 15px;
 }
 
-.card {
-  padding: 2em;
+main {
+  margin-bottom: 84px;
 }
 
-.read-the-docs {
-  color: #888;
+.home-container {
+  margin-top: 100px;
 }
+
+.home-header {
+  font-size: 50px;
+}
+
+.home-img-1 {
+  height: 300px;
+}
+
+.home-img-2 {
+  height: 300px;
+}
+
+.about-page-container {
+  margin-top: 100px;
+}
+
+.about-image {
+  height: 250px;
+  padding-right: 20px;
+}
+
+.about-header {
+  font-size: 50px;
+}
+
+.about-page-content {
+  display: flex;
+  padding: 30px;
+  max-width: 1000px;
+  top: 50%;
+  left: 50%;
+}
+
+.course-info {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  padding: 50px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.course-tile a {
+  color:#000000;
+  text-decoration: none;
+}
+
+.course-list-container {
+  padding-inline: 23px
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 34px;
+  margin-top: 57px;
+}
+
+.course-tile a {
+  color: #161616;
+  text-decoration: none;    
+}
+
+footer {
+  background-color: #161616;
+  color: #AAAAAA;
+  height: 74px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-weight: 500;
+}
+
