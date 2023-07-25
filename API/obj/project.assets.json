@@ -4211,11 +4211,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kidis\\source\\repos\\Exam_Portal\\Exam_Portal.csproj",
+      "projectUniqueName": "C:\\Users\\kidis\\source\\repos\\Exam-Portal\\API\\Exam_Portal.csproj",
       "projectName": "Exam_Portal",
-      "projectPath": "C:\\Users\\kidis\\source\\repos\\Exam_Portal\\Exam_Portal.csproj",
+      "projectPath": "C:\\Users\\kidis\\source\\repos\\Exam-Portal\\API\\Exam_Portal.csproj",
       "packagesPath": "C:\\Users\\kidis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kidis\\source\\repos\\Exam_Portal\\obj\\",
+      "outputPath": "C:\\Users\\kidis\\source\\repos\\Exam-Portal\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kidis\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -33,14 +33,14 @@ namespace Exam_Portal.Controllers
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(Course))]
         [ProducesResponseType(400)]
-        public IActionResult GetCourse(string title)
+        public IActionResult GetCourse(int id)
         {
-            if (!_courseRepository.CourseExists(title))
+            if (!_courseRepository.CourseExists(id))
             {
                 return NotFound();
             }
 
-            var course = _mapper.Map<CourseDto>(_courseRepository.GetCourse(title));
+            var course = _mapper.Map<CourseDto>(_courseRepository.GetCourse(id));
 
             if (!ModelState.IsValid)
             {

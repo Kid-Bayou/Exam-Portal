@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MWreYBkyFQ3GiIZr0nm8M4cCxnXFkPY0fub8ZU2CUBErjA5vSDUF4utg/ToYRmyQBD5yJ2yq30hbfI/zGNYxEQ==",
+  "dgSpecHash": "s7eN5LAVnzUXJzy69bwbZLOWVNY33VDEcIRerSG/wVkiGtz68vVVQh4FwGMsrz5KrKuuW587HxGTanIEtavv7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kidis\\source\\repos\\Exam_Portal\\Exam_Portal.csproj",
+  "projectFilePath": "C:\\Users\\kidis\\source\\repos\\Exam-Portal\\API\\Exam_Portal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kidis\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\kidis\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
