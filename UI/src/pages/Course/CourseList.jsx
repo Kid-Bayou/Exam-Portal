@@ -40,7 +40,7 @@ function CourseList() {
       </div>
       <div className="create-course-container">
         <Link to="/courses/createcourse">
-          <button className="create-button">Create Course</button>
+          <button className="button">Create Course</button>
         </Link>
       </div>
     </>

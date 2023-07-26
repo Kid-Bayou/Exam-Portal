@@ -109,6 +109,12 @@ header .site-logo {
 /* ~~~~ COURSE LIST ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
 
+
+
+.course-header {
+  font-size: 80px;
+}
+
 .course-info {
   margin: auto;
   background: rgb(246, 244, 244);
@@ -146,27 +152,6 @@ header .site-logo {
   flex-wrap: wrap;
 }
 
-.create-button {
-  background-color: #161616;
-  border-radius: .75rem;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  font-weight: 600;
-  font-size: 20px;
-  padding: .75rem 1.2rem;
-  text-align: center;
-  width: 200px;
-  height: 80px;
-  margin-bottom: 50px;
-}
-
-.create-button:hover {
-  background-color: #374151;
-}
-
-.course-header {
-  font-size: 80px;
-}
 
 
 /* ~~~~ COURSE Detail ~~~~ */
@@ -174,6 +159,13 @@ header .site-logo {
 
 .course-name {
   font-size: 80px;
+  padding-top: 70px;
+}
+
+.course-description-header {
+  font-size: 30px;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }
 
 /*  ~~~~ FOOTER ~~~~   */
@@ -218,3 +210,34 @@ footer {
   color: #AAAAAA;
   padding: 20px 150px 40px 150px;
 }
+
+.course-detail-buttons {
+  padding-top: 100px;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+
+
+/*  ~~~~ Button ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+.button {
+  background-color: #161616;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 17px;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  width: 160px;
+  height: 70px;
+  margin-bottom: 50px;
+}
+
+.button:hover {
+  background-color: #374151;
+}
+

@@ -25,20 +25,21 @@ function CourseDetail() {
       <div className="course-detail-container">
         {course ? (
           <div className="course-detail">
-          <h3 className="course-name">{course.title}</h3>
+            <h3 className="course-name">{course.title}</h3>
+            <h4 className="course-description-header">Description:</h4>
             <p>{course.description}</p>
           </div>
         ) : (
           <h2>Loading</h2>
         )}
-        <div className="course-detail-module">
-          <Link to={"/modules"}>
-            <h3>Modules</h3>
-          </Link>
-        </div>
       </div>
-      <div className="update-course-container">
-        <Link to="/courses/updatecourse">Update Course</Link>
+      <div className="course-detail-buttons">
+        <Link to="/courses/updatecourse">
+          <button className="button">Update Course</button>
+        </Link>
+        <Link to={"/modules"}>
+          <button className="button">Modules</button>
+        </Link>
       </div>
     </>
   );
