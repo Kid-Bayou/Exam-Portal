@@ -23,22 +23,21 @@ function CourseDetail() {
   return (
     <>
       <div className="course-detail-container">
+        <h3>Courses</h3>
         {course ? (
           <div className="course-detail">
-            <h3 className="text-5xl p-20 font-bold">Course: {course.title}</h3>
-            <p className="text-3xl p-3">Descritpion:</p>
             <p>{course.description}</p>
           </div>
         ) : (
           <h2>Loading</h2>
         )}
-        <div className="mx-0 mt-20 py-3 px-0 shadow-lg">
+        <div className="course-detail-module">
           <Link to={"/modules"}>
             <h3>Modules</h3>
           </Link>
         </div>
       </div>
-      <div className="mx-0 mt-10 py-3 px-0 shadow-lg">
+      <div className="update-course-container">
         <Link to="/courses/updatecourse">Update Course</Link>
       </div>
     </>

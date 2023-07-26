@@ -37,22 +37,6 @@ function CourseList() {
         <div className="course-list">
           {courseElements}
         </div>
-{/*         <table>
-          <thead>
-            <td>Id</td>
-            <td>Title</td>
-            <td>Description </td>
-          </thead>
-          <tbody>
-            {exams.map((i, index) => (
-              <tr key={index}>
-                <td>{i.id}</td>
-                <td>{i.title}</td>
-                <td>{i.description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
       </div>
       <div className="create-course-container">
         <Link to="/courses/createcourse">

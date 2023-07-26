@@ -7,8 +7,6 @@ function Home() {
             <div className="home-container">
                 <h1 className="home-header">The Exam site for you</h1>
                 <img src={img1} className="home-img-1" />
-                <br />
-                <img src={img2} className="home-img-2" />
             </div>
         </>
     )

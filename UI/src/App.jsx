@@ -8,6 +8,7 @@ import CreateCourse from "./pages/Course/CreateCourse"
 import ModuleList from "./pages/Module/ModuleList"
 import ModuleDetail from "./pages/Module/ModuleDetail"
 import UpdateCourse from "./pages/Course/UpdateCourse"
+import DeleteCourse from "./pages/Course/DeleteCourse"
 import "./App.css";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="modules/:id" element={<ModuleDetail />} />
             <Route path="courses/createcourse" element={<CreateCourse />} />
             <Route path="courses/updatecourse" element={<UpdateCourse />} />
+            <Route path="courses/deletecourse" element={<DeleteCourse />} />
           </Route>
         </Routes>
       </BrowserRouter>
