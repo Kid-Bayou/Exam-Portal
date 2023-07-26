@@ -10,7 +10,7 @@ function CourseList() {
 
      <Link to={`/courses/${course.id}`}>
        <div className="course-info">
-         <h3>{course.title}</h3>
+         <h3 className="course-info-text">{course.title}</h3>
        </div>
      </Link>
      
@@ -33,14 +33,14 @@ function CourseList() {
   return (
     <>
       <div className="course-list-container">
-
+        <h2 className="course-header">Courses</h2>
         <div className="course-list">
           {courseElements}
         </div>
       </div>
       <div className="create-course-container">
         <Link to="/courses/createcourse">
-          Create Course
+          <button className="create-button">Create Course</button>
         </Link>
       </div>
     </>

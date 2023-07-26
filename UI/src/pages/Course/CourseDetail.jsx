@@ -23,9 +23,9 @@ function CourseDetail() {
   return (
     <>
       <div className="course-detail-container">
-        <h3>Courses</h3>
         {course ? (
           <div className="course-detail">
+          <h3 className="course-name">{course.title}</h3>
             <p>{course.description}</p>
           </div>
         ) : (
