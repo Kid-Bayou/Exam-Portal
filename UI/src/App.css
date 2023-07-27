@@ -14,7 +14,7 @@
 /*  ~~~~ HEADER ~~~~   */
 
 header {
-  height: 110px;
+  height: 150px;
   display: flex;
   align-items: center;
   padding-right: 40px;
@@ -150,6 +150,11 @@ header .site-logo {
   gap: 80px;
   margin-top: 57px;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.create-course-container {
+  margin-bottom: 150px;
 }
 
 
@@ -168,6 +173,62 @@ header .site-logo {
   padding-bottom: 20px;
 }
 
+.course-detail-buttons {
+  margin-bottom: 150px;
+}
+
+
+
+/*  ~~~~ Module List ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.module-header {
+  font-size: 80px;
+}
+
+.module-info {
+  margin: auto;
+  background: rgb(246, 244, 244);
+  height: 200px;
+  width: 250px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+
+}
+
+:hover .module-info {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.module-info-text {
+  padding-top: 90px;
+  font-size: 25px;
+}
+
+.module-tile a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.module-list-container {
+  padding-inline: 23px;
+  margin: 100px;
+}
+
+.module-list {
+  display: flex;
+  justify-items: center;
+  gap: 80px;
+  margin-top: 57px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.module-list-button {
+  margin-bottom: 150px;
+}
+
+
 /*  ~~~~ FOOTER ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -179,7 +240,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 150px;
   font-weight: 500;
   position: relative;
 }
@@ -217,6 +277,7 @@ footer {
   gap: 100px;
   justify-content: center;
 }
+
 
 
 /*  ~~~~ Button ~~~~   */
