@@ -81,16 +81,6 @@ namespace Exam_Portal.Controllers
                 return BadRequest(ModelState);
             }
 
-            var module = _moduleRepository.GetModules()
-                .Where(c => c.Title.Trim().ToUpper() == moduleCreate.Title.TrimEnd().ToUpper())
-                .FirstOrDefault();
-
-            if (module != null)
-            {
-                ModelState.AddModelError("", "Module Already Exists");
-                return StatusCode(422, ModelState);
-            }
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

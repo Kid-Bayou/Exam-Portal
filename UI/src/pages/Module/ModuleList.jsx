@@ -38,7 +38,7 @@ function ModuleList() {
         <div className="module-list">{moduleElements}</div>
       </div>
       <div className="module-list-button">
-        <Link to={`/module/createmodule/${params.id}`}>
+        <Link to={`/modules/createmodule/${params.id}`}>
           <button className="button">Create Module</button>
         </Link>
       </div>

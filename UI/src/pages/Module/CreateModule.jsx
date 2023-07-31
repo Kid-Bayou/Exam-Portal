@@ -18,10 +18,10 @@ function CreateModule() {
 
     try {
       const response = await post(
-        "https://localhost:7182/api/Module/CreateModule",
+        `https://localhost:7182/api/Module/CreateCourse?cId=${params.id}`,
         formData
       );
-      navigate("/modules");
+      navigate(`/modules/${params.id}`);
       console.log("post request successful:", response);
     } catch (error) {
       console.error("Error making post request:", error);
@@ -55,8 +55,8 @@ function CreateModule() {
           Duration: 
           <input
             type="number"
-            name="description"
-            value={formData.description}
+            name="duration"
+            value={formData.duration}
             onChange={handleChange}
           />
         </label>
@@ -66,8 +66,8 @@ function CreateModule() {
           Passing Mark: 
           <input
             type="number"
-            name="description"
-            value={formData.description}
+            name="passingMark"
+            value={formData.passingMark}
             onChange={handleChange}
           />
         </label>
