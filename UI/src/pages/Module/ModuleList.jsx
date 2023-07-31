@@ -21,7 +21,7 @@ function ModuleList() {
     const fetchData = async () => {
       try {
         const responseData = await get(
-          `https://localhost:7182/api/Module/GetModule?id=${params.id}`
+          `https://localhost:7182/api/Module/GetCourseModules?id=${params.id}`
         );
         setModule(responseData);
       } catch (error) {
@@ -38,7 +38,7 @@ function ModuleList() {
         <div className="module-list">{moduleElements}</div>
       </div>
       <div className="module-list-button">
-        <Link to="/courses/createcourse">
+        <Link to={`/module/createmodule/${params.id}`}>
           <button className="button">Create Module</button>
         </Link>
       </div>

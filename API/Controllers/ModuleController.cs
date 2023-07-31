@@ -33,16 +33,24 @@ namespace Exam_Portal.Controllers
             return Ok(modules);
         }
 
-        //[HttpGet]
-        //[ProducesResponseType(200, Type = typeof(IEnumerable<Module>))]
-        //public IActionResult GetModules(int id)
-        //{
-        //    var modules = _mapper.Map<List<ModuleDto>>(_moduleRepository.GetModules(id));
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Module>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public IActionResult GetCourseModules(int id)
+        {
+            if (!_moduleRepository.CourseModuleExists(id))
+            {
+                return NotFound();
+            }
 
-        //    if (!ModelState.IsValid)
-        //        return BadRequest(ModelState);
-        //    return Ok(modules);
-        //}
+            var modules = _mapper.Map<List<ModuleDto>>(_moduleRepository.GetCourseModules(id));
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(modules);
+        }
+
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(Module))]
@@ -118,7 +126,7 @@ namespace Exam_Portal.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!_moduleRepository.ModuleExists(moduleId))
+            if (!_moduleRepository.CourseExists(moduleId))
             {
                 return NotFound();
             }
@@ -145,7 +153,7 @@ namespace Exam_Portal.Controllers
         [ProducesResponseType(404)]
         public IActionResult DeleteCourse(int moduleId)
         {
-            if (!_moduleRepository.ModuleExists(moduleId))
+            if (!_moduleRepository.CourseExists(moduleId))
             {
                 return NotFound();
             }

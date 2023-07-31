@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 function CreateCourse() {
   const params = useParams();
   const [formData, setFormData] = useState({
+    id:`${params.id}`,
     title: "",
     description: "",
   });

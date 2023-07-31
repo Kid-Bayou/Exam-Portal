@@ -6,11 +6,12 @@ namespace Exam_Portal.Interfaces
     public interface IModuleRepository
     {
         ICollection<Module> GetModules();
-        ICollection<Module> GetModules(int id);
+        ICollection<Module> GetCourseModules(int id);
         Module GetModule(int id);
         Module GetModule(string title);
-        bool ModuleExists(int id);
+        bool CourseExists(int id);
         bool ModuleExists(string title);
+        bool CourseModuleExists(int id);
         bool CreateModule(Module module);
         bool UpdateModule(Module module);
         bool DeleteModule(Module module);

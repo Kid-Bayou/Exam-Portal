@@ -9,6 +9,7 @@ import UpdateCourse from "./pages/Course/UpdateCourse";
 import DeleteCourse from "./pages/Course/DeleteCourse";
 import ModuleList from "./pages/Module/ModuleList";
 import ModuleDetail from "./pages/Module/ModuleDetail";
+import CreateModule from "./pages/Module/CreateModule"
 import { ExamProvider } from "./Context/ExamContext";
 import "./App.css";
 
@@ -23,11 +24,12 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="courses" element={<CourseList />} />
               <Route path="courses/:id" element={<CourseDetail />} />
-              <Route path="modules/:id" element={<ModuleList />} />
-              <Route path="modules/:id" element={<ModuleDetail />} />
               <Route path="courses/createcourse" element={<CreateCourse />} />
               <Route path="courses/updatecourse/:id" element={<UpdateCourse />} />
               <Route path="courses/deletecourse/:id" element={<DeleteCourse />} />
+              <Route path="modules/:id" element={<ModuleList />} />
+              <Route path="modules/:id" element={<ModuleDetail />} />
+              <Route path="modules/createmodule/:id" element={<CreateModule />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -29,7 +29,7 @@ namespace Exam_Portal.Repository
 
         }
 
-        public bool ModuleExists(int id)
+        public bool CourseExists(int id)
         {
             return _context.Modules.Any(m => m.ID == id);
         }
@@ -63,9 +63,14 @@ namespace Exam_Portal.Repository
             return Save();
         }
 
-        public ICollection<Module> GetModules(int id)
+        public ICollection<Module> GetCourseModules(int id)
         {
             return _context.Modules.Where(m => m.CourseID == id).ToList();
+        }
+
+        public bool CourseModuleExists(int id)
+        {
+            return _context.Modules.Any(m => m.CourseID == id);
         }
     }
 }
