@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { get } from "../../service/APIService";
 import {ExamContext} from "../../Context/ExamContext"
 
 function ModuleList() {
+  const params = useParams();
   const { module, setModule } = useContext(ExamContext);
 
   const moduleElements = module.map((module) => (
@@ -20,7 +21,7 @@ function ModuleList() {
     const fetchData = async () => {
       try {
         const responseData = await get(
-          "https://localhost:7182/api/Module/GetModules"
+          `https://localhost:7182/api/Module/GetModule?id=${params.id}`
         );
         setModule(responseData);
       } catch (error) {

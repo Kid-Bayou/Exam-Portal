@@ -6,6 +6,7 @@ namespace Exam_Portal.Interfaces
     public interface IModuleRepository
     {
         ICollection<Module> GetModules();
+        ICollection<Module> GetModules(int id);
         Module GetModule(int id);
         Module GetModule(string title);
         bool ModuleExists(int id);

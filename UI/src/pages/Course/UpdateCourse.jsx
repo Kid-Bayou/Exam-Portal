@@ -1,42 +1,68 @@
-import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { get } from "../../service/APIService";
+import { useState } from "react";
+import { put } from "../../service/APIService";
+import { useParams, useNavigate } from "react-router-dom";
 
-function UpdateCourse() {
+function CreateCourse() {
   const params = useParams();
-  const [course, setCourse] = useState(null);
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const responseData = await get(
-          `https://localhost:7182/api/Course/GetCourse?id=${params.id}`
-        );
-        setCourse(responseData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await put(
+        `https://localhost:7182/api/Course/UpdateCourse/${params.id}`,
+        formData
+      );
+      navigate(`/courses/${params.id}`);
+      console.log("put request successful:", response);
+    } catch (error) {
+      console.error("Error making put request:", error);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   return (
-    <div className="course-detail-container">
-      <h3>Courses</h3>
-      {course ? (
-        <div className="course-detail">
-          <p>{course.description}</p>
-        </div>
-      ) : (
-        <h2>Loading</h2>
-      )}
-      <div className="course-detail-module">
-        <Link to={"/modules"}>
-            <h3>Modules</h3>
-        </Link>
-      </div>
-    </div>
+    <>
+      <h1 className="create-course-header">Update Course</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Course Title:
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Description:
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <br />
+        <button className="button" type="submit">Submit</button>
+      </form>
+    </>
   );
 }
 
-export default UpdateCourse;
+export default CreateCourse;

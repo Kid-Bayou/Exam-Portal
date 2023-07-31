@@ -62,5 +62,10 @@ namespace Exam_Portal.Repository
             _context.Remove(module);
             return Save();
         }
+
+        public ICollection<Module> GetModules(int id)
+        {
+            return _context.Modules.Where(m => m.CourseID == id).ToList();
+        }
     }
 }

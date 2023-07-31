@@ -33,6 +33,17 @@ namespace Exam_Portal.Controllers
             return Ok(modules);
         }
 
+        //[HttpGet]
+        //[ProducesResponseType(200, Type = typeof(IEnumerable<Module>))]
+        //public IActionResult GetModules(int id)
+        //{
+        //    var modules = _mapper.Map<List<ModuleDto>>(_moduleRepository.GetModules(id));
+
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+        //    return Ok(modules);
+        //}
+
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(Module))]
         [ProducesResponseType(400)]

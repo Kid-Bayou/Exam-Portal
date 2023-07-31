@@ -179,6 +179,17 @@ header .site-logo {
 
 
 
+/*  ~~~~ CREATE COURSE ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+.create-course-header {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+
+
 /*  ~~~~ Module List ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -285,7 +296,7 @@ footer {
 
 
 .button {
-  background-color: #161616;
+  background-color: #161616 !important;
   border-radius: .75rem;
   box-sizing: border-box;
   color: #FFFFFF;
@@ -299,6 +310,6 @@ footer {
 }
 
 .button:hover {
-  background-color: #374151;
+  background-color: #374151 !important;
 }
 

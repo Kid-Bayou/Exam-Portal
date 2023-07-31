@@ -35,7 +35,7 @@ function CreateCourse() {
 
   return (
     <>
-      <h1>Create Course</h1>
+      <h1 className="create-course-header">Create Course</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Course Title:
@@ -58,7 +58,7 @@ function CreateCourse() {
         </label>
         <br />
         <br />
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">Submit</button>
       </form>
     </>
   );

@@ -34,10 +34,10 @@ function CourseDetail() {
         )}
       </div>
       <div className="course-detail-buttons">
-        <Link to="/courses/updatecourse">
+        <Link to={`/courses/updatecourse/${params.id}`}>
           <button className="button">Update Course</button>
         </Link>
-        <Link to={"/modules"}>
+        <Link to={`/modules/${params.id}`}>
           <button className="button">Modules</button>
         </Link>
       </div>
