@@ -175,7 +175,12 @@ header .site-logo {
 
 .course-detail-buttons {
   margin-bottom: 150px;
+  padding-top: 100px;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
 }
+
 
 
 
@@ -186,6 +191,26 @@ header .site-logo {
 .create-course-header {
   font-size: 50px;
   margin-bottom: 50px;
+}
+
+
+
+
+/*  ~~~~ DELETE COURSE ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.delete-confirmation {
+  font-size: 30px;
+  padding: 50px;
+  padding-top: 120px;
+}
+
+.delete-buttons {
+  margin-bottom: 100px;
+  padding-top: 50px;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
 }
 
 
@@ -282,12 +307,7 @@ footer {
   padding: 20px 150px 40px 150px;
 }
 
-.course-detail-buttons {
-  padding-top: 100px;
-  display: flex;
-  gap: 100px;
-  justify-content: center;
-}
+
 
 
 

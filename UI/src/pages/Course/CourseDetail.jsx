@@ -37,6 +37,9 @@ function CourseDetail() {
         <Link to={`/courses/updatecourse/${params.id}`}>
           <button className="button">Update Course</button>
         </Link>
+        <Link to={`/courses/deletecourse/${params.id}`}>
+          <button className="button">Delete Course</button>
+        </Link>
         <Link to={`/modules/${params.id}`}>
           <button className="button">Modules</button>
         </Link>

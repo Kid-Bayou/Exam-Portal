@@ -27,7 +27,7 @@ function App() {
               <Route path="modules/:id" element={<ModuleDetail />} />
               <Route path="courses/createcourse" element={<CreateCourse />} />
               <Route path="courses/updatecourse/:id" element={<UpdateCourse />} />
-              <Route path="courses/deletecourse" element={<DeleteCourse />} />
+              <Route path="courses/deletecourse/:id" element={<DeleteCourse />} />
             </Route>
           </Routes>
         </BrowserRouter>
