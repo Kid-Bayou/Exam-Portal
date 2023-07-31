@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { get } from "../../service/APIService";
+import {ExamContext} from "../../Context/ExamContext"
 
 function ModuleList() {
-  const [module, setModule] = useState([]);
+  const { module, setModule } = useContext(ExamContext);
 
   const moduleElements = module.map((module) => (
     <div key={module.id} className="module-tile">
