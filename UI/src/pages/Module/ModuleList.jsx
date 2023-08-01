@@ -9,7 +9,7 @@ function ModuleList() {
 
   const moduleElements = module.map((module) => (
     <div key={module.id} className="module-tile">
-      <Link to={`/questions/${module.id}`}>
+      <Link to={`/modules/moduledetail/${module.id}`}>
         <div className="module-info">
           <h3 className="module-info-text">{module.title}</h3>
         </div>

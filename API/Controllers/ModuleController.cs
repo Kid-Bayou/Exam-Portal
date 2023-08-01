@@ -55,14 +55,14 @@ namespace Exam_Portal.Controllers
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(Module))]
         [ProducesResponseType(400)]
-        public IActionResult GetModule(string title)
+        public IActionResult GetModule(int id)
         {
-            if (!_moduleRepository.ModuleExists(title))
+            if (!_moduleRepository.ModuleExists(id))
             {
                 return NotFound();
             }
 
-            var module = _mapper.Map<ModuleDto>(_moduleRepository.GetModule(title));
+            var module = _mapper.Map<ModuleDto>(_moduleRepository.GetModule(id));
 
             if (!ModelState.IsValid)
             {
@@ -116,7 +116,7 @@ namespace Exam_Portal.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!_moduleRepository.CourseExists(moduleId))
+            if (!_moduleRepository.ModuleExists(moduleId))
             {
                 return NotFound();
             }
@@ -143,7 +143,7 @@ namespace Exam_Portal.Controllers
         [ProducesResponseType(404)]
         public IActionResult DeleteCourse(int moduleId)
         {
-            if (!_moduleRepository.CourseExists(moduleId))
+            if (!_moduleRepository.ModuleExists(moduleId))
             {
                 return NotFound();
             }

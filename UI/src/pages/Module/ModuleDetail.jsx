@@ -26,8 +26,9 @@ function ModuleDetail() {
         {module ? (
           <div className="module-detail">
             <h3 className="module-name">{module.title}</h3>
-            <h4 className="module-description-header">Description:</h4>
-            <p>{module.description}</p>
+            <h4 className="module-description-header">Duration: {module.duration}</h4>
+            <h4 className="module-description-header">PassingMark: {module.passingMark}</h4>
+    
           </div>
         ) : (
           <h2>Loading</h2>
@@ -40,8 +41,8 @@ function ModuleDetail() {
         <Link to={`/modules/deletemodule/${params.id}`}>
           <button className="button">Delete Module</button>
         </Link>
-        <Link to={`/modules/${params.id}`}>
-          <button className="button">Modules</button>
+        <Link to={`/questions/${params.id}`}>
+          <button className="button">Questions</button>
         </Link>
       </div>
     </>

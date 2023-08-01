@@ -29,7 +29,7 @@ namespace Exam_Portal.Repository
 
         }
 
-        public bool CourseExists(int id)
+        public bool ModuleExists(int id)
         {
             return _context.Modules.Any(m => m.ID == id);
         }

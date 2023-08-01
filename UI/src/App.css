@@ -312,6 +312,28 @@ main {
 
 
 
+/* ~~~~ MODULE DETAIL ~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.module-name {
+  font-size: 80px;
+  padding-top: 70px;
+}
+
+.module-description-header {
+  font-size: 30px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.module-detail-buttons {
+  margin-bottom: 150px;
+  padding-top: 100px;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+}
+
 
 
 /*  ~~~~ QUESTION LIST ~~~~   */

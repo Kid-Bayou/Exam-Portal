@@ -9,7 +9,7 @@ namespace Exam_Portal.Interfaces
         ICollection<Module> GetCourseModules(int id);
         Module GetModule(int id);
         Module GetModule(string title);
-        bool CourseExists(int id);
+        bool ModuleExists(int id);
         bool ModuleExists(string title);
         bool CourseModuleExists(int id);
         bool CreateModule(Module module);
