@@ -42,6 +42,16 @@ namespace Exam_Portal.Repository
             return _context.Choices.ToList();
         }
 
+        public ICollection<Choice> GetQuestionChoices(int id)
+        {
+            return _context.Choices.Where(c => c.QuestionID == id).ToList();
+        }
+
+        public bool QuestionChoiceExists(int id)
+        {
+            return _context.Choices.Any(c => c.QuestionID == id);
+        }
+
         public bool Save()
         {
             var saved = _context.SaveChanges();

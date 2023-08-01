@@ -14,7 +14,7 @@ function QuestionList() {
       <div className="question-info">
         <h3 className="question-info-text">{question.questionContent}</h3>
       </div>
-      {visibleChoices[question.id] && <ChoiceList />}
+      {visibleChoices[question.id] && <ChoiceList qId={question.id}/>}
     </div>
   ));
 

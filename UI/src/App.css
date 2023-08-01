@@ -14,7 +14,12 @@ html, body {
 
 
 
+
+
 /*  ~~~~ HEADER ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~*/
+
+
 
 header {
   height: 150px;
@@ -60,7 +65,14 @@ header .site-logo {
 }
 
 
+
+
+
+
 /*  ~~~~ MAIN ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~*/
+
+
 
 main {
   
@@ -112,6 +124,10 @@ main {
   top: 50%;
   left: 50%;
 }
+
+
+
+
 
 
 /* ~~~~ COURSE LIST ~~~~ */
@@ -167,7 +183,11 @@ main {
 
 
 
-/* ~~~~ COURSE Detail ~~~~ */
+
+
+
+
+/* ~~~~ COURSE DETAIL ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .course-name {
@@ -192,6 +212,7 @@ main {
 
 
 
+
 /*  ~~~~ CREATE COURSE ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -200,6 +221,8 @@ main {
   font-size: 50px;
   margin-bottom: 50px;
 }
+
+
 
 
 
@@ -223,7 +246,7 @@ main {
 
 
 
-/*  ~~~~ Module List ~~~~   */
+/*  ~~~~ MODULE LIST  ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .module-header {
@@ -272,6 +295,11 @@ main {
   margin-bottom: 150px;
 }
 
+
+
+
+
+
 /*  ~~~~ CREATE MODULE ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -285,8 +313,10 @@ main {
 
 
 
-/*  ~~~~ Question List ~~~~   */
+
+/*  ~~~~ QUESTION LIST ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 
 .question-header {
   font-size: 80px;
@@ -336,8 +366,15 @@ main {
 }
 
 
+
+
+
+
+
+
 /*  ~~~~ FOOTER ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 
 footer {
   background-color: #161616;
@@ -384,7 +421,7 @@ footer {
 
 
 
-/*  ~~~~ Button ~~~~   */
+/*  ~~~~ BUTTON ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 

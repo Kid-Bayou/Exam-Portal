@@ -33,6 +33,24 @@ namespace Exam_Portal.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Choice>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public IActionResult GetQuestionChoices(int id)
+        {
+            if (!_choiceRepository.QuestionChoiceExists(id))
+            {
+                return NotFound();
+            }
+
+            var choices = _mapper.Map<List<ChoiceDto>>(_choiceRepository.GetQuestionChoices(id));
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(choices);
+        }
+
+        [HttpGet]
         [ProducesResponseType(200, Type = typeof(Choice))]
         [ProducesResponseType(400)]
         public IActionResult GetChoice(int id)
