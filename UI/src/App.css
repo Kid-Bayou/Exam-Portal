@@ -295,8 +295,8 @@ main {
 .question-info {
   margin: auto;
   background: rgb(246, 244, 244);
-  height: 200px;
-  width: 250px;
+  height: 70px;
+  width: 800px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
 
@@ -307,8 +307,8 @@ main {
 }
 
 .question-info-text {
-  padding-top: 90px;
-  font-size: 25px;
+  padding-top: 20px;
+  font-size: 20px;
 }
 
 .question-tile a {
@@ -326,7 +326,8 @@ main {
   justify-items: center;
   gap: 80px;
   margin-top: 57px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-direction: column;
   justify-content: center;
 }
 
