@@ -5,13 +5,13 @@ import {ExamContext} from "../../Context/ExamContext"
 
 function QuestionList() {
   const params = useParams();
-  const { question, setquestion } = useContext(ExamContext);
+  const { question, setQuestion } = useContext(ExamContext);
 
   const questionElements = question.map((question) => (
     <div key={question.id} className="question-tile">
       <Link to={`/questions/${question.id}`}>
         <div className="question-info">
-          <h3 className="question-info-text">{question.title}</h3>
+          <h3 className="question-info-text">{question.questionContent}</h3>
         </div>
       </Link>
     </div>
