@@ -33,10 +33,15 @@ function ModuleList() {
 
   return (
     <>
+        {module ? (
       <div className="module-list-container">
         <h2 className="module-header">Module</h2>
         <div className="module-list">{moduleElements}</div>
-      </div>
+          </div>
+        ) : (
+          <h2>Loading</h2>
+        )}
+
       <div className="module-list-button">
         <Link to={`/modules/createmodule/${params.id}`}>
           <button className="button">Create Module</button>

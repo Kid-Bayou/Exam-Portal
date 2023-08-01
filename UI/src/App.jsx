@@ -8,7 +8,7 @@ import CreateCourse from "./pages/Course/CreateCourse";
 import UpdateCourse from "./pages/Course/UpdateCourse";
 import DeleteCourse from "./pages/Course/DeleteCourse";
 import ModuleList from "./pages/Module/ModuleList";
-import ModuleDetail from "./pages/Module/ModuleDetail";
+import ModuleDetail from "./pages/Module/DeleteModule";
 import CreateModule from "./pages/Module/CreateModule"
 import { ExamProvider } from "./Context/ExamContext";
 import "./App.css";
