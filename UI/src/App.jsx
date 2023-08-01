@@ -8,8 +8,8 @@ import CreateCourse from "./pages/Course/CreateCourse";
 import UpdateCourse from "./pages/Course/UpdateCourse";
 import DeleteCourse from "./pages/Course/DeleteCourse";
 import ModuleList from "./pages/Module/ModuleList";
-import ModuleDetail from "./pages/Module/DeleteModule";
-import CreateModule from "./pages/Module/CreateModule"
+import CreateModule from "./pages/Module/CreateModule";
+import QuestionList from "./pages/Question/QuestionList";
 import { ExamProvider } from "./Context/ExamContext";
 import "./App.css";
 
@@ -28,8 +28,8 @@ function App() {
               <Route path="courses/updatecourse/:id" element={<UpdateCourse />} />
               <Route path="courses/deletecourse/:id" element={<DeleteCourse />} />
               <Route path="modules/:id" element={<ModuleList />} />
-              <Route path="modules/:id" element={<ModuleDetail />} />
               <Route path="modules/createmodule/:id" element={<CreateModule />} />
+              <Route path="questions/:id" element={<QuestionList />} />
             </Route>
           </Routes>
         </BrowserRouter>

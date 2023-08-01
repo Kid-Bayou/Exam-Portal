@@ -29,6 +29,11 @@ namespace Exam_Portal.Repository
             return Save();
         }
 
+        public ICollection<Question> GetModuleQuestions(int id)
+        {
+            return _context.Questions.Where(m => m.ModuleID == id).ToList();
+        }
+
         public Question GetQuestion(int id)
         {
             return _context.Questions.Where(m => m.ID == id).FirstOrDefault();
@@ -37,6 +42,11 @@ namespace Exam_Portal.Repository
         public ICollection<Question> GetQuestions()
         {
             return _context.Questions.ToList();
+        }
+
+        public bool ModuleQuestionExists(int id)
+        {
+            return _context.Questions.Any(q => q.ModuleID == id);
         }
 
         public bool QuestionExists(int id)

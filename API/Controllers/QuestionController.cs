@@ -33,6 +33,24 @@ namespace Exam_Portal.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Question>))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        public IActionResult GetModuleQuestions(int id)
+        {
+            if (!_questionRepository.ModuleQuestionExists(id))
+            {
+                return NotFound();
+            }
+
+            var questions = _mapper.Map<List<QuestionDto>>(_questionRepository.GetModuleQuestions(id));
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(questions);
+        }
+
+        [HttpGet]
         [ProducesResponseType(200, Type = typeof(Question))]
         [ProducesResponseType(400)]
         public IActionResult GetQuestion(int id)

@@ -3,8 +3,11 @@
   text-align: center;
 }
 
+html, body {
+  height: 100%;
+}
+
 .site-wrapper {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -58,6 +61,11 @@ header .site-logo {
 
 
 /*  ~~~~ MAIN ~~~~   */
+
+main {
+  
+  flex: 1 0 auto;
+}
 
 .home-container {
   background-color: rgb(249, 245, 241);
@@ -288,6 +296,8 @@ footer {
   align-items: center;
   font-weight: 500;
   position: relative;
+  padding: auto;
+  margin: auto;
 }
 
 .line {
