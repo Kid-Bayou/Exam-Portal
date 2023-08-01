@@ -1,33 +1,34 @@
-import {useParams} from "react-router-dom"
-import {useState, useEffect} from "react"
+import { useState } from "react";
+import { del } from "../../service/APIService";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ModuleDetail(){
-    const params = useParams()
-    const [module, setModule] = useState(null)
+function DeleteModule() {
+    const params = useParams();
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchData = async() => {
-          try {
-            const responseData = await get(`https://localhost:7182/api/Module/GetModule?id=${params.id}`);
-            setModule(responseData);
-          } catch(error) {
-            console.error('Error fetching data:', error);
-          }
-        };
-        fetchData();
-      }, []);
-    
+    const handleDelete = async () => {
+        try {
+            const url =`https://localhost:7182/api/Module/DeleteModule/${params.id}`;
+            await del(url);
+            navigate("/modules")
+        } catch (error) {
+            console.error("Error Deleteing Module:", error);
+        }
+    }
 
-    return (
-        <div className="module-detail-container">
-            <h3>Modules</h3>
-            {module ? (
-                <div className="module-detail">
-                    <p>{module.description}</p>
-                </div>
-            ) : <h2>Loading</h2>}
-        </div>
-    )
+    const exitDelete = async () => {
+        navigate(`/modules/${params.id}`)
+    }
+
+  return (
+    <>
+      <p className="delete-confirmation">Are you sure you want to delete this module?</p>
+      <div className="delete-buttons">
+        <button className="button" onClick={handleDelete}>Yes</button>
+        <button className="button" onClick={exitDelete}>No</button>
+      </div>
+    </>
+  );
 }
 
-export default ModuleDetail
+export default DeleteModule;
