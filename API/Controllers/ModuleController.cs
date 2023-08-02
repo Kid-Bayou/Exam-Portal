@@ -104,7 +104,7 @@ namespace Exam_Portal.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
 
-        public IActionResult UpdateExamTaker(int moduleId, [FromBody] ModuleDto updatedModule)
+        public IActionResult UpdateModule(int moduleId, [FromBody] ModuleDto updatedModule)
         {
             if (updatedModule == null)
             {
@@ -141,7 +141,7 @@ namespace Exam_Portal.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteCourse(int moduleId)
+        public IActionResult DeleteModule(int moduleId)
         {
             if (!_moduleRepository.ModuleExists(moduleId))
             {

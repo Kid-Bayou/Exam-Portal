@@ -11,6 +11,7 @@ import ModuleList from "./pages/Module/ModuleList";
 import ModuleDetail from "./pages/Module/ModuleDetail";
 import DeleteModule from "./pages/Module/DeleteModule";
 import CreateModule from "./pages/Module/CreateModule";
+import UpdateModule from "./pages/Module/UpdateModule"
 import QuestionList from "./pages/Question/QuestionList";
 import { ExamProvider } from "./Context/ExamContext";
 import "./App.css";
@@ -33,6 +34,7 @@ function App() {
               <Route path="modules/moduledetail/:id" element={<ModuleDetail />} />
               <Route path="modules/createmodule/:id" element={<CreateModule />} />
               <Route path="modules/deletemodule/:id" element={<DeleteModule />} />
+              <Route path="modules/updatemodule/:id" element={<UpdateModule />} />
               <Route path="questions/:id" element={<QuestionList />} />
             </Route>
           </Routes>

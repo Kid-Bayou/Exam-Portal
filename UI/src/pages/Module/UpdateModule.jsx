@@ -7,7 +7,10 @@ function CreateModule() {
   const [formData, setFormData] = useState({
     id:`${params.id}`,
     title: "",
-    description: "",
+    duration: "",
+    passingMark: "",
+    courseID: "",
+
   });
 
   const navigate = useNavigate();
@@ -51,10 +54,22 @@ function CreateModule() {
         <br />
         <br />
         <label>
-          Description:
-          <textarea
-            name="description"
-            value={formData.description}
+          Duration:
+          <input
+            type="number"
+            name="duration"
+            value={formData.duration}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <br />
+        <label>
+          Passing Mark:
+          <input
+            type="number"
+            name="passingMark"
+            value={formData.passingMark}
             onChange={handleChange}
           />
         </label>
