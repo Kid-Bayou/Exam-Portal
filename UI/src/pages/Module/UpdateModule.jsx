@@ -1,19 +1,34 @@
-import { useState } from "react";
-import { put } from "../../service/APIService";
+import { useState, useEffect } from "react";
+import { put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 
 function CreateModule() {
   const params = useParams();
   const [formData, setFormData] = useState({
-    id:`${params.id}`,
+    id: `${params.id}`,
     title: "",
     duration: "",
     passingMark: "",
-    courseID: "",
-
+    courseID: `{cId}`,
   });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const responseData = await get(
+        `https://localhost:7182/api/Module/GetModule?id=${params.id}`
+      );
+      setFormData(responseData);
+      const cId = formData.courseID 
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,7 +38,7 @@ function CreateModule() {
         `https://localhost:7182/api/Module/UpdateModule/${params.id}`,
         formData
       );
-      navigate(`/modules/${params.id}`);
+      navigate(`/modules/moduledetail/${params.id}`);
       console.log("put request successful:", response);
     } catch (error) {
       console.error("Error making put request:", error);
@@ -75,7 +90,9 @@ function CreateModule() {
         </label>
         <br />
         <br />
-        <button className="button" type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     </>
   );

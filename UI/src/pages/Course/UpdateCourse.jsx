@@ -1,16 +1,32 @@
-import { useState } from "react";
-import { put } from "../../service/APIService";
+import { useState, useEffect } from "react";
+import { put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 
 function CreateCourse() {
   const params = useParams();
   const [formData, setFormData] = useState({
-    id:`${params.id}`,
+    id: `${params.id}`,
     title: "",
     description: "",
   });
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const responseData = await get(
+        `https://localhost:7182/api/Course/GetCourse?id=${params.id}`
+      );
+      setFormData(responseData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -60,7 +76,9 @@ function CreateCourse() {
         </label>
         <br />
         <br />
-        <button className="button" type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     </>
   );

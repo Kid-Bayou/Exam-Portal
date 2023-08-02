@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { get } from "../../service/APIService";
-import {ExamContext} from "../../Context/ExamContext"
+import { ExamContext } from "../../Context/ExamContext";
 
 function ModuleList() {
   const params = useParams();
@@ -18,29 +18,33 @@ function ModuleList() {
   ));
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const responseData = await get(
-          `https://localhost:7182/api/Module/GetCourseModules?id=${params.id}`
-        );
-        setModule(responseData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
     fetchData();
   }, []);
+  
+  const fetchData = async () => {
+    try {
+      const responseData = await get(
+        `https://localhost:7182/api/Module/GetCourseModules?id=${params.id}`
+      );
+      setModule(responseData);
+    } catch (error) {
+      if (error.response.status === 404) {
+        setModule([]);
+      }
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <>
-        {module ? (
-      <div className="module-list-container">
-        <h2 className="module-header">Module</h2>
-        <div className="module-list">{moduleElements}</div>
-          </div>
-        ) : (
-          <h2>Loading</h2>
-        )}
+      {module ? (
+        <div className="module-list-container">
+          <h2 className="module-header">Module</h2>
+          <div className="module-list">{moduleElements}</div>
+        </div>
+      ) : (
+        <h2>Loading</h2>
+      )}
 
       <div className="module-list-button">
         <Link to={`/modules/createmodule/${params.id}`}>
