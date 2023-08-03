@@ -2,10 +2,11 @@
 using Exam_Portal.Models;
 using Microsoft.Identity.Client;
 using System.Collections;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Exam_Portal.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<User>
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         { }
