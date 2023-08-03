@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { get } from "../../service/APIService";
+import { API_BASE_URL, get } from "../../service/APIService";
 import { ExamContext } from "../../Context/ExamContext";
 import ChoiceList from "../Choice/ChoiceList"
 
@@ -22,7 +22,7 @@ function QuestionList() {
     const fetchData = async () => {
       try {
         const responseData = await get(
-          `https://localhost:7182/api/Question/GetModuleQuestions?id=${params.id}`
+          `${API_BASE_URL}/api/Question/GetModuleQuestions?id=${params.id}`
         );
         setQuestion(responseData);
       } catch (error) {

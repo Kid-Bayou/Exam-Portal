@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { put, get } from "../../service/APIService";
+import { API_BASE_URL, put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 
 function CreateModule() {
@@ -21,7 +21,7 @@ function CreateModule() {
   const fetchData = async () => {
     try {
       const responseData = await get(
-        `https://localhost:7182/api/Module/GetModule?id=${params.id}`
+        `${API_BASE_URL}/api/Module/GetModule?id=${params.id}`
       );
       setFormData(responseData);
       const cId = formData.courseID 
@@ -35,7 +35,7 @@ function CreateModule() {
 
     try {
       const response = await put(
-        `https://localhost:7182/api/Module/UpdateModule/${params.id}`,
+        `${API_BASE_URL}/api/Module/UpdateModule/${params.id}`,
         formData
       );
       navigate(`/modules/moduledetail/${params.id}`);

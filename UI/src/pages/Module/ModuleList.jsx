@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { get } from "../../service/APIService";
+import { API_BASE_URL, get } from "../../service/APIService";
 import { ExamContext } from "../../Context/ExamContext";
 
 function ModuleList() {
@@ -20,11 +20,11 @@ function ModuleList() {
   useEffect(() => {
     fetchData();
   }, []);
-  
+
   const fetchData = async () => {
     try {
       const responseData = await get(
-        `https://localhost:7182/api/Module/GetCourseModules?id=${params.id}`
+        `${API_BASE_URL}/api/Module/GetCourseModules?id=${params.id}`
       );
       setModule(responseData);
     } catch (error) {

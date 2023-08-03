@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { get } from "../../service/APIService";
+import { API_BASE_URL, get } from "../../service/APIService";
 import { ExamContext } from "../../Context/ExamContext";
 
 function ChoiceList(props) {

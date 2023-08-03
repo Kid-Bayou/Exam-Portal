@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { post } from "../../service/APIService";
+import { API_BASE_URL, post } from "../../service/APIService";
 import { useNavigate, useParams } from "react-router-dom";
 
 function CreateModule() {
@@ -18,7 +18,7 @@ function CreateModule() {
 
     try {
       const response = await post(
-        `https://localhost:7182/api/Module/CreateCourse?cId=${params.id}`,
+        `${API_BASE_URL}/api/Module/CreateModule?cId=${params.id}`,
         formData
       );
       navigate(`/modules/${params.id}`);

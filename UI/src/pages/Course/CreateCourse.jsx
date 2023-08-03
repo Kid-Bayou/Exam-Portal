@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { post } from "../../service/APIService";
+import { API_BASE_URL, post } from "../../service/APIService";
 import { useNavigate } from "react-router-dom";
 
 function CreateCourse() {
@@ -15,7 +15,7 @@ function CreateCourse() {
 
     try {
       const response = await post(
-        "https://localhost:7182/api/Course/CreateCourse",
+        `${API_BASE_URL}/api/Course/CreateCourse`,
         formData
       );
       navigate("/courses");

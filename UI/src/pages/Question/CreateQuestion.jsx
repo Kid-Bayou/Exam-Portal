@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { post } from "../../service/APIService";
+import { API_BASE_URL, post } from "../../service/APIService";
 import { useNavigate, useParams } from "react-router-dom";
 
 function CreateQuestion() {
@@ -18,7 +18,7 @@ function CreateQuestion() {
 
     try {
       const response = await post(
-        `https://localhost:7182/api/Question/CreateQuestion?mId=${params.id}`,
+        `${API_BASE_URL}/api/Question/CreateQuestion?mId=${params.id}`,
         formData
       );
       navigate(`/questions/${params.id}`);

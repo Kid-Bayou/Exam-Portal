@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { del } from "../../service/APIService";
+import { API_BASE_URL, del } from "../../service/APIService";
 import { useNavigate, useParams } from "react-router-dom";
 
 function DeleteCourse() {
@@ -8,7 +8,7 @@ function DeleteCourse() {
 
     const handleDelete = async () => {
         try {
-            const url =`https://localhost:7182/api/Course/DeleteCourse/${params.id}`;
+            const url =`${API_BASE_URL}/api/Course/DeleteCourse/${params.id}`;
             await del(url);
             navigate("/courses")
         } catch (error) {

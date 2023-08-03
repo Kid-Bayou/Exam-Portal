@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { get } from "../../service/APIService";
+import { API_BASE_URL, get } from "../../service/APIService";
 
 function CourseDetail() {
   const params = useParams();
@@ -10,7 +10,7 @@ function CourseDetail() {
     const fetchData = async () => {
       try {
         const responseData = await get(
-          `https://localhost:7182/api/Course/GetCourse?id=${params.id}`
+          `${API_BASE_URL}/api/Course/GetCourse?id=${params.id}`
         );
         setCourse(responseData);
       } catch (error) {

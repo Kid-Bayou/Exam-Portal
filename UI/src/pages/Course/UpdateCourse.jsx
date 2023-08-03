@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { put, get } from "../../service/APIService";
+import { API_BASE_URL, put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 
 function CreateCourse() {
@@ -20,7 +20,7 @@ function CreateCourse() {
   const fetchData = async () => {
     try {
       const responseData = await get(
-        `https://localhost:7182/api/Course/GetCourse?id=${params.id}`
+        `${API_BASE_URL}/api/Course/GetCourse?id=${params.id}`
       );
       setFormData(responseData);
     } catch (error) {
@@ -33,7 +33,7 @@ function CreateCourse() {
 
     try {
       const response = await put(
-        `https://localhost:7182/api/Course/UpdateCourse/${params.id}`,
+        `${API_BASE_URL}/api/Course/UpdateCourse/${params.id}`,
         formData
       );
       navigate(`/courses/${params.id}`);

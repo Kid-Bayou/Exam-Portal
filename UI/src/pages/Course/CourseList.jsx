@@ -23,9 +23,9 @@ function CourseList() {
 
   const fetchData = async () => {
     try {
-      const responseData = await get(`${API_BASE_URL}/api/Course/GetCourses`
-      );
+      const responseData = await get(`${API_BASE_URL}/api/Course/GetCourses`);
       setCourse(responseData);
+      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
