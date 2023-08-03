@@ -127,7 +127,7 @@ namespace Exam_Portal.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult DeleteCourse(int examTakerId)
+        public IActionResult DeleteExamTaker(int examTakerId)
         {
             if (!_examTakerRepository.ExamTakerExists(examTakerId))
             {

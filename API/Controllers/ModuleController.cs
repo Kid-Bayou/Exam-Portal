@@ -74,7 +74,7 @@ namespace Exam_Portal.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateCourse([FromQuery] int cId, [FromBody] ModuleDto moduleCreate)
+        public IActionResult CreateModule([FromQuery] int cId, [FromBody] ModuleDto moduleCreate)
         {
             if (moduleCreate == null)
             {
