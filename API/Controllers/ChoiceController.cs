@@ -3,12 +3,14 @@ using Exam_Portal.Dto;
 using Exam_Portal.Interfaces;
 using Exam_Portal.Models;
 using Exam_Portal.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam_Portal.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class ChoiceController : Controller
     {
         private readonly IChoiceRepository _choiceRepository;

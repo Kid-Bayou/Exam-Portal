@@ -188,3 +188,4 @@ C:\Users\kidis\source\repos\Exam-Portal\API\obj\Debug\net6.0\refint\Exam_Portal.
 C:\Users\kidis\source\repos\Exam-Portal\API\obj\Debug\net6.0\Exam_Portal.pdb
 C:\Users\kidis\source\repos\Exam-Portal\API\obj\Debug\net6.0\Exam_Portal.genruntimeconfig.cache
 C:\Users\kidis\source\repos\Exam-Portal\API\obj\Debug\net6.0\ref\Exam_Portal.dll
+C:\Users\kidis\source\repos\Exam-Portal\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

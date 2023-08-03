@@ -8,5 +8,6 @@ namespace Exam_Portal.Interfaces
 
         ICollection<User> GetUsers();
         Task<IdentityResult> SignUpAsync(SignUpModel signUpModel);
+        Task<string> LoginAsync(SignInModel signInModel);
     }
 }
