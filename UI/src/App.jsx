@@ -3,7 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import SignUp from "./pages/Account/SignUp";
-import LogIn from "./pages/Account/LogIn"
+import LogIn from "./pages/Account/Login"
 import CourseList from "./pages/Course/CourseList";
 import CourseDetail from "./pages/Course/CourseDetail";
 import CreateCourse from "./pages/Course/CreateCourse";
@@ -30,6 +30,8 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
+              <Route path="login" element={<LogIn />} />
+              <Route path="signup" element={<SignUp />} />
               <Route path="courses" element={<CourseList />} />
               <Route path="courses/:id" element={<CourseDetail />} />
               <Route path="courses/createcourse" element={<CreateCourse />} />
