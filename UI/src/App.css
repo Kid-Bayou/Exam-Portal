@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-html, body {
-  font-family: 'Raleway', sans-serif;
+html,
+body {
+  font-family: "Raleway", sans-serif;
   /** font-family: 'Playfair Display', serif; **/
 }
 
@@ -21,14 +22,8 @@ html, body {
   padding-bottom: 10vh;
 }
 
-
-
-
-
 /*  ~~~~ HEADER ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
-
-
 
 header {
   height: 150px;
@@ -72,14 +67,8 @@ header .site-logo {
   padding-top: 15px;
 }
 
-
-
-
-
-
 /*  ~~~~ HOME ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
-
 
 .home-container {
   display: flex;
@@ -110,8 +99,6 @@ header .site-logo {
   font-size: 2vw;
 }
 
-
-
 /*  ~~~~ ABOUT ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -136,15 +123,8 @@ header .site-logo {
   left: 50%;
 }
 
-
-
-
-
-
 /* ~~~~ COURSE LIST ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
-
-
 
 .course-header {
   font-size: 80px;
@@ -157,11 +137,6 @@ header .site-logo {
   width: 250px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-
-}
-
-:hover .course-info {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .course-info-text {
@@ -176,14 +151,14 @@ header .site-logo {
 
 .course-list-container {
   padding-inline: 23px;
-  margin: 100px;
+  margin: 50px;
 }
 
 .course-list {
   display: flex;
   justify-items: center;
   gap: 80px;
-  margin-top: 57px;
+  margin-top: 80px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -191,12 +166,6 @@ header .site-logo {
 .create-course-container {
   margin-bottom: 150px;
 }
-
-
-
-
-
-
 
 /* ~~~~ COURSE DETAIL ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -220,23 +189,16 @@ header .site-logo {
   justify-content: center;
 }
 
-
-
-
-
 /*  ~~~~ CREATE COURSE ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 
 .create-course-header {
   font-size: 50px;
   margin-bottom: 50px;
 }
 
-
-
-
-
+/* ~~~~  UPDATE COURSE  ~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*  ~~~~ DELETE COURSE ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -255,8 +217,6 @@ header .site-logo {
   justify-content: center;
 }
 
-
-
 /*  ~~~~ MODULE LIST  ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -271,11 +231,6 @@ header .site-logo {
   width: 250px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-
-}
-
-:hover .module-info {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .module-info-text {
@@ -306,22 +261,13 @@ header .site-logo {
   margin-bottom: 150px;
 }
 
-
-
-
-
-
 /*  ~~~~ CREATE MODULE ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 
 .create-module-header {
   font-size: 50px;
   margin-bottom: 50px;
 }
-
-
-
 
 /* ~~~~ MODULE DETAIL ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -345,11 +291,8 @@ header .site-logo {
   justify-content: center;
 }
 
-
-
 /*  ~~~~ QUESTION LIST ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 
 .question-header {
   font-size: 80px;
@@ -362,7 +305,6 @@ header .site-logo {
   width: 800px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-
 }
 
 :hover .question-info {
@@ -398,16 +340,38 @@ header .site-logo {
   margin-bottom: 150px;
 }
 
+/*  ~~~~ FORM ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+/*  ~~~~ BUTTON ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+.button {
+  background-color: #161616 !important;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 0.75rem 1.2rem;
+  text-align: center;
+  width: 160px;
+  height: 70px;
+  margin-bottom: 50px;
+}
 
-
-
+.button:hover {
+  background-color: #374151 !important;
+}
 
 /*  ~~~~ FOOTER ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
-
 
 footer {
   background-color: #161616;
@@ -422,11 +386,34 @@ footer {
   margin: auto;
 }
 
+.form-header {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.form-label {
+  font-size: 23px;
+  margin-top: 10px;
+}
+
+.form-box {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.form-input {
+  border: solid 1px black;
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 20px;
+}
+
 .line {
   display: relative;
-  color: #AAAAAA;
+  color: #aaaaaa;
   width: 100%;
-  padding: 0 50px 40px 50px
+  padding: 0 50px 40px 50px;
 }
 
 .social-logo-container {
@@ -439,12 +426,12 @@ footer {
 .social-logo {
   height: 40px;
   border-radius: 50%;
-  background-color: #AAAAAA;
-  border: solid #AAAAAA 2px;
+  background-color: #aaaaaa;
+  border: solid #aaaaaa 2px;
 }
 
 .footer-content-conatiner {
-  color: #AAAAAA;
+  color: #aaaaaa;
   padding: 70px 150px 40px 150px;
   font-size: 6vw;
 }
@@ -452,32 +439,5 @@ footer {
 .copyright-container {
   margin: 20px;
   margin-bottom: 100px;
-  color: #AAAAAA;
+  color: #aaaaaa;
 }
-
-
-
-
-
-/*  ~~~~ BUTTON ~~~~   */
-/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-
-.button {
-  background-color: #161616 !important;
-  border-radius: .75rem;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  font-weight: 600;
-  font-size: 17px;
-  padding: .75rem 1.2rem;
-  text-align: center;
-  width: 160px;
-  height: 70px;
-  margin-bottom: 50px;
-}
-
-.button:hover {
-  background-color: #374151 !important;
-}
-

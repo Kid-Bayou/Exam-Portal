@@ -39,11 +39,12 @@ function CreateQuestion() {
   return (
     <>
       <div className="create-question">
-        <h1 className="create-question-header">Create Question</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Question Content:
+        <h1 className="form-header">Create Question</h1>
+        <form onSubmit={handleSubmit} className="form">
+          <label className="form-box">
+            <p className="form-label">Question Content:</p>
             <textarea
+              className="form-input"
               name="questionContent"
               value={formData.questionContent}
               onChange={handleChange}
@@ -51,9 +52,10 @@ function CreateQuestion() {
           </label>
           <br />
           <br />
-          <label>
-            Mark:
+          <label className="form-box">
+            <p className="form-label">Mark:</p>
             <input
+              className="form-input"
               type="number"
               name="mark"
               value={formData.mark}

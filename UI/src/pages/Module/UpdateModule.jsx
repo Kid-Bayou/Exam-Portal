@@ -24,7 +24,7 @@ function CreateModule() {
         `${API_BASE_URL}/api/Module/GetModule?id=${params.id}`
       );
       setFormData(responseData);
-      const cId = formData.courseID 
+      const cId = formData.courseID;
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -55,11 +55,12 @@ function CreateModule() {
 
   return (
     <>
-      <h1 className="create-module-header">Update Module</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Module Title:
+      <h1 className="form-header">Update Module</h1>
+      <form onSubmit={handleSubmit} className="form">
+        <label className="form-box">
+          <p className="form-label"> Module Title:</p>
           <input
+            className="form-input"
             type="text"
             name="title"
             value={formData.title}
@@ -68,9 +69,10 @@ function CreateModule() {
         </label>
         <br />
         <br />
-        <label>
-          Duration:
+        <label className="form-box">
+          <p className="form-label">Duration:</p>
           <input
+            className="form-input"
             type="number"
             name="duration"
             value={formData.duration}
@@ -79,9 +81,10 @@ function CreateModule() {
         </label>
         <br />
         <br />
-        <label>
-          Passing Mark:
+        <label className="form-box">
+          <p className="form-label">Passing Mark:</p>
           <input
+            className="form-input"
             type="number"
             name="passingMark"
             value={formData.passingMark}

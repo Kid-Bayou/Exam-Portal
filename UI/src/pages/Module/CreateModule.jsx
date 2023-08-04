@@ -8,7 +8,7 @@ function CreateModule() {
     title: "",
     duration: "",
     passingMark: "",
-    courseID: `${params.id}`
+    courseID: `${params.id}`,
   });
 
   const navigate = useNavigate();
@@ -38,11 +38,12 @@ function CreateModule() {
 
   return (
     <>
-      <h1 className="create-module-header">Create Module</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Module Title: 
+      <h1 className="form-header">Create Module</h1>
+      <form onSubmit={handleSubmit} className="form">
+        <label className="form-box">
+          <p className="form-label">Module Title: </p>
           <input
+            className="form-input"
             type="text"
             name="title"
             value={formData.title}
@@ -51,9 +52,10 @@ function CreateModule() {
         </label>
         <br />
         <br />
-        <label>
-          Duration: 
+        <label className="form-box">
+          <p className="form-label">Duration: </p>
           <input
+            className="form-input"
             type="number"
             name="duration"
             value={formData.duration}
@@ -62,9 +64,10 @@ function CreateModule() {
         </label>
         <br />
         <br />
-        <label>
-          Passing Mark: 
+        <label className="form-box">
+          <p className="form-label">Passing Mark: </p>
           <input
+            className="form-input"
             type="number"
             name="passingMark"
             value={formData.passingMark}
@@ -73,7 +76,9 @@ function CreateModule() {
         </label>
         <br />
         <br />
-        <button className="button" type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     </>
   );

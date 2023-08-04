@@ -35,11 +35,12 @@ function CreateCourse() {
 
   return (
     <>
-      <h1 className="create-course-header">Create Course</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Course Title:
+      <h1 className="form-header">Create Course</h1>
+      <form onSubmit={handleSubmit} className="form">
+        <label className="form-box">
+          <p className="form-label"> Course Title:</p>
           <input
+          className="form-input"
             type="text"
             name="title"
             value={formData.title}
@@ -48,9 +49,10 @@ function CreateCourse() {
         </label>
         <br />
         <br />
-        <label>
-          Description:
+        <label className="form-box">
+          <p className="form-label"> Description:</p>
           <textarea
+          className="form-input"
             name="description"
             value={formData.description}
             onChange={handleChange}
@@ -58,7 +60,9 @@ function CreateCourse() {
         </label>
         <br />
         <br />
-        <button className="button" type="submit">Submit</button>
+        <button className="button" type="submit">
+          Submit
+        </button>
       </form>
     </>
   );
