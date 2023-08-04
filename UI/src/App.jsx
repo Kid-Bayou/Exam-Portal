@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Layout from "./components/Layout";
+import SignUp from "./pages/Account/SignUp";
+import LogIn from "./pages/Account/LogIn"
 import CourseList from "./pages/Course/CourseList";
 import CourseDetail from "./pages/Course/CourseDetail";
 import CreateCourse from "./pages/Course/CreateCourse";
