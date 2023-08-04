@@ -1,10 +1,10 @@
 #root {
-  margin: 0 auto;
   text-align: center;
 }
 
 html, body {
-  height: 100%;
+  font-family: 'Raleway', sans-serif;
+  /** font-family: 'Playfair Display', serif; **/
 }
 
 .site-wrapper {
@@ -15,8 +15,8 @@ html, body {
 
 .main {
   flex-grow: 1;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
@@ -36,7 +36,6 @@ header {
   align-items: center;
   padding-right: 40px;
   padding-left: 20px;
-  background-color: rgb(249, 245, 241);
 }
 
 header a {
@@ -86,22 +85,34 @@ header .site-logo {
   display: flex;
 }
 
-.home-header {
-  font-size: 5vw;
-  font-weight: 1000;
-  color: rgb(0, 0, 0);
-  text-align: left;
-  margin-top: 15vh;
-}
-
 .home-img {
   margin-right: 7vw;
   width: 35vw;
   border-radius: 20px;
 }
 
+.home-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
 
-/*  ~~~~ HOME ~~~~   */
+.home-header {
+  font-size: 5vw;
+  font-weight: 1000;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  margin-top: 10vh;
+}
+
+.home-content {
+  text-align: left;
+  font-size: 2vw;
+}
+
+
+
+/*  ~~~~ ABOUT ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
 
 .about-page-container {
@@ -400,14 +411,13 @@ header .site-logo {
 
 footer {
   background-color: #161616;
-  height: 400px;
+  height: auto;
+  width: 100%;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-weight: 500;
-  position: relative;
   padding: auto;
   margin: auto;
 }
@@ -434,9 +444,15 @@ footer {
 }
 
 .footer-content-conatiner {
-  display: relative;
   color: #AAAAAA;
-  padding: 20px 150px 40px 150px;
+  padding: 70px 150px 40px 150px;
+  font-size: 6vw;
+}
+
+.copyright-container {
+  margin: 20px;
+  margin-bottom: 100px;
+  color: #AAAAAA;
 }
 
 

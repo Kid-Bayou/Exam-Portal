@@ -8,13 +8,7 @@ function Footer() {
     <footer>
       <div className="footer-content-conatiner">
         <p>
-          Welcome to Exam Portal, where knowledge meets opportunity. We strive
-          to empower learners of all ages by providing a seamless platform for
-          exams and assessments. Our commitment to excellence drives us to
-          deliver a user-friendly experience that fosters growth and
-          achievement. Trust in our secure and reliable system, dedicated to
-          maintaining the confidentiality of your data. Join us on this
-          educational journey, as we unlock doors to a brighter future together.
+          Exam Portal
           
         </p>
         
@@ -30,6 +24,9 @@ function Footer() {
         <img src={logo3} className="social-logo" />
         <img src={logo4} className="social-logo" />
       </div>
+        <div className="copyright-container">
+          <p>© 2023 Exam Portal. All Rights Reserved</p>
+        </div>
     </footer>
   );
 }
