@@ -5,6 +5,7 @@ import { ExamContext } from "../../Context/ExamContext";
 import ChoiceList from "../Choice/ChoiceList";
 import toggle from "../../assets/toggle.png";
 import edit from "../../assets/edit.png";
+import del from "../../assets/delete.png"
 
 function QuestionList() {
   const params = useParams();
@@ -20,6 +21,9 @@ function QuestionList() {
         </h3>
         <Link to={`/questions/updatequestion/${question.id}`} className="edit-container">
           <img src={edit} className="edit" />
+        </Link>
+        <Link to={`/questions/updatequestion/${question.id}`} className="edit-container">
+          <img src={del} className="edit" />
         </Link>
         <img
           src={toggle}

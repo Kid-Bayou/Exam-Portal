@@ -9,7 +9,7 @@ function ChoiceList(props) {
   const choiceElements = choice.map((choice) => (
     <div key={choice.id} className="choice-tile">
         <form className="radio-btn-form">
-          <label for={choice.id} className="radio-btn-label">
+          <label className="radio-btn-label">
             <input
               type="radio"
               name="choice"

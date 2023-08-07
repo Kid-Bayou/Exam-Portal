@@ -18,6 +18,7 @@ import QuestionList from "./pages/Question/QuestionList";
 import CreateQuestion from "./pages/Question/CreateQuestion";
 import UpdateQuestion from "./pages/Question/UpdateQuestion";
 import DeleteQuestion from "./pages/Question/DeleteQuestion";
+import CreateChoice from "./pages/Choice/CreateChoice";
 import { ExamProvider } from "./Context/ExamContext";
 import "./App.css";
 
@@ -45,6 +46,7 @@ function App() {
               <Route path="questions/:id" element={<QuestionList />} />
               <Route path="questions/createquestion/:id" element={<CreateQuestion />} />
               <Route path="questions/updatequestion/:id" element={<UpdateQuestion />} />
+              <Route path="questions/createchoice" element={<CreateChoice />} />
             </Route>
           </Routes>
         </BrowserRouter>

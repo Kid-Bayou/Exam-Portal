@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 html,
 body {
   font-family: "Raleway", sans-serif;
@@ -367,10 +373,16 @@ header .site-logo {
 }
 
 .choice-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
   display: flex;
-  flex-direction:column;
-  justify-content: flex-start;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 
@@ -444,6 +456,29 @@ header .site-logo {
   align-items: center;
 }
 
+.form-header {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.form-label {
+  font-size: 23px;
+  margin-top: 10px;
+}
+
+.form-box {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.form-input {
+  border: solid 1px black;
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 20px;
+}
+
 /*  ~~~~ BUTTON ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -481,28 +516,6 @@ footer {
   margin: auto;
 }
 
-.form-header {
-  font-size: 50px;
-  margin-bottom: 50px;
-}
-
-.form-label {
-  font-size: 23px;
-  margin-top: 10px;
-}
-
-.form-box {
-  display: flex;
-  justify-content: space-around;
-  gap: 15px;
-}
-
-.form-input {
-  border: solid 1px black;
-  border-radius: 7px;
-  padding: 10px;
-  font-size: 20px;
-}
 
 .line {
   display: relative;
