@@ -340,6 +340,67 @@ header .site-logo {
   margin-bottom: 150px;
 }
 
+
+
+/*  ~~~~ SIGN IN UP ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.sign-in-up {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  width: 35vw;
+  border-radius: 10px;
+  margin: auto;
+  padding-top: 50px;
+  padding-left: 8vw;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.sign-in-up-header {
+  font-size: 50px;
+  text-align: center;
+  padding-left: 0;
+  margin-left: -8vw;
+  margin-bottom: 40px;
+}
+
+.sign-in-up-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+.sign-in-up-label {
+  text-align: left;
+  font-size: 20px;
+}
+
+.sign-in-up-input {
+  border-radius: 5px;
+  width: 20vw;
+  height: 5vh;
+  padding-left: 10px;
+  margin-top: 5px;
+  border: solid rgb(167, 163, 163) 1px;
+}
+
+.sign-in-up-btn {
+  margin-left: 4vw;
+  margin-top: 20px;
+}
+
+.sign-in-up-alternative {
+  padding: 0;
+  margin-left: -8vw;
+}
+
+.sign-in-up-other {
+  color:#095fe9;
+}
+
+
 /*  ~~~~ FORM ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
