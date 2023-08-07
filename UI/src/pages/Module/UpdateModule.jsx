@@ -67,8 +67,6 @@ function CreateModule() {
             onChange={handleChange}
           />
         </label>
-        <br />
-        <br />
         <label className="form-box">
           <p className="form-label">Duration:</p>
           <input
@@ -79,8 +77,6 @@ function CreateModule() {
             onChange={handleChange}
           />
         </label>
-        <br />
-        <br />
         <label className="form-box">
           <p className="form-label">Passing Mark:</p>
           <input
@@ -91,8 +87,6 @@ function CreateModule() {
             onChange={handleChange}
           />
         </label>
-        <br />
-        <br />
         <button className="button" type="submit">
           Submit
         </button>

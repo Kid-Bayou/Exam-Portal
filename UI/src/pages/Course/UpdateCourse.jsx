@@ -54,7 +54,7 @@ function UpdateCourse() {
     <>
       <h1 className="form-header">Update Course</h1>
       <div className="form">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <label className="form-box">
             <p className="form-label">Course Title:</p>
             <input
@@ -65,8 +65,6 @@ function UpdateCourse() {
               onChange={handleChange}
             />
           </label>
-          <br />
-          <br />
           <label className="form-box">
             <p className="form-label">Description:</p>
 
@@ -77,8 +75,6 @@ function UpdateCourse() {
               onChange={handleChange}
             />
           </label>
-          <br />
-          <br />
           <button className="button" type="submit">
             Submit
           </button>

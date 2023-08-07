@@ -22,7 +22,7 @@ function QuestionList() {
         <Link to={`/questions/updatequestion/${question.id}`} className="edit-container">
           <img src={edit} className="edit" />
         </Link>
-        <Link to={`/questions/updatequestion/${question.id}`} className="edit-container">
+        <Link to={`/questions/deletequestion/${question.id}`} className="edit-container">
           <img src={del} className="edit" />
         </Link>
         <img

@@ -46,6 +46,7 @@ function App() {
               <Route path="questions/:id" element={<QuestionList />} />
               <Route path="questions/createquestion/:id" element={<CreateQuestion />} />
               <Route path="questions/updatequestion/:id" element={<UpdateQuestion />} />
+              <Route path="questions/deletequestion/:id" element={<DeleteQuestion />} />
               <Route path="questions/createchoice" element={<CreateChoice />} />
             </Route>
           </Routes>

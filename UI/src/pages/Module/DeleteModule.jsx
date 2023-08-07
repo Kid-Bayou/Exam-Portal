@@ -10,7 +10,7 @@ function DeleteModule() {
         try {
             const url =`${API_BASE_URL}/api/Module/DeleteModule/${params.id}`;
             await del(url);
-            navigate("/modules")
+            navigate(-2)
         } catch (error) {
             console.error("Error Deleteing Module:", error);
         }

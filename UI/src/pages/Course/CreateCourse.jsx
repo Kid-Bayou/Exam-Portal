@@ -47,8 +47,6 @@ function CreateCourse() {
             onChange={handleChange}
           />
         </label>
-        <br />
-        <br />
         <label className="form-box">
           <p className="form-label"> Description:</p>
           <textarea
@@ -58,8 +56,6 @@ function CreateCourse() {
             onChange={handleChange}
           />
         </label>
-        <br />
-        <br />
         <button className="button" type="submit">
           Submit
         </button>

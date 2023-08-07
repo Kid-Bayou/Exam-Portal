@@ -49,8 +49,6 @@ function CreateQuestion() {
               onChange={handleChange}
             />
           </label>
-          <br />
-          <br />
           <label className="form-box">
             <p className="form-label">Mark:</p>
             <input
@@ -61,8 +59,6 @@ function CreateQuestion() {
               onChange={handleChange}
             />
           </label>
-          <br />
-          <br />
           <button className="button" type="submit">
             Submit
           </button>

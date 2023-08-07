@@ -54,7 +54,7 @@ function UpdateQuestion() {
     <>
       <h1 className="form-header">Update Question</h1>
       <div className="form">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
           <label className="form-box">
             <p className="form-label">Question Content:</p>
             <textarea
@@ -64,8 +64,6 @@ function UpdateQuestion() {
               onChange={handleChange}
             />
           </label>
-          <br />
-          <br />
           <label className="form-box">
             <p className="form-label">Mark:</p>
 
@@ -77,8 +75,6 @@ function UpdateQuestion() {
               onChange={handleChange}
             />
           </label>
-          <br />
-          <br />
           <button className="button" type="submit">
             Submit
           </button>

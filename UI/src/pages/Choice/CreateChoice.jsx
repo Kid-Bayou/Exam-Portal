@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 function CreateChoice() {
   const [formData, setFormData] = useState({
-    title: "",
-    description: "",
+    questionID: "",
+    choiceContent: "",
   });
 
   const navigate = useNavigate();
@@ -38,28 +38,14 @@ function CreateChoice() {
       <h1 className="form-header">Create Choice</h1>
       <form onSubmit={handleSubmit} className="form">
         <label className="form-box">
-          <p className="form-label"> ChoiceTitle:</p>
-          <input
-          className="form-input"
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <br />
-        <label className="form-box">
-          <p className="form-label"> Description:</p>
+          <p className="form-label"> Choice Content:</p>
           <textarea
           className="form-input"
             name="description"
-            value={formData.description}
+            value={formData.choiceContent}
             onChange={handleChange}
           />
         </label>
-        <br />
-        <br />
         <button className="button" type="submit">
           Submit
         </button>
