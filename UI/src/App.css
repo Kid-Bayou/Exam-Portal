@@ -355,6 +355,16 @@ header .site-logo {
 
 
 
+/* ~~~~ UPDATE QUESTION ~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.back {
+  height: 70px;
+  margin: -50px;
+  cursor: pointer;
+}
+
+
 /* ~~~~ CHOICE LIST ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
 

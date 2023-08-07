@@ -47,7 +47,7 @@ function App() {
               <Route path="questions/createquestion/:id" element={<CreateQuestion />} />
               <Route path="questions/updatequestion/:id" element={<UpdateQuestion />} />
               <Route path="questions/deletequestion/:id" element={<DeleteQuestion />} />
-              <Route path="questions/createchoice" element={<CreateChoice />} />
+              <Route path="questions/createquestions/createchoice/:id" element={<CreateChoice />} />
             </Route>
           </Routes>
         </BrowserRouter>

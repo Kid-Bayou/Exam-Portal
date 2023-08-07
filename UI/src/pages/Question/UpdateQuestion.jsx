@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { API_BASE_URL, put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
+import CreateChoice from "../Choice/CreateChoice";
+import ChoiceList from "../Choice/ChoiceList";
+import back from "../../assets/back.png";
 
 function UpdateQuestion() {
   const params = useParams();
@@ -35,7 +38,6 @@ function UpdateQuestion() {
         `${API_BASE_URL}/api/Question/UpdateQuestion/${params.id}`,
         formData
       );
-      navigate(`/questions/${params.id}`);
       console.log("put request successful:", response);
     } catch (error) {
       console.error("Error making put request:", error);
@@ -50,8 +52,13 @@ function UpdateQuestion() {
     }));
   };
 
+  const handleImageClick = () => {
+    navigate(-1);
+  }
+
   return (
     <>
+    <img src={back} className="back" onClick={handleImageClick}/>
       <h1 className="form-header">Update Question</h1>
       <div className="form">
         <form onSubmit={handleSubmit} className="form">
@@ -66,7 +73,6 @@ function UpdateQuestion() {
           </label>
           <label className="form-box">
             <p className="form-label">Mark:</p>
-
             <input
             type="number"
               className="form-input"
@@ -80,6 +86,8 @@ function UpdateQuestion() {
           </button>
         </form>
       </div>
+      <ChoiceList qId={params.id}/>
+      <CreateChoice />
     </>
   );
 }
