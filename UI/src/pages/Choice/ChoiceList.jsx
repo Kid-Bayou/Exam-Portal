@@ -18,10 +18,13 @@ function ChoiceList(props) {
     const fetchData = async () => {
       try {
         const responseData = await get(
-          `https://localhost:7182/api/Choice/GetQuestionChoices?id=${props.qId}`
+          `${API_BASE_URL}/api/Choice/GetQuestionChoices?id=${props.qId}`
         );
         setChoice(responseData);
       } catch (error) {
+        if (error.response.status === 404) {
+          setChoice([]);
+        }
         console.error("Error fetching data:", error);
       }
     };
@@ -30,7 +33,7 @@ function ChoiceList(props) {
   return (	
     <>
       {choice ? (
-          <div className="module-list">
+          <div className="choice-list">
             <div>
             {choiceElements}
             </div>

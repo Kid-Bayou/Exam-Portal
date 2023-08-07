@@ -14,9 +14,7 @@ function Footer() {
         
       </div>
       <div className="line">
-        <p>
           <hr />
-        </p>
       </div>
       <div className="social-logo-container">
         <img src={logo1} className="social-logo" />

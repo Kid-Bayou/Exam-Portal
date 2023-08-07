@@ -44,6 +44,7 @@ function App() {
               <Route path="modules/updatemodule/:id" element={<UpdateModule />} />
               <Route path="questions/:id" element={<QuestionList />} />
               <Route path="questions/createquestion/:id" element={<CreateQuestion />} />
+              <Route path="questions/updatequestion/:id" element={<UpdateQuestion />} />
             </Route>
           </Routes>
         </BrowserRouter>

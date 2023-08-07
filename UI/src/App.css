@@ -302,7 +302,7 @@ header .site-logo {
 .question-info {
   display: flex;
   justify-content: flex-start;
-  gap: 50px;
+  gap: 80px;
   flex-wrap: nowrap;
 }
 
@@ -331,9 +331,24 @@ header .site-logo {
   margin-top: 5px;
 }
 
+.toggle:hover {
+  cursor: pointer;
+}
+
+.edit {
+  height: 30px;
+  margin-top: 5px;
+}
+
+.edit-container {
+  width: 30px;
+  margin-right: -50px;
+}
+
 .question-list-button {
   margin-top: 100px;
 }
+
 
 
 

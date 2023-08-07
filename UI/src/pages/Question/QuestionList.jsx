@@ -2,8 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../service/APIService";
 import { ExamContext } from "../../Context/ExamContext";
-import ChoiceList from "../Choice/ChoiceList"
-import toggle from "../../assets/toggle.png"
+import ChoiceList from "../Choice/ChoiceList";
+import toggle from "../../assets/toggle.png";
+import edit from "../../assets/edit.png";
 
 function QuestionList() {
   const params = useParams();
@@ -12,12 +13,21 @@ function QuestionList() {
   var num = 0;
 
   const questionElements = question.map((question, index) => (
-    <div key={question.id} className="question-tile" >
+    <div key={question.id} className="question-tile">
       <div className="question-info">
-        <h3 className="question-info-text">{index + 1}. {question.questionContent}</h3>
-        <img src={toggle} className="toggle" onClick={() => toggleChoices(question.id)} />
+        <h3 className="question-info-text">
+          {index + 1}. {question.questionContent}
+        </h3>
+        <Link to={`/questions/updatequestion/${question.id}`} className="edit-container">
+          <img src={edit} className="edit" />
+        </Link>
+        <img
+          src={toggle}
+          className="toggle"
+          onClick={() => toggleChoices(question.id)}
+        />
       </div>
-      {visibleChoices[question.id] && <ChoiceList qId={question.id}/>}
+      {visibleChoices[question.id] && <ChoiceList qId={question.id} />}
     </div>
   ));
 
@@ -47,11 +57,7 @@ function QuestionList() {
       {question ? (
         <div className="question-list-container">
           <h2 className="question-header">Questions</h2>
-          <div className="question-list">
-
-              {questionElements}
-
-          </div>
+          <div className="question-list">{questionElements}</div>
         </div>
       ) : (
         <h2>Loading</h2>

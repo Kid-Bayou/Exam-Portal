@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { API_BASE_URL, put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 
-function CreateCourse() {
+function UpdateCourse() {
   const params = useParams();
   const [formData, setFormData] = useState({
     id: `${params.id}`,
@@ -88,4 +88,4 @@ function CreateCourse() {
   );
 }
 
-export default CreateCourse;
+export default UpdateCourse;

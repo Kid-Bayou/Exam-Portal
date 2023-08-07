@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 function CreateQuestion() {
   const params = useParams();
   const [formData, setFormData] = useState({
-    id: "",
     questionContent: "",
     mark: "",
     moduleID: `${params.id}`,
