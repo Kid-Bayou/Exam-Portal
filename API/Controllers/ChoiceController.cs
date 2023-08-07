@@ -10,7 +10,6 @@ namespace Exam_Portal.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize]
     public class ChoiceController : Controller
     {
         private readonly IChoiceRepository _choiceRepository;

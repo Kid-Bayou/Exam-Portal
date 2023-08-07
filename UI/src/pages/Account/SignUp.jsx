@@ -26,7 +26,7 @@ function SignUp() {
             Sign Up
           </button>
         </form>
-        <p className="sign-in-up-alternative">Already Have An Account? <Link to="/" className="sign-in-up-other">Sign In</Link></p>
+        <p className="sign-in-up-alternative">Already Have An Account? <Link to="/login" className="sign-in-up-other">Sign In</Link></p>
     </div>
       
     </>

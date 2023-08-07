@@ -18,7 +18,7 @@ function Login() {
             Login
           </button>
         </form>
-        <p className="sign-in-up-alternative">Don't Have An Account? <Link to="/" className="sign-in-up-other">Sign Up</Link></p>
+        <p className="sign-in-up-alternative">Don't Have An Account? <Link to="/signup" className="sign-in-up-other">Sign Up</Link></p>
     </div>
       
     </>
