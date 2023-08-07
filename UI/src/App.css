@@ -310,8 +310,6 @@ header .site-logo {
   font-size: 30px;
 }
 
-.question-tile a {
-}
 
 .question-list-container {
   display: flex;
@@ -347,6 +345,32 @@ header .site-logo {
 
 .question-list-button {
   margin-top: 100px;
+}
+
+
+
+/* ~~~~ CHOICE LIST ~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~*/
+
+.choice-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.choice-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.choice-info {
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 

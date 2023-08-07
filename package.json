@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "postcss-nesting": "^12.0.1"
+  }
+}

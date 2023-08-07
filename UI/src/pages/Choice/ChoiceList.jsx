@@ -8,10 +8,18 @@ function ChoiceList(props) {
 
   const choiceElements = choice.map((choice) => (
     <div key={choice.id} className="choice-tile">
-      <div className="choice-info">
-        <input type="radio" name="choice" value={choice.id} /> <label for={choice.id}>{choice.choiceContent}</label>
+        <form className="radio-btn-form">
+          <label for={choice.id} className="radio-btn-label">
+            <input
+              type="radio"
+              name="choice"
+              value={choice.id}
+              className="radio-btn-input"
+            />
+            <span className="radio-btn-span">{choice.choiceContent}</span>
+          </label>
+        </form>
       </div>
-    </div>
   ));
 
   useEffect(() => {
@@ -30,15 +38,12 @@ function ChoiceList(props) {
     };
     fetchData();
   }, []);
-  return (	
+  return (
     <>
       {choice ? (
-          <div className="choice-list">
-            <div>
-            {choiceElements}
-            </div>
-              
-          </div>
+        <div className="choice-list">
+          <div>{choiceElements}</div>
+        </div>
       ) : (
         <h2>Loading</h2>
       )}
