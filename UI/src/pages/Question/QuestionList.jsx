@@ -3,16 +3,19 @@ import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../service/APIService";
 import { ExamContext } from "../../Context/ExamContext";
 import ChoiceList from "../Choice/ChoiceList"
+import toggle from "../../assets/toggle.png"
 
 function QuestionList() {
   const params = useParams();
   const { question, setQuestion } = useContext(ExamContext);
   const [visibleChoices, setVisibleChoices] = useState({});
+  var num = 0;
 
-  const questionElements = question.map((question) => (
-    <div key={question.id} className="question-tile" onClick={() => toggleChoices(question.id)}>
+  const questionElements = question.map((question, index) => (
+    <div key={question.id} className="question-tile" >
       <div className="question-info">
-        <h3 className="question-info-text">{question.questionContent}</h3>
+        <h3 className="question-info-text">{index + 1}. {question.questionContent}</h3>
+        <img src={toggle} className="toggle" onClick={() => toggleChoices(question.id)} />
       </div>
       {visibleChoices[question.id] && <ChoiceList qId={question.id}/>}
     </div>

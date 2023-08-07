@@ -296,48 +296,43 @@ header .site-logo {
 
 .question-header {
   font-size: 80px;
+  margin-bottom: 100px;
 }
 
 .question-info {
-  margin: auto;
-  background: rgb(246, 244, 244);
-  height: 70px;
-  width: 800px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 10px;
-}
-
-:hover .question-info {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 50px;
+  flex-wrap: nowrap;
 }
 
 .question-info-text {
-  padding-top: 20px;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .question-tile a {
-  color: #000000;
-  text-decoration: none;
 }
 
 .question-list-container {
-  padding-inline: 23px;
-  margin: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .question-list {
   display: flex;
-  justify-items: center;
-  gap: 80px;
-  margin-top: 57px;
+  justify-items: flex-start;
+  gap: 40px;
   flex-wrap: nowrap;
   flex-direction: column;
-  justify-content: center;
+}
+
+.toggle {
+  height: 30px;
+  margin-top: 5px;
 }
 
 .question-list-button {
-  margin-bottom: 150px;
+  margin-top: 100px;
 }
 
 
