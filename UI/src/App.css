@@ -397,6 +397,78 @@ header .site-logo {
 
 
 
+/*  ~~~~ RADIO BUTTON ~~~~   */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.radio-btn-form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.radio-btn-label {
+  display: flex;
+  cursor: pointer;
+  font-weight: 500;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.radio-btn-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.radio-btn-span {
+  display: flex;
+  align-items: center;
+  padding: 6px 15px;
+  border: none;
+  border-radius: 20px;
+  transition: background-color 0.25s ease;
+}
+
+.choice-span:hover {
+  background-color: #f3e7d6;
+}
+
+.radio-btn-span.selected {
+  background-color: #d6c1a5 ;
+  color: white;
+}
+
+.radio-btn-span:before {
+  display: flex;
+  flex-shrink: 0;
+  content: "";
+  background-color: #fff;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  margin-right: 0.375em;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 0 0.125em var(--primary-color);
+}
+
+.radio-btn-span:before {
+  display: flex;
+  flex-shrink: 0;
+  content: "";
+  background-color: #fff;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  margin-right: 0.375em;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 0 0 rgba(0, 123, 255, 0.25);
+}
+
+.radio-btn-input:checked + .radio-btn-span:before {
+  box-shadow: inset 0 0 0 0.5em #8e7453;
+}
+
+
 
 /*  ~~~~ SIGN IN UP ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
