@@ -35,7 +35,6 @@ function CreateChoice() {
 
   return (
     <>
-      <h1 className="form-header">Create Choice</h1>
       <form onSubmit={handleSubmit} className="form">
         <label className="form-box">
           <p className="form-label"> Choice Content:</p>
