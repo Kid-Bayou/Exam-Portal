@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function CreateChoice(props) {
   const [formData, setFormData] = useState({
-    questionID: `${props.id}`,
+    questionID: `${props.qId}`,
     choiceContent: "",
   });
 
@@ -15,12 +15,13 @@ function CreateChoice(props) {
 
     try {
       const response = await post(
-        `${API_BASE_URL}/api/Choice/CreateChoice?qId=${props.id}`,
+        `${API_BASE_URL}/api/Choice/CreateChoice?qId=${props.qId}`,
         formData
       );
-      navigate("/choices");
+      window.location.reload();
       console.log("post request successful:", response);
     } catch (error) {
+      console.log(props.id)
       console.error("Error making post request:", error);
     }
   };
