@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { API_BASE_URL, put, get } from "../../service/APIService";
-import { useParams, useNavigate } from "react-router-dom";
-import save from "../../assets/save.png"
+import { useParams, useNavigate, Link } from "react-router-dom";
+import del from "../../assets/delete.png";
 
 function UpdateChoice(props) {
   const params = useParams();
@@ -41,9 +41,11 @@ function UpdateChoice(props) {
           `${API_BASE_URL}/api/Choice/UpdateChoice/${choiceData.id}`,
           choiceData
         );
-        console.log(`Choice with ID ${choiceData.id} updated successfully:`, response);
+        console.log(
+          `Choice with ID ${choiceData.id} updated successfully:`,
+          response
+        );
       }
-      navigate(`/choices/${params.id}`);
     } catch (error) {
       console.error("Error making put request:", error);
     }
@@ -54,19 +56,24 @@ function UpdateChoice(props) {
       <div className="form">
         <form onSubmit={handleSubmit} className="form">
           {formData.map((choiceData, index) => (
-            <div key={choiceData.id} className="form-box">
-              <p className="form-label">Choice Content:</p>
-              <input
-                className="form-input"
-                type="text"
-                name="choiceContent"
-                value={choiceData.choiceContent}
-                onChange={(event) => handleChoiceChange(index, event)}
-              />
+            <div className="update-choice-tile">
+              <div key={choiceData.id} className="form-box">
+                <p className="form-label">Choice Content:</p>
+                <input
+                  className="form-input"
+                  type="text"
+                  name="choiceContent"
+                  value={choiceData.choiceContent}
+                  onChange={(event) => handleChoiceChange(index, event)}
+                />
+              </div>
+              <Link to={`/questions/deletechoice/${choiceData.id}`}>
+                <img src={del} className="delete" />
+              </Link>
             </div>
           ))}
           <button className="button" type="submit">
-            Submit
+            Save
           </button>
         </form>
       </div>

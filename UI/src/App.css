@@ -373,6 +373,17 @@ header .site-logo {
 .add {
   height: 70px;
   cursor: pointer;
+  margin-left: 38vw;
+}
+
+.delete {
+  height: 40px;
+  cursor: pointer;
+}
+
+.update-choice-tile {
+  display: flex;
+  gap: 10px;
 }
 
 /* ~~~~ CHOICE LIST ~~~~ */
@@ -439,7 +450,7 @@ header .site-logo {
   transition: background-color 0.25s ease;
 }
 
-.choice-span:hover {
+.radio-btn-span:hover {
   background-color: #f3e7d6;
 }
 
@@ -458,7 +469,7 @@ header .site-logo {
   border-radius: 50%;
   margin-right: 0.375em;
   transition: 0.25s ease;
-  box-shadow: inset 0 0 0 0.125em var(--primary-color);
+  box-shadow: inset 0 0 0 0.125em #8e7453;
 }
 
 .radio-btn-span:before {
@@ -471,7 +482,7 @@ header .site-logo {
   border-radius: 50%;
   margin-right: 0.375em;
   transition: 0.25s ease;
-  box-shadow: inset 0 0 0 0 rgba(0, 123, 255, 0.25);
+  box-shadow: inset 0 0 0 1px #8e7453;
 }
 
 .radio-btn-input:checked + .radio-btn-span:before {
