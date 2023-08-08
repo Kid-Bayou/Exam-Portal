@@ -2,9 +2,9 @@ import { useState } from "react";
 import { API_BASE_URL, post } from "../../service/APIService";
 import { useNavigate } from "react-router-dom";
 
-function CreateChoice() {
+function CreateChoice(props) {
   const [formData, setFormData] = useState({
-    questionID: "",
+    questionID: `${props.id}`,
     choiceContent: "",
   });
 
@@ -15,7 +15,7 @@ function CreateChoice() {
 
     try {
       const response = await post(
-        `${API_BASE_URL}/api/Choice/CreateChoice`,
+        `${API_BASE_URL}/api/Choice/CreateChoice?qId=${props.id}`,
         formData
       );
       navigate("/choices");
@@ -38,9 +38,10 @@ function CreateChoice() {
       <form onSubmit={handleSubmit} className="form">
         <label className="form-box">
           <p className="form-label"> Choice Content:</p>
-          <textarea
+          <input 
+          type="text"
           className="form-input"
-            name="description"
+            name="choiceContent"
             value={formData.choiceContent}
             onChange={handleChange}
           />

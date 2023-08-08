@@ -1,52 +1,77 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from "react";
+import { API_BASE_URL, put, get } from "../../service/APIService";
+import { useParams, useNavigate } from "react-router-dom";
+import save from "../../assets/save.png"
 
-function YourComponent() {
-  const [selectedChoice, setSelectedChoice] = useState(null);
+function UpdateChoice(props) {
+  const params = useParams();
+  const [formData, setFormData] = useState([]);
+  const navigate = useNavigate();
 
-  const handleChoiceChange = (choiceId) => {
-    setSelectedChoice(choiceId === selectedChoice ? null : choiceId);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const responseData = await get(
+        `${API_BASE_URL}/api/Choice/GetQuestionChoices?id=${props.qId}`
+      );
+      setFormData(responseData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleChoiceChange = (index, event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => {
+      const updatedFormData = [...prevFormData];
+      updatedFormData[index][name] = value;
+      return updatedFormData;
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      for (const choiceData of formData) {
+        const response = await put(
+          `${API_BASE_URL}/api/Choice/UpdateChoice/${choiceData.id}`,
+          choiceData
+        );
+        console.log(`Choice with ID ${choiceData.id} updated successfully:`, response);
+      }
+      navigate(`/choices/${params.id}`);
+    } catch (error) {
+      console.error("Error making put request:", error);
+    }
   };
 
   return (
-    <div className="container">
-      <form>
-        <label className="label">
-          <input
-            type="radio"
-            name="choice"
-            value="choice1"
-            className="radio-input"
-            checked={selectedChoice === 'choice1'}
-            onChange={() => handleChoiceChange('choice1')}
-          />
-          <span className={`choice-span ${selectedChoice === 'choice1' ? 'selected' : ''}`}>Choice 1</span>
-        </label>
-        <label className="label">
-          <input
-            type="radio"
-            name="choice"
-            value="choice2"
-            className="radio-input"
-            checked={selectedChoice === 'choice2'}
-            onChange={() => handleChoiceChange('choice2')}
-          />
-          <span className={`choice-span ${selectedChoice === 'choice2' ? 'selected' : ''}`}>Choice 2</span>
-        </label>
-        <label className="label">
-          <input
-            type="radio"
-            name="choice"
-            value="choice3"
-            className="radio-input"
-            checked={selectedChoice === 'choice3'}
-            onChange={() => handleChoiceChange('choice3')}
-          />
-          <span className={`choice-span ${selectedChoice === 'choice3' ? 'selected' : ''}`}>Choice 3</span>
-        </label>
-        {/* Add more label/input pairs for other choices */}
-      </form>
-    </div>
+    <>
+      <div className="form">
+        <form onSubmit={handleSubmit} className="form">
+          {formData.map((choiceData, index) => (
+            <div key={choiceData.id} className="form-box">
+              <p className="form-label">Choice Content:</p>
+              <input
+                className="form-input"
+                type="text"
+                name="choiceContent"
+                value={choiceData.choiceContent}
+                onChange={(event) => handleChoiceChange(index, event)}
+              />
+            </div>
+          ))}
+          <button className="button" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
-export default YourComponent;
+export default UpdateChoice;

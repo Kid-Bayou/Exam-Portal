@@ -364,6 +364,16 @@ header .site-logo {
   cursor: pointer;
 }
 
+.save {
+  height: 70px;
+  cursor: pointer;
+
+}
+
+.add {
+  height: 70px;
+  cursor: pointer;
+}
 
 /* ~~~~ CHOICE LIST ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/

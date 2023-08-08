@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { API_BASE_URL, put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 import CreateChoice from "../Choice/CreateChoice";
-import ChoiceList from "../Choice/ChoiceList";
+import UpdateChoice from "../Choice/UpdateChoice";
 import back from "../../assets/back.png";
 import add from "../../assets/add.png"
 
@@ -13,6 +13,7 @@ function UpdateQuestion() {
     questionContent: "",
     mark: "",
   });
+  const [showCreateChoice, setShowCreateChoice] = useState(false);
 
   const navigate = useNavigate();
 
@@ -57,6 +58,11 @@ function UpdateQuestion() {
     navigate(-1);
   }
 
+  const handleCreateChoiceClick = () => {
+    setShowCreateChoice(true);
+  };
+
+
   return (
     <>
     <img src={back} className="back" onClick={handleImageClick}/>
@@ -83,13 +89,22 @@ function UpdateQuestion() {
             />
           </label>
           <button className="button" type="submit">
-            Submit
+            Save
           </button>
         </form>
       </div>
       <h2 className="form-header">Choices</h2>
-      <ChoiceList qId={params.id}/>
-      <CreateChoice />
+      <UpdateChoice qId={params.id}/>
+
+      {showCreateChoice ? (
+        <CreateChoice qId={params.id} />
+      ) : (
+        <img
+          src={add}
+          onClick={handleCreateChoiceClick}
+          className="add"
+        />
+      )}
     </>
   );
 }
