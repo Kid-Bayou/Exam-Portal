@@ -1,6 +1,9 @@
 import {Link} from "react-router-dom"
 
 function SignUp() {
+  const user_regex = /^[A-z][A-z0-9-_]{3,23}$/;
+  const emai = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+  const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
   return (
     <>
     <div className="sign-in-up">

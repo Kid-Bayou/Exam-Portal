@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
@@ -24,9 +25,7 @@ builder.Services.AddAuthentication(option =>
     option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
-})
-
-.AddJwtBearer(option => 
+}).AddJwtBearer(option => 
 { 
     option.SaveToken = true;
     option.RequireHttpsMetadata = false;
@@ -34,11 +33,15 @@ builder.Services.AddAuthentication(option =>
     {
         ValidateIssuer = true,
         ValidateAudience = true,
-        ValidAudience = builder.Configuration["JWT:ValidAudience"],
-        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
+        ValidateLifetime= true,
+        ValidateIssuerSigningKey = true,
+        ValidAudience = config["JWT:ValidAudience"],
+        ValidIssuer = config["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"]))
     };
 });
+
+builder.Services.AddAuthorization();
 
 
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
