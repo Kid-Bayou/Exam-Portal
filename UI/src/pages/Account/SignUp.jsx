@@ -1,116 +1,169 @@
-import { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { signup } from "../../service/APIAuthService";
 
 function SignUp() {
-  const userRef = useRef();
-  const errRef = useRef();
-
-  const user_regex = /^[A-z][A-z0-9-_]{3,23}$/;
-  const email_regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
-  const pwd_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-
-  const [user, setUser] = useState('');
-  const [validName, setValidName] = useState(false);
-
-  const [email, setEmail] = useState('');
-  const [validEmail, setValidEmail] = useState(false);
-
-  const [pwd, setPwd] = useState('');
-  const [validPwd, setValidPwd] = useState(false);
-
-  const [matchPwd, setMatchPwd] = useState('');
-  const [validMatch, setValidMatch] = useState(false);
-
-  const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
-
-  useEffect(() => {
-    userRef.current.focus();
-}, [])
-
-  useEffect(() => {
-    const result = user_regex.test(user);
-    console.log(result);
-    console.log(user);
-    setValidName(result);
-  }, [user]);
-
-  useEffect(() => {
-    const result = email_regex.test(email);
-    console.log(result);
-    console.log(user);
-    setValidEmail(result);
-  }, [email]);
-
-  useEffect(() => {
-    const result = pwd_regex.test(pwd);
-    console.log(result);
-    console.log(pwd);
-    setValidPwd(result);
-    const match = pwd === matchPwd;
-    setValidMatch(match);
-  }, [pwd, matchPwd]);
-
-  useEffect(() => {
-    setErrMsg("");
-    [user, pwd, matchPwd];
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+const navigate = useNavigate();
+
+  const validateForm = () => {
+    const newErrors = {};
+    let valid = true;
+
+    if (!userData.firstName) {
+      newErrors.name = "Name is required";
+      valid = false;
+    }
+
+    if (!userData.lastName) {
+      newErrors.name = "Name is required";
+      valid = false;
+    }
+    if (!userData.email) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else if (!/\S+@\S+\.\S+/.test(userData.email)) {
+      newErrors.email = "Email is invalid";
+      valid = false;
+    }
+
+    if (!userData.password) {
+      newErrors.password = "Password is required";
+      valid = false;
+    } else if (userData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+      valid = false;
+    }
+
+    if (!userData.confirmPassword) {
+      newErrors.confirmPassword = "Confirm Password is required";
+      valid = false;
+    } else if (userData.confirmPassword !== userData.password) {
+      newErrors.confirmPassword = "Passwords do not match";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleSignup = async (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      const response = await signup(userData);
+      console.log("Signup successful:", response);
+      navigate("/")
+    } catch (error) {
+      console.error("Error signing up:", error);
+      setError("An error occurred during signup. Please try again.");
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [name]: value,
+    }));
+  };
 
   return (
     <>
       <div className="sign-in-up">
-        <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}>
-          {errMsg}
-        </p>
+
 
         <h1 className="sign-in-up-header">Sign Up</h1>
-        <form className="sign-in-up-form">
+        <form className="sign-in-up-form" onSubmit={handleSignup}>
           <label className="sign-in-up-box">
-            <p className="sign-in-up-label"> Name:</p>
+            <p className="sign-in-up-label">First Name:</p>
             <input
               type="text"
-              ref={userRef}
-              onChange={(e) => setUser(e.target.value)}
-              value={user}
+              name="firstName"
+              onChange={handleChange}
+              value={userData.firstName}
               required
               className="sign-in-up-input"
             />
+            {errors.firstName && <span className="error">{errors.firstName}</span>}
+          </label>
+
+          <label className="sign-in-up-box">
+            <p className="sign-in-up-label">Last Name:</p>
+            <input
+              type="text"
+              name="lastName"
+              onChange={handleChange}
+              value={userData.lastName}
+              required
+              className="sign-in-up-input"
+            />
+            {errors.lastName && <span className="error">{errors.lastName}</span>}
           </label>
 
           <label className="sign-in-up-box">
             <p className="sign-in-up-label"> Email:</p>
-            <input 
+            <input
               type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              name="email"
+              onChange={handleChange}
+              value={userData.email}
               required
-            className="sign-in-up-input" 
+              className="sign-in-up-input"
             />
+            {errors.email && <span className="error">{errors.email}</span>}
           </label>
 
           <label className="sign-in-up-box">
             <p className="sign-in-up-label"> Password:</p>
-            <input 
-            type="password"
-            onChange={(e) => setPwd(e.target.value)}
-            required
-            value={pwd}
-            className="sign-in-up-input" 
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              required
+              value={userData.password}
+              className="sign-in-up-input"
             />
+            {errors.password && (
+              <span className="error">{errors.password}</span>
+            )}
           </label>
 
           <label className="sign-in-up-box">
             <p className="sign-in-up-label"> Confirm Password:</p>
-            <input 
-            type="password"
-            onChange={(e) => setMatchPwd(e.target.value)}
-            required
-            value={matchPwd}
-            className="sign-in-up-input" 
-             />
+            <input
+              type="password"
+              name="confirmPassword"
+              onChange={handleChange}
+              required
+              value={userData.confirmPassword}
+              className="sign-in-up-input"
+            />
+            {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
           </label>
 
-          <button disabled={!validName || !validEmail || !validPwd || !validMatch ? true : false} className="button sign-in-up-btn" type="submit">
+          <button
+            className="button sign-in-up-btn"
+            type="submit"
+          >
             Sign Up
           </button>
         </form>
