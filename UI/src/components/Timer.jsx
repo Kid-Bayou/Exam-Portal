@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const TIME_LIMIT = 7000; // Time in seconds
-
-function Timer() {
+function Timer(props) {
+  const TIME_LIMIT = props.time;
   const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
 
   useEffect(() => {
@@ -24,40 +23,39 @@ function Timer() {
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
     const seconds = timeInSeconds % 60;
-    
-    const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+    const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     return formattedTime;
   };
-  
 
-  const { circumference, offset } = calculatePath(45, timeLeft);
+  const { circumference, offset } = calculatePath(5, timeLeft);
 
   return (
     <div className="circular-timer">
       <svg className="circular-timer__svg" viewBox="0 0 100 100">
         <circle
           className="circular-timer__path-elapsed"
-          cx="50"
-          cy="50"
-          r="45"
+          cx="90"
+          cy="6"
+          r="5"
           stroke="#ccc"
-          strokeWidth="6"
+          strokeWidth="1"
           fill="transparent"
         />
         <circle
           className="circular-timer__path-remaining"
-          cx="50"
-          cy="50"
-          r="45"
+          cx="94"
+          cy="90"
+          r="5"
           transform="rotate(-90 50 50)"
           stroke="#ff5f5f"
-          strokeWidth="6"
+          strokeWidth="1"
           fill="transparent"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
         />
-        <text className="circular-timer__label" x="50" y="55">
-        {formatTime(timeLeft)}
+        <text className="circular-timer__label" x="86.6" y="7">
+          {formatTime(timeLeft)}
         </text>
       </svg>
     </div>

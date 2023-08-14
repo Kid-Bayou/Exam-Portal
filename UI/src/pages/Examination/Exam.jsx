@@ -1,10 +1,10 @@
-import Timer from "./Timer"
+import Timer from "../../components/Timer"
 
 function Exam() {
 
     return(
         <>
-            <Timer />
+            <Timer time="20"/>
         </>
         )
 }
