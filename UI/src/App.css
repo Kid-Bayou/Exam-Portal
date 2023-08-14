@@ -605,22 +605,6 @@ header .site-logo {
 }
 
 
-/*  ~~~~ FOOTER ~~~~   */
-/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-.countdown-timer {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.timer {
-  display: inline-block;
-  animation: scaleUp 0.5s infinite alternate;
-}
-
-
 
 /*  ~~~~ FOOTER ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
