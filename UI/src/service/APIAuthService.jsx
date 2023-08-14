@@ -4,7 +4,7 @@ const API_BASE_URL = "https://localhost:44304/api/Account";
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 100000,
 });
 
 
