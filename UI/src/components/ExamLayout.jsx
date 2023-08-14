@@ -1,18 +1,18 @@
 import {Outlet} from "react-router-dom"
-import Header from "./Header"
-import  Footer from "./Footer"
+import ExamHeader from "./ExamHeader"
+import ExamFooter from "./ExamFooter"
 
 function ExamLayout() {
     return (
         <>
             <div className="site-wrapper">
-                <Header />
+                <ExamHeader />
 
                 <main className="main">
                     <Outlet />
                 </main>
                 
-                <Footer />
+                <ExamFooter />
             </div>
         </>
     )
