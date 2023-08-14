@@ -18,8 +18,8 @@ function Header() {
                         About
                     </NavLink>
 
-                    <NavLink to="/signup">
-                        Sign Up
+                    <NavLink to="/login">
+                        Login
                     </NavLink>
                 </nav>
             </header>
