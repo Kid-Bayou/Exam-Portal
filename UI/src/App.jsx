@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
+import ExamLayout from "./components/ExamLayout"
 import Home from "./pages/Home";
 import About from "./pages/About";
 import SignUp from "./pages/Account/SignUp";
@@ -52,8 +53,12 @@ function App() {
               <Route path="questions/deletequestion/:id" element={<DeleteQuestion />} />
               <Route path="questions/updatechoice" element={<UpdateChoice />} />
               <Route path="questions/deletechoice/:id" element={<DeleteChoice />} />
-              <Route path="questions/createquestions/createchoice/:id" element={<CreateChoice />} />
-              <Route path="/exam" element={<Exam />} />
+            </Route>
+
+            <Route path="/examination" element={<ExamLayout />}>
+
+              <Route index element={<Exam />} />
+
             </Route>
           </Routes>
         </BrowserRouter>
