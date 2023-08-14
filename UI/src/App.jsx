@@ -21,6 +21,7 @@ import DeleteQuestion from "./pages/Question/DeleteQuestion";
 import CreateChoice from "./pages/Choice/CreateChoice";
 import UpdateChoice from "./pages/Choice/UpdateChoice";
 import DeleteChoice from "./pages/Choice/DeleteChoice";
+import Exam from "./pages/Examination/Exam"
 import { ExamProvider } from "./Context/ExamContext";
 import "./App.css";
 
@@ -52,6 +53,7 @@ function App() {
               <Route path="questions/updatechoice" element={<UpdateChoice />} />
               <Route path="questions/deletechoice/:id" element={<DeleteChoice />} />
               <Route path="questions/createquestions/createchoice/:id" element={<CreateChoice />} />
+              <Route path="/exam" element={<Exam />} />
             </Route>
           </Routes>
         </BrowserRouter>
