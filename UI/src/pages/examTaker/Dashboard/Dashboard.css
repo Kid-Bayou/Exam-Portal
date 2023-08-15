@@ -35,8 +35,9 @@
 }
 
 .sidebar-top {
-  padding: 1rem;
-  padding-bottom: 0.5rem;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,19 +46,24 @@
 .sidebar-logo {
   overflow: hidden;
   transition: all;
-  width: var(--width-value, 0);
+  width: 50px;
 }
 
-.sidebar-logo.expanded {
-  --width-value: 5vw;
+.sidebar-header {
+  overflow: hidden;
+  transition: all;
+  font-size: var(--font-size, 0);
+}
+
+.sidebar-header.expanded {
+  --font-size: 15px;
 }
 
 .sidebar-logo.collapsed {
-  --width-value: 0;
+  --font-size: 0;
 }
 
 .custom-button {
-  padding: 1.5rem;
   border-radius: 0.375rem;
   background-color: #f7fafc;
 }

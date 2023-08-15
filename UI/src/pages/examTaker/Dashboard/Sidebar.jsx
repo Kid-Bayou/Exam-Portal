@@ -16,6 +16,7 @@ export default function Sidebar({ children }) {
         className={`sidebar-logo ${expanded ? "expanded" : "collapsed"}`}
         alt=""
       />
+      <h3 className={`sidebar-header ${expanded ? "expanded" : "collapsed"}`}>Exam Portal</h3>
       <button
         onClick={() => setExpanded((curr) => !curr)}
         className="custom-button"
