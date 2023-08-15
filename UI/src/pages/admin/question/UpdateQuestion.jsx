@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { API_BASE_URL, put, get } from "../../service/APIService";
+import { API_BASE_URL, put, get } from "../../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 import CreateChoice from "../choice/CreateChoice";
 import UpdateChoice from "../choice/UpdateChoice";
-import back from "../../assets/back.png";
-import add from "../../assets/add.png";
+import back from "../../../assets/icons/back.png";
+import add from "../../../assets/icons/add.png";
 
 function UpdateQuestion() {
   const params = useParams();

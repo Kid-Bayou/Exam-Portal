@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { API_BASE_URL, post } from "../../service/APIService";
+import { API_BASE_URL, post } from "../../../service/APIService";
 import { useNavigate, useParams } from "react-router-dom";
 
 function CreateModule() {

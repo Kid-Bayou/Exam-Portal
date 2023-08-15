@@ -1,7 +1,7 @@
-import logo1 from "../assets/twitter.png";
-import logo2 from "../assets/linkedin.png";
-import logo3 from "../assets/instagram.png";
-import logo4 from "../assets/facebook.png";
+import logo1 from "../assets/socials/twitter.png";
+import logo2 from "../assets/socials/linkedin.png";
+import logo3 from "../assets/socials/instagram.png";
+import logo4 from "../assets/socials/facebook.png";
 
 function Footer() {
   return (

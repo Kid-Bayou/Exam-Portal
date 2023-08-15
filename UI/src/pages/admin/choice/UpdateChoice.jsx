@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { API_BASE_URL, put, get } from "../../service/APIService";
+import { API_BASE_URL, put, get } from "../../../service/APIService";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import del from "../../assets/delete.png";
+import del from "../../../assets/icons/delete.png";
 
 function UpdateChoice(props) {
   const params = useParams();

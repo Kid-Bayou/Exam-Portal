@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { API_BASE_URL, get } from "../../service/APIService";
+import { API_BASE_URL, get } from "../../../service/APIService";
 
 function ChoiceList(props) {
   const [choices, setChoices] = useState([]);
