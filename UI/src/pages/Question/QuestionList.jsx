@@ -1,11 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../service/APIService";
-import { ExamContext } from "../../Context/ExamContext";
+import { ExamContext } from "../../context/ExamContext";
 import ChoiceList from "../Choice/ChoiceList";
 import toggle from "../../assets/toggle.png";
 import edit from "../../assets/edit.png";
-import del from "../../assets/delete.png"
+import del from "../../assets/delete.png";
 
 function QuestionList() {
   const params = useParams();
@@ -19,10 +19,16 @@ function QuestionList() {
         <h3 className="question-info-text">
           {index + 1}. {question.questionContent}
         </h3>
-        <Link to={`/questions/updatequestion/${question.id}`} className="edit-container">
+        <Link
+          to={`/questions/updatequestion/${question.id}`}
+          className="edit-container"
+        >
           <img src={edit} className="edit" />
         </Link>
-        <Link to={`/questions/deletequestion/${question.id}`} className="edit-container">
+        <Link
+          to={`/questions/deletequestion/${question.id}`}
+          className="edit-container"
+        >
           <img src={del} className="edit" />
         </Link>
         <img

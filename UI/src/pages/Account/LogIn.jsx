@@ -9,7 +9,6 @@ function Login() {
   });
 
   const [error, setError] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,18 +17,11 @@ function Login() {
   
     try {
       const response = await login(formData);
-      if (response.success) {
-        console.log("Login successful");
-        setIsLogged(true);
-        setError("");
-        navigate("/");
-      } else {
-        console.log("Login failed:", response.errorMessage);
-        setIsLogged(false);
-        setError(response.errorMessage);
-      }
+      console.log("Signup successful:", response);
+      navigate("/")
     } catch (error) {
-      console.error("Error logging in:", error);
+      console.error("Error signing up:", error);
+      setError("An error occurred during signup. Please try again.");
     }
   };
   
