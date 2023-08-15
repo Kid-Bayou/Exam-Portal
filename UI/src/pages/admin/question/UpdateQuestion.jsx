@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { API_BASE_URL, put, get } from "../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
-import CreateChoice from "../Choice/CreateChoice";
-import UpdateChoice from "../Choice/UpdateChoice";
+import CreateChoice from "../choice/CreateChoice";
+import UpdateChoice from "../choice/UpdateChoice";
 import back from "../../assets/back.png";
-import add from "../../assets/add.png"
+import add from "../../assets/add.png";
 
 function UpdateQuestion() {
   const params = useParams();
@@ -56,16 +56,15 @@ function UpdateQuestion() {
 
   const handleImageClick = () => {
     navigate(-1);
-  }
+  };
 
   const handleCreateChoiceClick = () => {
     setShowCreateChoice(true);
   };
 
-
   return (
     <>
-    <img src={back} className="back" onClick={handleImageClick}/>
+      <img src={back} className="back" onClick={handleImageClick} />
       <h1 className="form-header">Update Question</h1>
       <div className="form">
         <form onSubmit={handleSubmit} className="form">
@@ -81,7 +80,7 @@ function UpdateQuestion() {
           <label className="form-box">
             <p className="form-label">Mark:</p>
             <input
-            type="number"
+              type="number"
               className="form-input"
               name="description"
               value={formData.description}
@@ -94,16 +93,12 @@ function UpdateQuestion() {
         </form>
       </div>
       <h2 className="form-header">Choices</h2>
-      <UpdateChoice qId={params.id}/>
+      <UpdateChoice qId={params.id} />
 
       {showCreateChoice ? (
         <CreateChoice qId={params.id} />
       ) : (
-        <img
-          src={add}
-          onClick={handleCreateChoiceClick}
-          className="add"
-        />
+        <img src={add} onClick={handleCreateChoiceClick} className="add" />
       )}
     </>
   );

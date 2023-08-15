@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../service/APIService";
 import { ExamContext } from "../../context/ExamContext";
-import ChoiceList from "../Choice/ChoiceList";
+import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../assets/toggle.png";
 import edit from "../../assets/edit.png";
 import del from "../../assets/delete.png";
