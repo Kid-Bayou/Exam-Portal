@@ -26,14 +26,14 @@ export default function Sidebar({ children }) {
     </div>
 
         <SidebarContext.Provider value={{ expanded }}>
-          <ul className="flex-1 px-3">{children}</ul>
+          <ul className="sidebar-main">{children}</ul>
         </SidebarContext.Provider>
 
-        <div className="border-t flex p-3">
+        <div className="sidebar-bottom">
           <img
             src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
             alt=""
-            className="w-10 h-10 rounded-md"
+            className="sidebar-bottom-image"
           />
           <div
             className={`
