@@ -24,7 +24,7 @@ import UpdateChoice from "./pages/admin/choice/UpdateChoice";
 import DeleteChoice from "./pages/admin/choice/DeleteChoice";
 import Exam from "./pages/examTaker/examination/Exam";
 import { ExamProvider } from "./context/ExamContext";
-import Main from "./pages/examTaker/Dashboard/Main";
+import Main from "./pages/examTaker/Dashboard/Layout";
 import "./App.css";
 
 function App() {
