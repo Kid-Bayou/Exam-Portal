@@ -15,22 +15,24 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
-      const response = await login(formData.email, formData.password);
+      const response = await login(formData);
       if (response.success) {
+        console.log("Login successful");
         setIsLogged(true);
         setError("");
-        // Redirect to the desired page
-        navigate("/dashboard");
+        navigate("/");
       } else {
+        console.log("Login failed:", response.errorMessage);
         setIsLogged(false);
-        setError(response.message);
+        setError(response.errorMessage);
       }
     } catch (error) {
       console.error("Error logging in:", error);
     }
   };
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
