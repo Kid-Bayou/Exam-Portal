@@ -1,14 +1,13 @@
 import Sidebar from "./Sidebar";
 import "./Dashboard.css";
 
-
 function Layout() {
   return (
     <>
-      <main className="App">
-        <Sidebar>
-        </Sidebar>
-      </main>
+      <div className="dashboard-wrapper">
+        <Sidebar></Sidebar>
+        <main className="dashboard-main"></main>
+      </div>
     </>
   );
 }
