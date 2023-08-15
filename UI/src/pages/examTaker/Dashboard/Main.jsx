@@ -1,4 +1,5 @@
 import Sidebar from "./Sidebar"
+import "./Dashboard.css";
 
 function Main() {
     return (
@@ -9,3 +10,5 @@ function Main() {
         </>
     )
 }
+
+export default Main

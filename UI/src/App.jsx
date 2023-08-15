@@ -24,6 +24,7 @@ import UpdateChoice from "./pages/admin/choice/UpdateChoice";
 import DeleteChoice from "./pages/admin/choice/DeleteChoice";
 import Exam from "./pages/examTaker/examination/Exam";
 import { ExamProvider } from "./context/ExamContext";
+import Main from "./pages/examTaker/Dashboard/Main";
 import "./App.css";
 
 function App() {
@@ -87,6 +88,9 @@ function App() {
 
             <Route path="/examination" element={<ExamLayout />}>
               <Route index element={<Exam />} />
+            </Route>
+            <Route path="/main" element={<Main />}>
+              <Route index element={<Main />} />
             </Route>
           </Routes>
         </BrowserRouter>
