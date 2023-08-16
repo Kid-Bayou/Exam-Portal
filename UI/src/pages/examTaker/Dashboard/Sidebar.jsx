@@ -31,15 +31,17 @@ export default function Sidebar({}) {
         </div>
 
         <div className="sidebar-main">
-          <ul >
-            <li>
+          <ul className="sidebar-main-ul" >
+            <li className="sidebar-main-list">
                 <Link to="/" className="sidebar-main-link">
                     <img src={home} className="sidebar-main-img"/>
-                    <h3 className="sidebar-main-header">Home</h3>
+                    <span className={`sidebar-main-text ${expanded ? "expanded" : ""}`}>Home</span>
                 </Link>
-                <Link to="/">
-                    <img src="" />
-                    <p>Prove it</p>
+            </li>
+            <li className="sidebar-main-list">
+                <Link to="/" className="sidebar-main-link">
+                    <img src={home} className="sidebar-main-img"/>
+                    <span className={`sidebar-main-text ${expanded ? "expanded" : ""}`}>Home</span>
                 </Link>
             </li>
           </ul>
