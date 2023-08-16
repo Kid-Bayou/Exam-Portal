@@ -1,29 +1,33 @@
-import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
-import { useContext, createContext, useState } from "react"
-import logo from "../../../assets/logo.png"
+import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
+import { useContext, createContext, useState } from "react";
+import logo from "../../../assets/logo.png";
 
-const SidebarContext = createContext()
+const SidebarContext = createContext();
 
 export default function Sidebar({ children }) {
-  const [expanded, setExpanded] = useState(true)
-  
+  const [expanded, setExpanded] = useState(true);
+
   return (
     <aside className={`sidebar ${expanded ? "expanded" : "collapsed"}`}>
       <nav className="sidebar-nav">
-      <div className="sidebar-top">
-      <img
-        src={logo}
-        className={`sidebar-logo ${expanded ? "expanded" : "collapsed"}`}
-        alt=""
-      />
-      <h3 className={`sidebar-header ${expanded ? "expanded" : "collapsed"}`}>Exam Portal</h3>
-      <button
-        onClick={() => setExpanded((curr) => !curr)}
-        className="custom-button"
-      >
-        {expanded ? <ChevronFirst /> : <ChevronLast />}
-      </button>
-    </div>
+        <div className="sidebar-top">
+          <img
+            src={logo}
+            className={`sidebar-logo ${expanded ? "expanded" : "collapsed"}`}
+            alt=""
+          />
+          <h3
+            className={`sidebar-header ${expanded ? "expanded" : "collapsed"}`}
+          >
+            Exam Portal
+          </h3>
+          <button
+            onClick={() => setExpanded((curr) => !curr)}
+            className="custom-button"
+          >
+            {expanded ? <ChevronFirst /> : <ChevronLast />}
+          </button>
+        </div>
 
         <SidebarContext.Provider value={{ expanded }}>
           <ul className="sidebar-main">{children}</ul>
@@ -35,27 +39,20 @@ export default function Sidebar({ children }) {
             alt=""
             className="sidebar-bottom-image"
           />
-          <div
-            className={`
-              flex justify-between items-center
-              overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}
-          `}
-          >
-            <div className="leading-4">
-              <h4 className="font-semibold">John Doe</h4>
-              <span className="text-xs text-gray-600">johndoe@gmail.com</span>
+          <div className={`custom-container ${expanded ? "expanded" : ""}`}>
+            <div className="custom-info">
+              <h4 className="custom-name">John Doe</h4>
             </div>
-            <MoreVertical size={20} />
           </div>
         </div>
       </nav>
     </aside>
-  )
+  );
 }
 
 export function SidebarItem({ icon, text, active, alert }) {
-  const { expanded } = useContext(SidebarContext)
-  
+  const { expanded } = useContext(SidebarContext);
+
   return (
     <li
       className={`
@@ -98,5 +95,5 @@ export function SidebarItem({ icon, text, active, alert }) {
         </div>
       )}
     </li>
-  )
+  );
 }
