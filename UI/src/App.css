@@ -28,6 +28,7 @@ body {
   padding-bottom: 10vh;
 }
 
+
 /*  ~~~~ HEADER ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -664,4 +665,52 @@ footer {
   margin: 20px;
   margin-bottom: 100px;
   color: #aaaaaa;
+}
+
+
+.colors {
+  display: flex;
+  width: 80vw;
+  height: 40vh;
+  gap: 10px;
+  background-color: white;
+  border: solid 2px black;
+  justify-content: center;
+  align-items: center;
+}
+
+.color1 {
+  width: 100px;
+  height: 100px;
+  background-color: #fdfaf7;
+}
+
+.color2 {
+  width: 100px;
+  height: 100px;
+  background-color: #f5eadb;
+}
+
+.color3 {
+  width: 100px;
+  height: 100px;
+  background-color: #dcc9b1;
+}
+
+.color4 {
+  width: 100px;
+  height: 100px;
+  background-color: #886f50;
+}
+
+.color5 {
+  width: 100px;
+  height: 100px;
+  background-color: #161616;
+}
+
+.color6 {
+  width: 100px;
+  height: 100px;
+  background-color: #aaaaaa;
 }

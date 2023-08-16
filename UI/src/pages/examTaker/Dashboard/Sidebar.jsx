@@ -16,13 +16,13 @@ function Sidebar({}) {
   const location = useLocation();
 
   const sidebarLinks = [
-    {path: "/", text: "Home", image: home},
+    {path: "/userdashboard", text: "Home", image: home},
     {path: "/courses", text: "Exams", image: exams},
-    {path: "/courses", text: "History", image: history},
-    {path: "/courses", text: "Notification", image: notification},
+    {path: "/userdashboard/history", text: "History", image: history},
+    {path: "/userdashboard/notification", text: "Notification", image: notification},
     {path: "/courses", text: "Leaderboad", image: leaderboard},
-    {path: "/courses", text: "Help", image: help},
-    {path: "/courses", text: "Profile", image: profile},
+    {path: "/userdashboard/help", text: "Help", image: help},
+    {path: "/userdashboard/profile", text: "Profile", image: profile},
   ];
 
   return (
