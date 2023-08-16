@@ -4,9 +4,9 @@
 
 .dashboard-wrapper{
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     justify-content: center;
+    align-items: center;
     padding-left: 10px;
 }
 
@@ -144,6 +144,15 @@
   
   .custom-name {
     font-weight: 600;
+  }
+
+  /** ~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+  .dashboard-main {
+    flex: 1;
+    width: 100%;
+    margin: 20px;
+    height: 100%;
   }
 
   

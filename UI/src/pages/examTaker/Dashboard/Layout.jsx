@@ -7,7 +7,9 @@ function Layout() {
     <>
       <div className="dashboard-wrapper">
         <Sidebar />
-        <main className="dashboard-main"></main>
+        <main className="dashboard-main">
+          <Outlet />
+        </main>
       </div>
     </>
   );
