@@ -1,10 +1,11 @@
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import { useContext, createContext, useState } from "react";
+import {Link} from "react-router-dom"
 import logo from "../../../assets/logo.png";
+import home from "../../../assets/icons/home.png"
 
-const SidebarContext = createContext();
 
-export default function Sidebar({ children }) {
+export default function Sidebar({}) {
   const [expanded, setExpanded] = useState(true);
 
   return (
@@ -29,9 +30,20 @@ export default function Sidebar({ children }) {
           </button>
         </div>
 
-        <SidebarContext.Provider value={{ expanded }}>
-          <ul className="sidebar-main">{children}</ul>
-        </SidebarContext.Provider>
+        <div className="sidebar-main">
+          <ul >
+            <li>
+                <Link to="/" className="sidebar-main-link">
+                    <img src={home} className="sidebar-main-img"/>
+                    <h3 className="sidebar-main-header">Home</h3>
+                </Link>
+                <Link to="/">
+                    <img src="" />
+                    <p>Prove it</p>
+                </Link>
+            </li>
+          </ul>
+        </div>
 
         <div className="sidebar-bottom">
           <img
@@ -51,7 +63,6 @@ export default function Sidebar({ children }) {
 }
 
 export function SidebarItem({ icon, text, active, alert }) {
-  const { expanded } = useContext(SidebarContext);
 
   return (
     <li

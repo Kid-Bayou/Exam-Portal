@@ -74,9 +74,14 @@
 
 .sidebar-main {
     flex-grow: 1;
-    padding-left: 0.75;
-    padding-right: 0.75;
+    padding-top: 50px;
 }
+
+.sidebar-main-link {}
+
+.sidebar-main-img {}
+
+.sidebar-main-header {}
 
 .sidebar-bottom {
     border-top: 1px solid #e2e8f0;
