@@ -10,7 +10,7 @@ function Layout() {
         <Sidebar />
         <div className="dashboard-body">
           <Header />
-          <main>
+          <main className="dashboard-main">
           <Outlet />
           </main>
         </div>

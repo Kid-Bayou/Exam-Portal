@@ -10,7 +10,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(242, 241, 239);
+  background-color: rgb(250, 250, 249);
 }
 
 body::-webkit-scrollbar {
