@@ -11,7 +11,7 @@ import help from "../../../assets/icons/help.png"
 import profile from "../../../assets/icons/profile.png"
 
 
-export default function Sidebar({}) {
+function Sidebar({}) {
   const [expanded, setExpanded] = useState(true);
   const location = useLocation();
 
@@ -77,3 +77,5 @@ export default function Sidebar({}) {
     </aside>
   );
 }
+
+export default Sidebar

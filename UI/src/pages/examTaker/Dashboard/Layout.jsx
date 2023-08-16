@@ -1,5 +1,6 @@
 import {Outlet} from "react-router-dom"
 import Sidebar from "./Sidebar";
+import Header from "./Header"
 import "./Dashboard.css";
 
 function Layout() {
@@ -7,9 +8,12 @@ function Layout() {
     <>
       <div className="dashboard-wrapper">
         <Sidebar />
-        <main className="dashboard-main">
+        <div className="dashboard-body">
+          <Header />
+          <main>
           <Outlet />
-        </main>
+          </main>
+        </div>
       </div>
     </>
   );

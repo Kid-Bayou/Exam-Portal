@@ -4,7 +4,7 @@ import logo from "../assets/logo.png"
 function Header() {
     return (
         <>
-            <header>
+            <header className="main-header">
                 <Link className="site-logo" to="/">
                     <img src={logo} className="logo" />
                     <p className="logo-name">Exam Portal</p>
