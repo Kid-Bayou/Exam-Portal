@@ -1,3 +1,4 @@
+import {Outlet} from "react-router-dom"
 import Sidebar from "./Sidebar";
 import "./Dashboard.css";
 
@@ -6,7 +7,8 @@ function Layout() {
     <>
       <div className="dashboard-wrapper">
         <Sidebar></Sidebar>
-        <main className="dashboard-main"></main>
+        <main className="dashboard-main">
+        </main>
       </div>
     </>
   );

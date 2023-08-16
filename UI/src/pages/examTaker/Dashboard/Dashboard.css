@@ -31,7 +31,7 @@
 }
 
 .sidebar.collapsed {
-  --width-value: 7vw;
+  --width-value: 6vw;
 }
 
 .sidebar-top {
@@ -80,13 +80,22 @@
 .sidebar-main-ul {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 10px;
     gap: 20px;
 }
 
-.sidebar-main-list {
+.sidebar-main-ul li.active {
+    background-color: #c4a922;
+  }
 
-}
+  .sidebar-main-ul li:hover {
+    border-radius: 10px;
+    background-color: #e1d4b5;
+  }
+
+  .sidebar-main-ul li {
+    padding: 5px;
+  }
 
 .sidebar-main-link {
     display: flex;
@@ -99,12 +108,12 @@
 .sidebar-main-text {
     overflow: hidden;
     transition: all;
-    width: var(--width-value, 0);
+    font-size: var(--font-size, 0);
     margin-left: 0.75rem;
 }
 
 .sidebar-main-text.expanded {
-    width: 4rem;
+    font-size: 20px;
 }
 
 .sidebar-bottom {
