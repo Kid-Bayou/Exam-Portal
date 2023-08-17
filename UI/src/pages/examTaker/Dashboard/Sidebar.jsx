@@ -9,6 +9,8 @@ import notification from "../../../assets/icons/notification.png"
 import leaderboard from "../../../assets/icons/leaderboard.png"
 import help from "../../../assets/icons/help.png"
 import profile from "../../../assets/icons/profile.png"
+import left from "../../../assets/icons/left-arrow.png"
+import right from "../../../assets/icons/right-arrow.png"
 
 
 function Sidebar({}) {
@@ -39,13 +41,13 @@ function Sidebar({}) {
           >
             Exam Portal
           </h3>
+        </div>
           <button
             onClick={() => setExpanded((curr) => !curr)}
-            className="custom-button"
+            className="sidebar-button"
           >
-            {expanded ? <ChevronFirst /> : <ChevronLast />}
+            {expanded ? <img className="left-arrow" src={left} /> : <img className="right-arrow" src={right} />}
           </button>
-        </div>
 
         <div className="sidebar-main">
           <ul className="sidebar-main-ul">
