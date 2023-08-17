@@ -1,10 +1,9 @@
-import Timer from "./Timer"
 
 function Exam() {
 
     return(
         <>
-            <Timer time="20"/>
+            <h1>Hello</h1>
         </>
         )
 }

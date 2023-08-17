@@ -4,7 +4,7 @@ import Timer from "./Timer"
 function ExamHeader() {
   return (
     <>
-      <header>
+      <header className="examination-header">
         <Link to="/">End Exam</Link>
         <Timer time="20" />
       </header>

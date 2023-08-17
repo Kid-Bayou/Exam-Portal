@@ -1,0 +1,13 @@
+.examination-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.examination-main {
+  flex-grow: 1;
+}
+
+.circular-timer__label {
+  font-size: 2px;
+}
