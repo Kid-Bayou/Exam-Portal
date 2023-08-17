@@ -26,6 +26,12 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.dashboard-main::-webkit-scrollbar {
+  display: none;
 }
 
 /** ~~~~~~~~~~~~~~~~ SIDEBAR ~~~~~~~~~~~~~~ **/ 

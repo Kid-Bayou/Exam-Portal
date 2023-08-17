@@ -28,11 +28,13 @@ import UpdateChoice from "./pages/admin/choice/UpdateChoice";
 import DeleteChoice from "./pages/admin/choice/DeleteChoice";
 
 import Exam from "./pages/examTaker/examination/Exam";
+
 import Profile from "./pages/examTaker/pages/Profile"
 import UserHome from "./pages/examTaker/pages/Home"
 import History from "./pages/examTaker/pages/History"
 import Help from "./pages/examTaker/pages/Help"
 import Notification from "./pages/examTaker/pages/Notification"
+import Exams from "./pages/examTaker/pages/Exams"
 
 import { ExamProvider } from "./context/ExamContext";
 import "./App.css";
@@ -74,6 +76,7 @@ function App() {
             <Route path="/userdashboard" element={<UserDashboard />}>
               <Route index element={<UserHome />} />
               <Route path="history" element={<History />} />
+              <Route path="exams" element={<Exams />} />
               <Route path="help" element={<Help />} />
               <Route path="notification" element={<Notification />} />
               <Route path="profile" element={<Profile />} />
