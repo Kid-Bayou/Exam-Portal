@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
-import ExamLayout from "./components/ExamLayout";
+import ExamLayout from "./pages/examTaker/examination/ExamLayout";
 import UserDashboard from "./pages/examTaker/dashboard/Layout";
 
 import Home from "./pages/Home";

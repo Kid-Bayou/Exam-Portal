@@ -1,4 +1,4 @@
-import Timer from "../../../components/Timer"
+import Timer from "./Timer"
 
 function Exam() {
 

@@ -64,7 +64,7 @@ function Sidebar({}) {
 
         <div className="sidebar-bottom">
           <div className="sidebar-bottom-box">
-            <text className="sidebar-bottom-box-text">JD</text>
+            <h4 className="sidebar-bottom-box-text">JD</h4>
           </div>
               <h4 className={`sidebar-bottom-name ${expanded ? "expanded" : ""}`}>Jane Doe</h4>
         </div>
