@@ -46,3 +46,22 @@
   /** COURSE DETAILS **/
 
   
+.exam-course-name {
+    font-size: 80px;
+    padding-top: 70px;
+  }
+  
+  .exam-course-description-header {
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+  }
+  
+  .exam-course-detail-buttons {
+    margin-bottom: 150px;
+    padding-top: 100px;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+  }
+  
