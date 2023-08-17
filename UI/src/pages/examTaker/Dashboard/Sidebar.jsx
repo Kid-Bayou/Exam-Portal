@@ -30,7 +30,7 @@ function Sidebar({}) {
   return (
     <aside className={`sidebar ${expanded ? "expanded" : "collapsed"}`}>
       <nav className="sidebar-nav">
-        <div className="sidebar-top">
+        <div className={`sidebar-top ${expanded ? "expanded" : "collapsed"}`}>
           <img
             src={logo}
             className={`sidebar-logo ${expanded ? "expanded" : "collapsed"}`}
@@ -44,13 +44,13 @@ function Sidebar({}) {
         </div>
           <button
             onClick={() => setExpanded((curr) => !curr)}
-            className="sidebar-button"
+            className={`sidebar-button ${expanded ? "expanded" : "collapsed"}`}
           >
             {expanded ? <img className="left-arrow" src={left} /> : <img className="right-arrow" src={right} />}
           </button>
 
         <div className="sidebar-main">
-          <ul className="sidebar-main-ul">
+          <ul className={`sidebar-main-ul ${expanded ? "expanded" : "collapsed"}`}>
         {sidebarLinks.map((link) => (
           <li key={link.path} className={location.pathname === link.path ? "active" : ""}>
             <Link to={link.path} className="sidebar-main-link">
