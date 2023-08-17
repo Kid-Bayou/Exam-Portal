@@ -6,8 +6,18 @@
 
 .examination-main {
   flex-grow: 1;
+  margin: 10px;
+  border: solid 2px black;
 }
 
 .circular-timer__label {
   font-size: 2px;
 }
+
+
+.examination-header {
+    margin: 10px;
+    border: solid 2px black;
+    height: 10vh;
+}
+
