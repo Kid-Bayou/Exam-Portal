@@ -1,0 +1,48 @@
+
+/** COURSE LIST **/
+
+.exam-course-header {
+    font-size: 70px;
+  }
+  
+  .exam-course-info {
+    margin: auto;
+    background: rgb(246, 244, 244);
+    height: 150px;
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+  }
+  
+  .exam-course-info-text {
+    padding-top: 60px;
+    font-size: 25px;
+  }
+  
+  .exam-course-tile a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  .exam-course-list-container {
+    padding-inline: 23px;
+    margin: 50px;
+  }
+  
+  .exam-course-list {
+    display: flex;
+    justify-items: center;
+    gap: 80px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .exam-create-course-container {
+    margin-bottom: 150px;
+  }
+
+
+  /** COURSE DETAILS **/
+
+  
