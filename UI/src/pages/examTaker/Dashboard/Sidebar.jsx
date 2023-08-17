@@ -1,4 +1,3 @@
-import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import {useState } from "react";
 import {Link, useLocation} from "react-router-dom"
 import logo from "../../../assets/logo.png";
@@ -64,16 +63,10 @@ function Sidebar({}) {
         </div>
 
         <div className="sidebar-bottom">
-          <img
-            src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
-            alt=""
-            className="sidebar-bottom-image"
-          />
-          <div className={`custom-container ${expanded ? "expanded" : ""}`}>
-            <div className="custom-info">
-              <h4 className="custom-name">John Doe</h4>
-            </div>
+          <div className="sidebar-bottom-box">
+            <text className="sidebar-bottom-box-text">JD</text>
           </div>
+              <h4 className={`sidebar-bottom-name ${expanded ? "expanded" : ""}`}>Jane Doe</h4>
         </div>
       </nav>
     </aside>
