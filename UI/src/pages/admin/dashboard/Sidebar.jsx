@@ -2,10 +2,9 @@ import {useState } from "react";
 import {Link, useLocation} from "react-router-dom"
 import logo from "../../../assets/logo.png";
 import home from "../../../assets/icons/home.png"
-import exams from "../../../assets/icons/exams.png"
-import history from "../../../assets/icons/history.png"
-import notification from "../../../assets/icons/notification.png"
-import leaderboard from "../../../assets/icons/leaderboard.png"
+import courses from "../../../assets/icons/courses.png"
+import usermanagement from "../../../assets/icons/usermanagement.png"
+import reports from "../../../assets/icons/reports.png"
 import help from "../../../assets/icons/help.png"
 import profile from "../../../assets/icons/profile.png"
 import left from "../../../assets/icons/left-arrow.png"
@@ -17,11 +16,12 @@ function Sidebar({}) {
   const location = useLocation();
 
   const sidebarLinks = [
-    {path: "/userdashboard", text: "Home", image: home},
-    {path: "/userdashboard/courses", text: "Courses", image: exams},
-    {path: "/userdashboard/usermanagement", text: "UserManagement", image: notification},
-    {path: "/userdashboard/help", text: "Help", image: help},
-    {path: "/userdashboard/profile", text: "Profile", image: profile},
+    {path: "/admindashboard", text: "Home", image: home},
+    {path: "/admindashboard/courses", text: "Courses", image: courses},
+    {path: "/admindashboard/usermanagement", text: "UserManagement", image: usermanagement},
+    {path: "/admindashboard/report", text: "Reports", image: reports},
+    {path: "/admindashboard/help", text: "Help", image: help},
+    {path: "/admindashboard/profile", text: "Profile", image: profile},
   ];
 
   return (
