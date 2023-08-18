@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import ExamLayout from "./pages/examTaker/examination/ExamLayout";
 import UserDashboard from "./pages/examTaker/dashboard/Layout";
+import AdminDashboard from "./pages/admin/dashboard/Layout"
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -83,6 +84,11 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="examdetails/:id" element={<ExamDetails />} />
             </Route>
+
+            <Route path="/admindashboard" element={<AdminDashboard />}>
+              <Route index element={<UserHome />} />
+            </Route>
+
           </Routes>
         </BrowserRouter>
       </ExamProvider>

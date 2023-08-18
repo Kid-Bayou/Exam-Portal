@@ -18,10 +18,8 @@ function Sidebar({}) {
 
   const sidebarLinks = [
     {path: "/userdashboard", text: "Home", image: home},
-    {path: "/userdashboard/exams", text: "Exams", image: exams},
-    {path: "/userdashboard/history", text: "History", image: history},
-    {path: "/userdashboard/notification", text: "Notification", image: notification},
-    {path: "/courses", text: "Leaderboad", image: leaderboard},
+    {path: "/userdashboard/courses", text: "Courses", image: exams},
+    {path: "/userdashboard/usermanagement", text: "UserManagement", image: notification},
     {path: "/userdashboard/help", text: "Help", image: help},
     {path: "/userdashboard/profile", text: "Profile", image: profile},
   ];
