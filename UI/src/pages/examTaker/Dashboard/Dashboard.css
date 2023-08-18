@@ -107,10 +107,11 @@
   border-radius: 70px;
   background-color: #fdfaf7;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: none
 }
 
 .sidebar-button.expanded {
-  top: 15vh;
+  top: 17vh;
   left: 18vw;
   padding-left: 5px;
   padding-right: 7px;
@@ -119,7 +120,7 @@
 }
 
 .sidebar-button.collapsed {
-  top: 15vh;
+  top: 17vh;
   left: 4vw;
   padding-left: 7px;
   padding-right: 5px;
@@ -141,6 +142,7 @@ height: 30px;
 }
 
 .sidebar-main-ul {
+  list-style: none;
   display: flex;
   flex-direction: column;
   margin: 10px;
@@ -168,6 +170,7 @@ height: 30px;
 }
 
 .sidebar-main-ul li {
+  text-decoration: none;
   padding: 10px;
   border-radius: 10px;
 }

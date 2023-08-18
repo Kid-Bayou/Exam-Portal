@@ -10,10 +10,6 @@ function Header() {
                     <p className="logo-name">Exam Portal</p>
                 </Link>
                 <nav className="nav">
-                    <NavLink to="/courses">
-                        Courses
-                    </NavLink>
-
                     <NavLink to="/about">
                         About
                     </NavLink>
