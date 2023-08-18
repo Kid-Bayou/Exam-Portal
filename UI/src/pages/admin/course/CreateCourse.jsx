@@ -2,6 +2,9 @@ import { useState } from "react";
 import { API_BASE_URL, post } from "../../../service/APIService";
 import { useNavigate } from "react-router-dom";
 
+import "../Admin.css"
+
+
 function CreateCourse() {
   const [formData, setFormData] = useState({
     title: "",

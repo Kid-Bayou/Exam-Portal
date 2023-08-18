@@ -2,6 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
+import "../Admin.css"
+
+
 function CourseDetail() {
   const params = useParams();
   const [course, setCourse] = useState(null);

@@ -6,6 +6,9 @@ import UpdateChoice from "../choice/UpdateChoice";
 import back from "../../../assets/icons/back.png";
 import add from "../../../assets/icons/add.png";
 
+import "../Admin.css"
+
+
 function UpdateQuestion() {
   const params = useParams();
   const [formData, setFormData] = useState({

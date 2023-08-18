@@ -3,6 +3,9 @@ import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 import { ExamContext } from "../../../context/ExamContext";
 
+import "../Admin.css"
+
+
 function CourseList() {
   const { course, setCourse } = useContext(ExamContext);
 

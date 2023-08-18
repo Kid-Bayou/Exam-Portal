@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
+import "../Admin.css"
+
+
 function ChoiceList(props) {
   const [choices, setChoices] = useState([]);
 

@@ -2,6 +2,9 @@ import { useState } from "react";
 import { API_BASE_URL, del } from "../../../service/APIService";
 import { useNavigate, useParams } from "react-router-dom";
 
+import "../Admin.css"
+
+
 function DeleteCourse() {
     const params = useParams();
     const navigate = useNavigate();

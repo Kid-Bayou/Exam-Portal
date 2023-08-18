@@ -2,6 +2,9 @@ import { useState } from "react";
 import { API_BASE_URL, post } from "../../../service/APIService";
 import { useNavigate, useParams } from "react-router-dom";
 
+import "../Admin.css"
+
+
 function CreateModule() {
   const params = useParams();
   const [formData, setFormData] = useState({

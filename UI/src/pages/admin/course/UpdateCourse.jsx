@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { API_BASE_URL, put, get } from "../../../service/APIService";
 import { useParams, useNavigate } from "react-router-dom";
 
+import "../Admin.css"
+
+
 function UpdateCourse() {
   const params = useParams();
   const [formData, setFormData] = useState({

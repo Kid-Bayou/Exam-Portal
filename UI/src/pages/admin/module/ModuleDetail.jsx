@@ -2,6 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
+import "../Admin.css"
+
+
 function ModuleDetail() {
   const params = useParams();
   const [module, setModule] = useState(null);
