@@ -53,22 +53,6 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="login" element={<LogIn />} />
               <Route path="signup" element={<SignUp />} />
-              <Route path="courses" element={<CourseList />} />
-              <Route path="courses/:id" element={<CourseDetail />} />
-              <Route path="courses/createcourse" element={<CreateCourse />} />
-              <Route path="courses/updatecourse/:id" element={<UpdateCourse />}/>
-              <Route path="courses/deletecourse/:id" element={<DeleteCourse />} />
-              <Route path="modules/:id" element={<ModuleList />} />
-              <Route path="modules/moduledetail/:id" element={<ModuleDetail />} />
-              <Route path="modules/createmodule/:id" element={<CreateModule />} />
-              <Route path="modules/deletemodule/:id" element={<DeleteModule />} />
-              <Route path="modules/updatemodule/:id" element={<UpdateModule />} />
-              <Route path="questions/:id" element={<QuestionList />} />
-              <Route path="questions/createquestion/:id" element={<CreateQuestion />} />
-              <Route path="questions/updatequestion/:id" element={<UpdateQuestion />} />
-              <Route path="questions/deletequestion/:id" element={<DeleteQuestion />} />
-              <Route path="questions/updatechoice" element={<UpdateChoice />} />
-              <Route path="questions/deletechoice/:id" element={<DeleteChoice />}/>
             </Route>
 
             <Route path="/examination" element={<ExamLayout />}>
@@ -87,6 +71,22 @@ function App() {
 
             <Route path="/admindashboard" element={<AdminDashboard />}>
               <Route index element={<UserHome />} />
+              <Route path="courses" element={<CourseList />} />
+              <Route path="courses/:id" element={<CourseDetail />} />
+              <Route path="courses/createcourse" element={<CreateCourse />} />
+              <Route path="courses/updatecourse/:id" element={<UpdateCourse />}/>
+              <Route path="courses/deletecourse/:id" element={<DeleteCourse />} />
+              <Route path="modules/:id" element={<ModuleList />} />
+              <Route path="modules/moduledetail/:id" element={<ModuleDetail />} />
+              <Route path="modules/createmodule/:id" element={<CreateModule />} />
+              <Route path="modules/deletemodule/:id" element={<DeleteModule />} />
+              <Route path="modules/updatemodule/:id" element={<UpdateModule />} />
+              <Route path="questions/:id" element={<QuestionList />} />
+              <Route path="questions/createquestion/:id" element={<CreateQuestion />} />
+              <Route path="questions/updatequestion/:id" element={<UpdateQuestion />} />
+              <Route path="questions/deletequestion/:id" element={<DeleteQuestion />} />
+              <Route path="questions/updatechoice" element={<UpdateChoice />} />
+              <Route path="questions/deletechoice/:id" element={<DeleteChoice />}/>
             </Route>
 
           </Routes>

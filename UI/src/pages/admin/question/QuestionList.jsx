@@ -20,13 +20,13 @@ function QuestionList() {
           {index + 1}. {question.questionContent}
         </h3>
         <Link
-          to={`/questions/updatequestion/${question.id}`}
+          to={`/admindashboard/questions/updatequestion/${question.id}`}
           className="edit-container"
         >
           <img src={edit} className="edit" />
         </Link>
         <Link
-          to={`/questions/deletequestion/${question.id}`}
+          to={`/admindashboard/questions/deletequestion/${question.id}`}
           className="edit-container"
         >
           <img src={del} className="edit" />
@@ -74,7 +74,7 @@ function QuestionList() {
       )}
 
       <div className="question-list-button">
-        <Link to={`/questions/createquestion/${params.id}`}>
+        <Link to={`/admindashboard/questions/createquestion/${params.id}`}>
           <button className="button">Create Question</button>
         </Link>
       </div>

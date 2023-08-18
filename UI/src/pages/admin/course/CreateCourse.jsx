@@ -18,7 +18,7 @@ function CreateCourse() {
         `${API_BASE_URL}/api/Course/CreateCourse`,
         formData
       );
-      navigate("/courses");
+      navigate("/admindashboard/courses");
       console.log("post request successful:", response);
     } catch (error) {
       console.error("Error making post request:", error);

@@ -9,7 +9,7 @@ function ModuleList() {
 
   const moduleElements = module.map((module) => (
     <div key={module.id} className="module-tile">
-      <Link to={`/modules/moduledetail/${module.id}`}>
+      <Link to={`/admindashboard/modules/moduledetail/${module.id}`}>
         <div className="module-info">
           <h3 className="module-info-text">{module.title}</h3>
         </div>
@@ -47,7 +47,7 @@ function ModuleList() {
       )}
 
       <div className="module-list-button">
-        <Link to={`/modules/createmodule/${params.id}`}>
+        <Link to={`/admindashboard/modules/createmodule/${params.id}`}>
           <button className="button">Create Module</button>
         </Link>
       </div>

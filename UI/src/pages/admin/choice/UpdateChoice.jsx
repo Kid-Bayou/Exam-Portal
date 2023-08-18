@@ -67,7 +67,7 @@ function UpdateChoice(props) {
                   onChange={(event) => handleChoiceChange(index, event)}
                 />
               </div>
-              <Link to={`/questions/deletechoice/${choiceData.id}`}>
+              <Link to={`/admindashboard/questions/deletechoice/${choiceData.id}`}>
                 <img src={del} className="delete" />
               </Link>
             </div>

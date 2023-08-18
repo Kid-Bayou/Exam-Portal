@@ -35,13 +35,13 @@ function ModuleDetail() {
         )}
       </div>
       <div className="module-detail-buttons">
-        <Link to={`/modules/updatemodule/${params.id}`}>
+        <Link to={`/admindashboard/modules/updatemodule/${params.id}`}>
           <button className="button">Update Module</button>
         </Link>
-        <Link to={`/modules/deletemodule/${params.id}`}>
+        <Link to={`/admindashboard/modules/deletemodule/${params.id}`}>
           <button className="button">Delete Module</button>
         </Link>
-        <Link to={`/questions/${params.id}`}>
+        <Link to={`/admindashboard/questions/${params.id}`}>
           <button className="button">Questions</button>
         </Link>
       </div>

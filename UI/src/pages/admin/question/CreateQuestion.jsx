@@ -20,7 +20,7 @@ function CreateQuestion() {
         `${API_BASE_URL}/api/Question/CreateQuestion?mId=${params.id}`,
         formData
       );
-      navigate(`/questions/${params.id}`);
+      navigate(`/admindashboard/questions/${params.id}`);
       console.log("post request successful:", response);
     } catch (error) {
       console.error("Error making post request:", error);

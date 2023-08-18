@@ -8,7 +8,7 @@ function CourseList() {
 
   const courseElements = course.map((course) => (
     <div key={course.id} className="course-tile">
-      <Link to={`/courses/${course.id}`}>
+      <Link to={`/admindashboard/courses/${course.id}`}>
         <div className="course-info">
           <h3 className="course-info-text">{course.title}</h3>
         </div>

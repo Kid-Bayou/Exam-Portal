@@ -38,7 +38,7 @@ function CreateModule() {
         `${API_BASE_URL}/api/Module/UpdateModule/${params.id}`,
         formData
       );
-      navigate(`/modules/moduledetail/${params.id}`);
+      navigate(`/admindashboard/modules/moduledetail/${params.id}`);
       console.log("put request successful:", response);
     } catch (error) {
       console.error("Error making put request:", error);

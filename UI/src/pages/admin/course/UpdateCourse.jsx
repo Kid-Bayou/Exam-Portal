@@ -35,7 +35,7 @@ function UpdateCourse() {
         `${API_BASE_URL}/api/Course/UpdateCourse/${params.id}`,
         formData
       );
-      navigate(`/courses/${params.id}`);
+      navigate(`/admindashboard/courses/${params.id}`);
       console.log("put request successful:", response);
     } catch (error) {
       console.error("Error making put request:", error);

@@ -21,7 +21,7 @@ function CreateModule() {
         `${API_BASE_URL}/api/Module/CreateModule?cId=${params.id}`,
         formData
       );
-      navigate(`/modules/${params.id}`);
+      navigate(`/admindashboard/modules/${params.id}`);
       console.log("post request successful:", response);
     } catch (error) {
       console.error("Error making post request:", error);

@@ -17,7 +17,7 @@ function DeleteCourse() {
     }
 
     const exitDelete = async () => {
-        navigate(`/courses/${params.id}`)
+        navigate(`/admindashboard/courses/${params.id}`)
     }
 
   return (

@@ -17,7 +17,7 @@ function DeleteChoice() {
     }
 
     const exitDelete = async () => {
-        navigate(`/choices/${params.id}`)
+        navigate(`/admindashboard/choices/${params.id}`)
     }
 
   return (
