@@ -7,8 +7,7 @@ import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";
 import del from "../../../assets/icons/delete.png";
 
-import "../Admin.css"
-
+import "../../../styles/Admin.css";
 
 function QuestionList() {
   const params = useParams();

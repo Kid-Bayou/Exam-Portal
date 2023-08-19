@@ -2,8 +2,7 @@ import { useState } from "react";
 import { API_BASE_URL, post } from "../../../service/APIService";
 import { useNavigate } from "react-router-dom";
 
-import "../Admin.css"
-
+import "../../../styles/Admin.css";
 
 function CreateChoice(props) {
   const [formData, setFormData] = useState({
@@ -24,7 +23,7 @@ function CreateChoice(props) {
       window.location.reload();
       console.log("post request successful:", response);
     } catch (error) {
-      console.log(props.id)
+      console.log(props.id);
       console.error("Error making post request:", error);
     }
   };
@@ -42,9 +41,9 @@ function CreateChoice(props) {
       <form onSubmit={handleSubmit} className="form">
         <label className="form-box">
           <p className="form-label"> Choice Content:</p>
-          <input 
-          type="text"
-          className="form-input"
+          <input
+            type="text"
+            className="form-input"
             name="choiceContent"
             value={formData.choiceContent}
             onChange={handleChange}

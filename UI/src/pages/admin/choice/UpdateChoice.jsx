@@ -3,8 +3,7 @@ import { API_BASE_URL, put, get } from "../../../service/APIService";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import del from "../../../assets/icons/delete.png";
 
-import "../Admin.css"
-
+import "../../../styles/Admin.css";
 
 function UpdateChoice(props) {
   const params = useParams();
@@ -70,7 +69,9 @@ function UpdateChoice(props) {
                   onChange={(event) => handleChoiceChange(index, event)}
                 />
               </div>
-              <Link to={`/admindashboard/questions/deletechoice/${choiceData.id}`}>
+              <Link
+                to={`/admindashboard/questions/deletechoice/${choiceData.id}`}
+              >
                 <img src={del} className="delete" />
               </Link>
             </div>

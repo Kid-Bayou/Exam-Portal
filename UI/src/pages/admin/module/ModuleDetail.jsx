@@ -2,8 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
-import "../Admin.css"
-
+import "../../../styles/Admin.css";
 
 function ModuleDetail() {
   const params = useParams();
@@ -29,9 +28,12 @@ function ModuleDetail() {
         {module ? (
           <div className="module-detail">
             <h3 className="module-name">{module.title}</h3>
-            <h4 className="module-description-header">Duration: {module.duration}</h4>
-            <h4 className="module-description-header">PassingMark: {module.passingMark}</h4>
-    
+            <h4 className="module-description-header">
+              Duration: {module.duration}
+            </h4>
+            <h4 className="module-description-header">
+              PassingMark: {module.passingMark}
+            </h4>
           </div>
         ) : (
           <h2>Loading</h2>

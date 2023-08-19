@@ -2,17 +2,18 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
-import "../Admin.css"
-
+import "../../../styles/Admin.css";
 
 function ChoiceList(props) {
   const [choices, setChoices] = useState([]);
 
   const handleChoiceChange = (choiceId) => {
-    setChoices((prevChoices) => prevChoices.map(choice => ({
-      ...choice,
-      selected: choice.id === choiceId
-    })));
+    setChoices((prevChoices) =>
+      prevChoices.map((choice) => ({
+        ...choice,
+        selected: choice.id === choiceId,
+      }))
+    );
   };
 
   const choiceElements = choices.map((choiceItem) => (
@@ -27,7 +28,13 @@ function ChoiceList(props) {
             checked={choiceItem.selected}
             onChange={() => handleChoiceChange(choiceItem.id)}
           />
-          <span className={`radio-btn-span ${choiceItem.selected ? 'selected' : ''}`}>{choiceItem.choiceContent}</span>
+          <span
+            className={`radio-btn-span ${
+              choiceItem.selected ? "selected" : ""
+            }`}
+          >
+            {choiceItem.choiceContent}
+          </span>
         </label>
       </form>
     </div>
@@ -39,10 +46,12 @@ function ChoiceList(props) {
         const responseData = await get(
           `${API_BASE_URL}/api/Choice/GetQuestionChoices?id=${props.qId}`
         );
-        setChoices(responseData.map(choice => ({
-          ...choice,
-          selected: false
-        })));
+        setChoices(
+          responseData.map((choice) => ({
+            ...choice,
+            selected: false,
+          }))
+        );
       } catch (error) {
         if (error.response.status === 404) {
           setChoices([]);

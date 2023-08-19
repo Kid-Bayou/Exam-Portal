@@ -2,8 +2,7 @@ import { useState } from "react";
 import { API_BASE_URL, post } from "../../../service/APIService";
 import { useNavigate } from "react-router-dom";
 
-import "../Admin.css"
-
+import "../../../styles/Admin.css";
 
 function CreateCourse() {
   const [formData, setFormData] = useState({
@@ -43,7 +42,7 @@ function CreateCourse() {
         <label className="form-box">
           <p className="form-label"> Course Title:</p>
           <input
-          className="form-input"
+            className="form-input"
             type="text"
             name="title"
             value={formData.title}
@@ -53,7 +52,7 @@ function CreateCourse() {
         <label className="form-box">
           <p className="form-label"> Description:</p>
           <textarea
-          className="form-input"
+            className="form-input"
             name="description"
             value={formData.description}
             onChange={handleChange}
