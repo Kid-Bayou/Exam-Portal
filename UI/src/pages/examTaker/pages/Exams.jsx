@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect} from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
-import "./Pages.css"
+import "../../../styles/Pages.css"
 
 function CourseExam() {
     

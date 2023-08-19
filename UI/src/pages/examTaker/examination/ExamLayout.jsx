@@ -1,7 +1,7 @@
 import {Outlet} from "react-router-dom"
 import ExamHeader from "./ExamHeader"
 import ExamFooter from "./ExamFooter"
-import "./Examination.css"
+import "../../../styles/Examination.css"
 
 function ExamLayout() {
     return (
