@@ -14,14 +14,17 @@ namespace Exam_Portal.Repository
     public class AccountRepository : IAccountRepository
     {
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IConfiguration _configuration;
 
         public AccountRepository(UserManager<User> userManager, 
             SignInManager<User> signInManager,
+            RoleManager<IdentityRole> roleManager,
             IConfiguration configuration) 
         { 
             _userManager = userManager;
+            _roleManager = roleManager;
             _signInManager = signInManager;
             _configuration = configuration;
         }
@@ -31,7 +34,7 @@ namespace Exam_Portal.Repository
             return _userManager.Users.ToList();
         }
 
-        public async Task<IdentityResult> SignUpAsync(SignUpModel signUpModel)
+        public async Task<IdentityResult> SignUpAsync(SignUpModel signUpModel, bool isAdmin)
         {
             var user = new User()
             {
@@ -41,7 +44,31 @@ namespace Exam_Portal.Repository
                 UserName = signUpModel.Email
             };
 
-            return await _userManager.CreateAsync(user, signUpModel.Password);
+            var result = await _userManager.CreateAsync(user, signUpModel.Password);
+
+            if (result.Succeeded)
+            {
+                if (!await _roleManager.RoleExistsAsync("Administrator"))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole("Administrator"));
+                }
+
+                if (!await _roleManager.RoleExistsAsync("ExamTaker"))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole("ExamTaker"));
+                }
+
+                if (isAdmin)
+                {
+                    await _userManager.AddToRoleAsync(user, "Administrator");
+                }
+                else
+                {
+                    await _userManager.AddToRoleAsync(user, "ExamTaker");
+                }
+            }
+
+            return result;
         }
 
         public async Task<string> LoginAsync(SignInModel signInModel)
@@ -53,11 +80,19 @@ namespace Exam_Portal.Repository
                 return null;
             }
 
+            var user = await _userManager.FindByEmailAsync(signInModel.Email);
+            var roles = await _userManager.GetRolesAsync(user);
+
             var authClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, signInModel.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
+
+            foreach (var role in roles)
+            {
+                authClaims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             var authSigninKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JWT:Secret"]));
 

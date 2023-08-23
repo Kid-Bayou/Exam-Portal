@@ -76,6 +76,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 });
 
 builder.Services.AddIdentity<User, IdentityRole>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<DataContext>()
     .AddDefaultTokenProviders();
 

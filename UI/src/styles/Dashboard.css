@@ -145,17 +145,14 @@ height: 30px;
   list-style: none;
   display: flex;
   flex-direction: column;
-  margin: 10px;
   border-radius: 10px;
-  gap: 15px;
+  margin-left: -25px;
+  gap: 10px;
 }
 
+
 .sidebar-main-ul.collapsed {
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
   border-radius: 10px;
-  gap: 15px;
   align-items: center;
   justify-content: center;
 }
@@ -176,6 +173,8 @@ height: 30px;
 }
 
 .sidebar-main-link {
+  text-decoration: none;
+  color: black;
   display: flex;
 }
 
@@ -211,12 +210,12 @@ height: 30px;
   background-color: #dcc9b1;
   border: solid 1px #886f50;
   border-radius: 7px;
-  padding-top: 5px;
 }
 
 .sidebar-bottom-box-text {
   font-size: 20px;
   font-weight: bolder;
+  margin-top: 8px;
 }
 
 .sidebar-bottom-name {

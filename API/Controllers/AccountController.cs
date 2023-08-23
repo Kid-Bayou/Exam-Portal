@@ -3,6 +3,7 @@ using Exam_Portal.Interfaces;
 using Exam_Portal.Models;
 using Exam_Portal.Repository;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Exam_Portal.Controllers
@@ -19,9 +20,11 @@ namespace Exam_Portal.Controllers
         }
 
         [HttpPost("signup")]
-        public async Task<IActionResult> SignUp([FromBody] SignUpModel signUpModel)
+        public async Task<IActionResult> SignUp([FromBody] SignUpModel signUpModel, [FromQuery] bool admin)
         {
-            var result = await _accountRepository.SignUpAsync(signUpModel);
+            bool isAdmin = admin;
+            var result = await _accountRepository.SignUpAsync(signUpModel, isAdmin);
+
 
             if (result.Succeeded)
             {
@@ -51,6 +54,7 @@ namespace Exam_Portal.Controllers
             {
                 return Unauthorized();
             }
+
 
             return Ok(result);
         }

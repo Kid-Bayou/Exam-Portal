@@ -37,6 +37,7 @@ import Help from "./pages/examTaker/pages/Help"
 import Notification from "./pages/examTaker/pages/Notification"
 import Exams from "./pages/examTaker/pages/Exams"
 import ExamDetails from "./pages/examTaker/pages/ExamsDetails"
+import ExamDetails2 from "./pages/examTaker/pages/ExamDetails2"
 
 import { ExamProvider } from "./context/ExamContext";
 import "./App.css";
@@ -63,6 +64,7 @@ function App() {
               <Route index element={<UserHome />} />
               <Route path="history" element={<History />} />
               <Route path="exams" element={<Exams />} />
+              <Route path="examdetail2/:id" element={<ExamDetails2 />} />
               <Route path="help" element={<Help />} />
               <Route path="notification" element={<Notification />} />
               <Route path="profile" element={<Profile />} />

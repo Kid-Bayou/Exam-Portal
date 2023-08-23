@@ -2,12 +2,29 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
+import "../../../styles/Pages.css"
+
 function ExamDetails() {
   const params = useParams();
   const [course, setCourse] = useState([]);
+  const [modules, setModules] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const responseData = await get(
+        `${API_BASE_URL}/api/Module/GetCourseModules?id=${params.id}`
+      );
+      setModules(responseData);
+    } catch (error) {
+      if (error.response.status === 404) {
+        setModules([]);
+      }
+      console.error("Error fetching data:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchCourseData = async () => {
       try {
         const responseData = await get(
           `${API_BASE_URL}/api/Course/GetCourse?id=${params.id}`
@@ -17,8 +34,19 @@ function ExamDetails() {
         console.error("Error fetching data:", error);
       }
     };
+    fetchCourseData();
     fetchData();
-  }, []);
+  }, [params.id]);
+
+  const moduleElements = modules.map((moduleItem) => (
+    <div key={moduleItem.id} className="module-tile">
+      <Link to={`/userdashboard/examdetail2/${moduleItem.id}`}>
+        <div className="module-info">
+          <h3 className="module-info-text">{moduleItem.title}</h3>
+        </div>
+      </Link>
+    </div>
+  ));
 
   return (
     <>
@@ -33,61 +61,16 @@ function ExamDetails() {
           <h2>Loading</h2>
         )}
       </div>
-      <ModuleList cId={course.id}/>
+      {modules ? (
+        <div className="module-list-container">
+          <h2 className="module-header">Module</h2>
+          <div className="module-list">{moduleElements}</div>
+        </div>
+      ) : (
+        <h2>Loading</h2>
+      )}
     </>
   );
 }
-;
 
-export function ModuleList(props) {
-    
-    const [module, setModule] = useState([]);
-  
-    const moduleElements = module.map((module) => (
-      <div key={module.id} className="module-tile">
-        <Link to={`/modules/moduledetail/${module.id}`}>
-          <div className="module-info">
-            <h3 className="module-info-text">{module.title}</h3>
-          </div>
-        </Link>
-      </div>
-    ));
-  
-    useEffect(() => {
-      fetchData();
-    }, []);
-  
-    const fetchData = async () => {
-      try {
-        const responseData = await get(
-          `${API_BASE_URL}/api/Module/GetCourseModules?id=${props.cId}`
-        );
-        setModule(responseData);
-      } catch (error) {
-        if (error.response.status === 404) {
-          setModule([]);
-        }
-        console.error("Error fetching data:", error);
-      }
-    };
-  
-    return (
-      <>
-        {module ? (
-          <div className="module-list-container">
-            <h2 className="module-header">Module</h2>
-            <div className="module-list">{moduleElements}</div>
-          </div>
-        ) : (
-          <h2>Loading</h2>
-        )}
-
-      </>
-    );
-  }
-
-export default ExamDetails
-
-
-
-
+export default ExamDetails;
