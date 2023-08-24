@@ -10,13 +10,24 @@
   border: solid 2px black;
 }
 
-.circular-timer__label {
-  font-size: 2px;
-}
-
-
 .examination-header {
     margin: 10px;
     border: solid 2px black;
     height: 10vh;
+}
+
+
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value {
+  font-size: 35px;
 }

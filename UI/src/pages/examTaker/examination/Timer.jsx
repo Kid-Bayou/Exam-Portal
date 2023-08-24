@@ -1,65 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-function Timer(props) {
-  const TIME_LIMIT = props.time;
-  const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
+import "../../../styles/Examination.css";
 
-  useEffect(() => {
-    if (timeLeft > 0) {
-      const timer = setInterval(() => {
-        setTimeLeft(timeLeft => timeLeft - 1);
-      }, 1000);
-      return () => clearInterval(timer);
-    }
-  }, [timeLeft]);
-
-  const calculatePath = (radius, progress) => {
-    const circumference = 2 * Math.PI * radius;
-    const offset = circumference - (progress / TIME_LIMIT) * circumference;
-    return { circumference, offset };
-  };
-
-  const formatTime = (timeInSeconds) => {
-    const hours = Math.floor(timeInSeconds / 3600);
-    const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    const seconds = timeInSeconds % 60;
-
-    const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    return formattedTime;
-  };
-
-  const { circumference, offset } = calculatePath(5, timeLeft);
+const renderTime = ({ remainingTime }) => {
+  const hours = String(Math.floor(remainingTime / 3600)).padStart(2,"0");
+  const minutes = String(Math.floor((remainingTime % 3600) / 60)).padStart(2,"0");
+  const seconds = String(remainingTime % 60).padStart(2,"0");
+  if (remainingTime === 0) {
+    return <div className="timer">Too lale...</div>;
+  }
 
   return (
-    <div className="circular-timer">
-      <svg className="circular-timer__svg" viewBox="0 0 100 100">
-        <circle
-          className="circular-timer__path-elapsed"
-          cx="90"
-          cy="6"
-          r="5"
-          stroke="#ccc"
-          strokeWidth="1"
-          fill="transparent"
-        />
-        <circle
-          className="circular-timer__path-remaining"
-          cx="94"
-          cy="90"
-          r="5"
-          transform="rotate(-90 50 50)"
-          stroke="#ff5f5f"
-          strokeWidth="1"
-          fill="transparent"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-        />
-        <text className="circular-timer__label" x="86.6" y="7">
-          {formatTime(timeLeft)}
-        </text>
-      </svg>
+    <div className="timer">
+      <div className="value">{`${hours}:${minutes}:${seconds}`}</div>
     </div>
+  );
+};
+
+function Timer() {
+  return (
+      <div className="timer-wrapper">
+        <CountdownCircleTimer
+          isPlaying
+          duration={40}
+          rotation = {"counterclockwise"}
+          colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+          colorsTime={[10, 6, 3, 0]}
+          onComplete={() => ({ shouldRepeat: true, delay: 5 })}
+        >
+          {renderTime}
+        </CountdownCircleTimer>
+      </div>
   );
 }
 
-export default Timer;
+export default Timer
