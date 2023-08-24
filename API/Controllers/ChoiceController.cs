@@ -73,7 +73,7 @@ namespace Exam_Portal.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateChoice([FromQuery] int qId, [FromBody] ChoiceDto choiceCreate)
+        public IActionResult CreateChoice([FromBody] ChoiceDto choiceCreate)
         {
             if (choiceCreate == null)
             {
@@ -97,7 +97,6 @@ namespace Exam_Portal.Controllers
 
             var choiceMap = _mapper.Map<Choice>(choiceCreate);
 
-            choiceMap.Question = _questionRepository.GetQuestion(qId);
 
             if (!_choiceRepository.CreateChoice(choiceMap))
             {

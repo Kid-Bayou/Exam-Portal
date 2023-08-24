@@ -74,7 +74,7 @@ namespace Exam_Portal.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateModule([FromQuery] int cId, [FromBody] ModuleDto moduleCreate)
+        public IActionResult CreateModule([FromBody] ModuleDto moduleCreate)
         {
             if (moduleCreate == null)
             {
@@ -88,7 +88,6 @@ namespace Exam_Portal.Controllers
 
             var moduleMap = _mapper.Map<Module>(moduleCreate);
 
-            moduleMap.Course = _courseRepository.GetCourse(cId);
 
             if (!_moduleRepository.CreateModule(moduleMap))
             {

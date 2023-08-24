@@ -72,7 +72,7 @@ namespace Exam_Portal.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateQuestion([FromQuery] int mId, [FromBody] QuestionDto questionCreate)
+        public IActionResult CreateQuestion([FromBody] QuestionDto questionCreate)
         {
             if (questionCreate == null)
             {
@@ -96,7 +96,6 @@ namespace Exam_Portal.Controllers
 
             var questionMap = _mapper.Map<Question>(questionCreate);
 
-            questionMap.Module = _moduleRepository.GetModule(mId);
 
             if (!_questionRepository.CreateQuestion(questionMap))
             {

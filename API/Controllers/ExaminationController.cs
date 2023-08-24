@@ -65,7 +65,7 @@ namespace Exam_Portal.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateExamination([FromQuery] int mId, [FromQuery] int cId, [FromQuery] int eId, [FromBody] ExaminationDto examinationCreate)
+        public IActionResult CreateExamination([FromBody] ExaminationDto examinationCreate)
         {
             if (examinationCreate == null)
             {
@@ -78,9 +78,6 @@ namespace Exam_Portal.Controllers
             }
 
             var examinationMap = _mapper.Map<Examination>(examinationCreate);
-
-            examinationMap.Module = _moduleRepository.GetModule(mId);
-            examinationMap.ExamTaker = _examTakerRepository.GetExamTaker(eId);
 
 
             if (!_examinationRepository.CreateExamination(examinationMap))

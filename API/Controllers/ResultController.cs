@@ -60,7 +60,7 @@ namespace Exam_Portal.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateResult([FromQuery] int eId, [FromBody] ResultDto resultCreate)
+        public IActionResult CreateResult([FromBody] ResultDto resultCreate)
         {
             if (resultCreate == null)
             {
@@ -84,7 +84,6 @@ namespace Exam_Portal.Controllers
 
             var resultMap = _mapper.Map<Result>(resultCreate);
 
-            resultMap.Examination = _examinationRepository.GetExamination(eId);
 
             if (!_resultRepository.CreateResult(resultMap))
             {

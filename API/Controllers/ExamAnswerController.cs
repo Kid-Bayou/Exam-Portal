@@ -60,7 +60,7 @@ namespace Exam_Portal.Controllers
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public IActionResult CreateExamAnswer([FromQuery] int eId, [FromQuery] int qId, [FromBody] ExamAnswerDto examAnswerCreate)
+        public IActionResult CreateExamAnswer([FromBody] ExamAnswerDto examAnswerCreate)
         {
             if (examAnswerCreate == null)
             {
@@ -74,8 +74,7 @@ namespace Exam_Portal.Controllers
 
             var examAnswerMap = _mapper.Map<ExamAnswer>(examAnswerCreate);
 
-            examAnswerMap.Examination = _examinationRepository.GetExamination(eId);
-            examAnswerMap.Question = _questionRepository.GetQuestion(qId);
+           
 
             if (!_examAnswerRepository.CreateExamAnswer(examAnswerMap))
             {
