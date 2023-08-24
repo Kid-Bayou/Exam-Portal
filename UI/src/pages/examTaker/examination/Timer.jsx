@@ -24,6 +24,8 @@ function Timer() {
           isPlaying
           duration={40}
           rotation = {"counterclockwise"}
+          size={70}
+          strokeWidth={5}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[10, 6, 3, 0]}
           onComplete={() => ({ shouldRepeat: true, delay: 5 })}

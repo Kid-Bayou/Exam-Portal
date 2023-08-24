@@ -6,7 +6,7 @@ function ExamHeader() {
     <>
       <header className="examination-header">
         <Link to="/">End Exam</Link>
-        <Timer initialTime={360}  />
+        <Timer  />
       </header>
     </>
   );

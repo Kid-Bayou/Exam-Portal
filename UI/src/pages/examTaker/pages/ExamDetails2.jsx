@@ -40,7 +40,7 @@ function ExamDetails2() {
         )}
       </div>
       <div className="module-detail-buttons">
-        <Link to={`/admindashboard/modules/updatemodule/${params.id}`}>
+        <Link to={`/examination/${params.id}`}>
           <button className="button">Start Module</button>
         </Link>
       </div>

@@ -57,7 +57,7 @@ function App() {
             </Route>
 
             <Route path="/examination" element={<ExamLayout />}>
-              <Route index element={<Exam />} />
+              <Route path=":id" element={<Exam />} />
             </Route>
 
             <Route path="/userdashboard" element={<UserDashboard />}>
