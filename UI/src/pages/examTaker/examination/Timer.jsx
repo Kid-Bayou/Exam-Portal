@@ -1,6 +1,5 @@
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-import "../../../styles/Examination.css";
 
 const renderTime = ({ remainingTime }) => {
   const hours = String(Math.floor(remainingTime / 3600)).padStart(2,"0");

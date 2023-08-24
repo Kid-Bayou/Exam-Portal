@@ -4,45 +4,46 @@ import { API_BASE_URL, get } from "../../../service/APIService";
 import ChoiceList from "./Choices";
 
 function Exam() {
-    const params = useParams();
-    const [question, setQuestion] = useState([]);
-  
-    const questionElements = question.map((question, index) => (
-      <div key={question.id} className="question-tile">
-        <div className="question-info">
-          <h3 className="question-info-text">
-            {index + 1}. {question.questionContent}
-          </h3>
-        </div>
-        <ChoiceList qId={question.id} />
+  const params = useParams();
+  const [question, setQuestion] = useState([]);
+
+  const questionElements = question.map((question, index) => (
+    <div key={question.id} className="e-question-tile">
+      <div className="e-question-info">
+        <h3 className="e-question-info-text">
+          {index + 1}. {question.questionContent}
+        </h3>
       </div>
-    ));
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const responseData = await get(
-            `${API_BASE_URL}/api/Question/GetModuleQuestions?id=${params.id}`
-          );
-          setQuestion(responseData);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-      fetchData();
-    }, []);
-  
-    return (
-      <>
+      <ChoiceList qId={question.id} />
+    </div>
+  ));
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const responseData = await get(
+          `${API_BASE_URL}/api/Question/GetModuleQuestions?id=${params.id}`
+        );
+        setQuestion(responseData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <div className="e-container">
         {question ? (
-          <div className="question-list-container">
-            <div className="question-list">{questionElements}</div>
+          <div className="e-question-list-container">
+            <div className="e-question-list">{questionElements}</div>
           </div>
         ) : (
           <h2>Loading</h2>
         )}
-
-      </>
-    );
+      </div>
+    </>
+  );
 }
-export default Exam
+export default Exam;

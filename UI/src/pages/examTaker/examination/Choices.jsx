@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
-import "../../../styles/Admin.css";
 
 function ChoiceList(props) {
   const [choices, setChoices] = useState([]);
@@ -17,19 +16,19 @@ function ChoiceList(props) {
   };
 
   const choiceElements = choices.map((choiceItem) => (
-    <div key={choiceItem.id} className="choice-tile">
-      <form className="radio-btn-form">
-        <label className="radio-btn-label">
+    <div key={choiceItem.id} className="e-choice-tile">
+      <form className="e-radio-btn-form">
+        <label className="e-radio-btn-label">
           <input
             type="radio"
             name="choice"
             value={choiceItem.id}
-            className="radio-btn-input"
+            className="e-radio-btn-input"
             checked={choiceItem.selected}
             onChange={() => handleChoiceChange(choiceItem.id)}
           />
           <span
-            className={`radio-btn-span ${
+            className={`e-radio-btn-span ${
               choiceItem.selected ? "selected" : ""
             }`}
           >
@@ -65,7 +64,7 @@ function ChoiceList(props) {
   return (
     <>
       {choices.length > 0 ? (
-        <div className="choice-list">
+        <div className="e-choice-list">
           <div>{choiceElements}</div>
         </div>
       ) : (

@@ -1,22 +1,33 @@
+
+/** ~~~~~~~~~~~~~~~~~~~~~ EXAMINATION ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
+
 .examination-wrapper {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
+.examination-header {
+  margin: 10px;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fdfaf7;
+}
+
 .examination-main {
   flex-grow: 1;
   margin: 10px;
-  border: solid 2px black;
 }
 
-.examination-header {
-    margin: 10px;
-    border: solid 2px black;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between
-}
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~ TIMER ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
 
 
 .timer-wrapper {
@@ -32,4 +43,190 @@
 
 .value {
   font-size: 14px;
+}
+
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~ TIMER ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
+
+.e-container{
+ margin-top: 40px;
+ margin-bottom: 100px;
+ margin-left: 50px;
+}
+
+
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~ TIMER ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
+
+
+.e-question-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+
+.e-question-info-text {
+  font-size: 25px;
+}
+
+
+.e-question-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.e-question-list {
+  display: flex;
+  justify-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~ CHOICE ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
+
+  .e-choice-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .e-choice-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .e-choice-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  
+  .e-radio-btn-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  
+  .e-radio-btn-label {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .e-radio-btn-input {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .e-radio-btn-span {
+    display: flex;
+    align-items: center;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.25s ease;
+  }
+  
+  .e-radio-btn-span:hover {
+    background-color: #f3e7d6;
+  }
+  
+  .e-radio-btn-span.selected {
+    background-color: #d6c1a5 ;
+    color: white;
+  }
+  
+  .e-radio-btn-span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em #8e7453;
+  }
+  
+  .e-radio-btn-span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 1px #8e7453;
+  }
+  
+  .e-radio-btn-input:checked + .e-radio-btn-span:before {
+    box-shadow: inset 0 0 0 0.5em #8e7453;
+  }
+
+
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~ CHOICE ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
+
+ 
+.button-24 {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.button-24:active {
+  opacity: .5;
 }
