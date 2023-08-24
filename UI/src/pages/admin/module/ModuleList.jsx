@@ -1,13 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
-import { ExamContext } from "../../../context/ExamContext";
 
 import "../../../styles/Admin.css";
 
 function ModuleList() {
   const params = useParams();
-  const { module, setModule } = useContext(ExamContext);
+  const [module, setModule] = useState([]);
 
   const moduleElements = module.map((module) => (
     <div key={module.id} className="module-tile">

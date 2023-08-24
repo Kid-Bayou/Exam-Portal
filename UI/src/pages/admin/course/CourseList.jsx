@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect} from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
-import { ExamContext } from "../../../context/ExamContext";
 
 import "../../../styles/Admin.css";
 
 function CourseList() {
-  const { course, setCourse } = useContext(ExamContext);
+  const [course, setCourse] = useState([]);
 
   const courseElements = course.map((course) => (
     <div key={course.id} className="course-tile">

@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
-import { ExamContext } from "../../../context/ExamContext";
 import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";
@@ -11,9 +10,8 @@ import "../../../styles/Admin.css";
 
 function QuestionList() {
   const params = useParams();
-  const { question, setQuestion } = useContext(ExamContext);
+  const [question, setQuestion] = useState([]);
   const [visibleChoices, setVisibleChoices] = useState({});
-  var num = 0;
 
   const questionElements = question.map((question, index) => (
     <div key={question.id} className="question-tile">
