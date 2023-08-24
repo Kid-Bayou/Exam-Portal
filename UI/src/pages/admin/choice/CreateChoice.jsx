@@ -17,7 +17,7 @@ function CreateChoice(props) {
 
     try {
       const response = await post(
-        `${API_BASE_URL}/api/Choice/CreateChoice?qId=${props.qId}`,
+        `${API_BASE_URL}/api/Choice/CreateChoice`,
         formData
       );
       window.location.reload();

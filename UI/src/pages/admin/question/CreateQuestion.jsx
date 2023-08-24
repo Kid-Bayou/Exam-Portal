@@ -19,7 +19,7 @@ function CreateQuestion() {
 
     try {
       const response = await post(
-        `${API_BASE_URL}/api/Question/CreateQuestion?mId=${params.id}`,
+        `${API_BASE_URL}/api/Question/CreateQuestion`,
         formData
       );
       navigate(`/admindashboard/questions/${params.id}`);

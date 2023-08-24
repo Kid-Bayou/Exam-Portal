@@ -20,7 +20,7 @@ function CreateModule() {
 
     try {
       const response = await post(
-        `${API_BASE_URL}/api/Module/CreateModule?cId=${params.id}`,
+        `${API_BASE_URL}/api/Module/CreateModule`,
         formData
       );
       navigate(`/admindashboard/modules/${params.id}`);
