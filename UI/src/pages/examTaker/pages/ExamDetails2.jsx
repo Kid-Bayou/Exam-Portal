@@ -1,11 +1,12 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { API_BASE_URL, get } from "../../../service/APIService";
+import { API_BASE_URL, get, post } from "../../../service/APIService";
 
 import "../../../styles/Pages.css"
 
 function ExamDetails2() {
   const params = useParams();
+  const navigate = useNavigate();
   const [module, setModule] = useState(null);
 
   useEffect(() => {
@@ -21,6 +22,30 @@ function ExamDetails2() {
     };
     fetchData();
   }, []);
+
+  const handleStartExam = async () => {
+    try {
+      const response = await post(
+        `${API_BASE_URL}/api/Examination/CreateExamination`,
+        {
+          title: "",
+          startDateTime: "",
+          endDateTime: "",
+          moduleID: params.id, 
+          examTakerID: "",
+        }
+      );
+
+    
+      if (response.success) {
+        navigate(`/examination/${params.id}`)
+      } else {
+        console.error("Failed to create examination:", response.message);
+      }
+    } catch (error) {
+      console.error("Error creating examination:", error);
+    }
+  };
 
   return (
     <>
@@ -40,9 +65,7 @@ function ExamDetails2() {
         )}
       </div>
       <div className="module-detail-buttons">
-        <Link to={`/examination/${params.id}`}>
-          <button className="button">Start Module</button>
-        </Link>
+          <button className="button" onClick={handleStartExam}>Start Exam</button>
       </div>
     </>
   );
