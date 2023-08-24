@@ -5,7 +5,9 @@ function ExamHeader() {
   return (
     <>
       <header className="examination-header">
-        <Link to="/">End Exam</Link>
+        <Link to="/">
+          <button className="e-button">End Exam</button>
+          </Link>
         <Timer  />
       </header>
     </>

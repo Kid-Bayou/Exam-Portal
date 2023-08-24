@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { API_BASE_URL, get } from "../../../service/APIService";
+import { API_BASE_URL, get, post } from "../../../service/APIService";
 import ChoiceList from "./Choices";
 
 function Exam() {
@@ -32,6 +32,20 @@ function Exam() {
     fetchData();
   }, []);
 
+  const submitAnswers = async () => {
+    const answers = question.map((q) => ({
+      questionId: q.id,
+      choiceId: q.choices.find((choice) => choice.selected)?.id,
+    }));
+
+    try {
+      const response = await post(`${API_BASE_URL}/api/SubmitAnswers`, answers);
+      console.log("Answers submitted:", response);
+    } catch (error) {
+      console.error("Error submitting answers:", error);
+    }
+  };
+
   return (
     <>
       <div className="e-container">
@@ -42,6 +56,10 @@ function Exam() {
         ) : (
           <h2>Loading</h2>
         )}
+
+        <Link to={`/admindashboard/modules/createmodule/${params.id}`}>
+          <button className="button" onClick={submitAnswers}>Submit Exam</button>
+        </Link>
       </div>
     </>
   );
