@@ -112,5 +112,12 @@ namespace Exam_Portal.Repository
             var usersInRole = _userManager.GetUsersInRoleAsync(roleName).Result;
             return usersInRole.ToList();
         }
+
+        public User GetUser(string firstName)
+        {
+            var user = _userManager.Users.FirstOrDefault(u => u.FirstName == firstName);
+            return user;
+        }
+
     }
 }

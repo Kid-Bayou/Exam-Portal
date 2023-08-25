@@ -73,5 +73,21 @@ namespace Exam_Portal.Controllers
             return Ok(users);
         }
 
+        [HttpGet("get-user-by-first-name/{firstName}")]
+        [ProducesResponseType(200, Type = typeof(User))]
+        public IActionResult GetUserByFirstName(string firstName)
+        {
+            var user = _accountRepository.GetUser(firstName);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
+
+
+
     }
 }
