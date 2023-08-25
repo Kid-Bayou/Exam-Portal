@@ -8,10 +8,10 @@ function ExamTaker() {
     const [examTaker, setExamTaker] = useState([]);
 
     const examTakerElements = examTaker.map((examTaker) => (
-      <div key={examTaker.id} className="examTaker-tile">
+      <div key={examTaker.id} className="um-tile">
         <Link to="/">
-          <div className="examTaker-info">
-            <h3 className="examTaker-info-text">{examTaker.firstName}</h3>
+          <div className="um-info">
+            <h3 className="um-info-text">{examTaker.firstName} {examTaker.lastName}</h3>
           </div>
         </Link>
       </div>
@@ -32,9 +32,9 @@ function ExamTaker() {
   
     return (
       <>
-        <div className="examTaker-list-container">
-          <h2 className="examTaker-header">Exam Takers</h2>
-          <div className="examTaker-list">{examTakerElements}</div>
+        <div className="um-list-container">
+          <h2 className="um-header">Exam Takers</h2>
+          <div className="um-list">{examTakerElements}</div>
         </div>
       </>
     );

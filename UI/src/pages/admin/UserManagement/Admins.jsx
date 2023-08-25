@@ -8,10 +8,10 @@ function Admin() {
     const [admin, setAdmin] = useState([]);
 
     const adminElements = admin.map((admin) => (
-      <div key={admin.id} className="admin-tile">
+      <div key={admin.id} className="um-tile">
         <Link to="/">
-          <div className="admin-info">
-            <h3 className="admin-info-text">{admin.firstName}</h3>
+          <div className="um-info">
+            <h3 className="um-info-text">{admin.firstName} {admin.lastName}</h3>
           </div>
         </Link>
       </div>
@@ -32,13 +32,13 @@ function Admin() {
   
     return (
       <>
-        <div className="admin-list-container">
-          <h2 className="admin-header">Admins</h2>
-          <div className="admin-list">{adminElements}</div>
+        <div className="um-list-container">
+          <h2 className="um-header">Adminstrators</h2>
+          <div className="um-list">{adminElements}</div>
         </div>
-        <div className="create-admin-container">
+        <div className="um-admin-button-container">
           <Link to="/admindashboard/admin/createcourse">
-            <button className="button">Create Admin</button>
+            <button className="button">Add Admin</button>
           </Link>
         </div>
       </>

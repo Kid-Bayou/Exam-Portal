@@ -385,7 +385,7 @@
   font-size: 20px;
 }
 
-/* ~~~~ UPDATE QUESTION ~~~~ */
+/* ~~~~ USER MANANGEMENT ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .um-header {
@@ -399,4 +399,45 @@
   align-items: center;
   gap: 40px;
   height: 30vw;
+}
+
+
+.um-header {
+  font-size: 50px;
+}
+
+.um-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  background: rgb(246, 244, 244);
+  height: 60px;
+  width: 55vw;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  padding-left: 20px;
+}
+
+.um-info-text {
+  font-size: 20px;
+}
+
+.um-tile a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.um-list {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  margin-top: 80px;
+  gap: 15px;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.um-admin-button-container {
+  margin: 80px;
 }
