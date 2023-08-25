@@ -9,6 +9,8 @@ namespace Exam_Portal.Interfaces
         ICollection<User> GetUsers();
         ICollection<User> GetUsersByRole(string roleName);
         User GetUser(string firstName);
+        int GetAdminCount();
+        int GetExamTakerCount();
         Task<IdentityResult> SignUpAsync(SignUpModel signUpModel, bool isAdmin);
         Task<string> LoginAsync(SignInModel signInModel);
     }

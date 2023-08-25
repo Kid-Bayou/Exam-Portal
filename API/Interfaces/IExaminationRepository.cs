@@ -6,6 +6,7 @@ namespace Exam_Portal.Interfaces
     {
         ICollection<Examination> GetExaminations();
         Examination GetExamination(int id);
+        int GetExaminationCount();
         bool ExaminationExists(int id);
         bool CreateExamination(Examination examination);
         bool UpdateExamination(Examination examination);

@@ -72,5 +72,11 @@ namespace Exam_Portal.Repository
         {
             return _context.Modules.Any(m => m.CourseID == id);
         }
+
+        public int GetModuleCount()
+        {
+            return _context.Modules.Count();
+        }
+
     }
 }

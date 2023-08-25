@@ -7,6 +7,7 @@ namespace Exam_Portal.Interfaces
     {
         ICollection<Module> GetModules();
         ICollection<Module> GetCourseModules(int id);
+        int GetModuleCount();
         Module GetModule(int id);
         Module GetModule(string title);
         bool ModuleExists(int id);

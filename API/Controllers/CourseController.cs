@@ -49,6 +49,15 @@ namespace Exam_Portal.Controllers
             return Ok(course);
         }
 
+        [HttpGet]
+        [ProducesResponseType(200)]
+        public IActionResult GetCourseCount()
+        {
+            var count = _courseRepository.GetCourseCount();
+            return Ok(count);
+        }
+
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]

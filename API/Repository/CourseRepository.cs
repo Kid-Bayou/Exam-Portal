@@ -60,5 +60,11 @@ namespace Exam_Portal.Repository
             _context.Remove(course);
             return Save();
         }
+
+        public int GetCourseCount()
+        {
+            return _context.Courses.Count();
+        }
+
     }
 }

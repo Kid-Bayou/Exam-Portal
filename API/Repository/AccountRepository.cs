@@ -119,5 +119,16 @@ namespace Exam_Portal.Repository
             return user;
         }
 
+        public int GetAdminCount()
+        {
+            return _userManager.GetUsersInRoleAsync("Administrator").Result.Count;
+        }
+
+        public int GetExamTakerCount()
+        {
+            return _userManager.GetUsersInRoleAsync("ExamTaker").Result.Count;
+        }
+
+
     }
 }

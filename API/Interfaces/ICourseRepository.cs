@@ -8,6 +8,7 @@ namespace Exam_Portal.Interfaces
         ICollection<Course> GetCourses();
         Course GetCourse(int id);
         Course GetCourse(string title);
+        int GetCourseCount();
         bool CourseExists(int id);
         bool CourseExists(string title);
         bool CreateCourse(Course course);

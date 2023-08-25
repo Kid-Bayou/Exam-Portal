@@ -87,6 +87,23 @@ namespace Exam_Portal.Controllers
             return Ok(user);
         }
 
+        [HttpGet("admin-count")]
+        [ProducesResponseType(200)]
+        public IActionResult GetAdminCount()
+        {
+            var count = _accountRepository.GetAdminCount();
+            return Ok(count);
+        }
+
+        [HttpGet("exam-taker-count")]
+        [ProducesResponseType(200)]
+        public IActionResult GetExamTakerCount()
+        {
+            var count = _accountRepository.GetExamTakerCount();
+            return Ok(count);
+        }
+
+
 
 
     }

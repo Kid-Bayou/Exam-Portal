@@ -65,5 +65,11 @@ namespace Exam_Portal.Repository
             _context.Update(question);
             return Save();
         }
+
+        public int GetQuestionCount()
+        {
+            return _context.Questions.Count();
+        }
+
     }
 }

@@ -71,6 +71,15 @@ namespace Exam_Portal.Controllers
             return Ok(module);
         }
 
+
+        [HttpGet]
+        [ProducesResponseType(200)]
+        public IActionResult GetModuleCount()
+        {
+            var count = _moduleRepository.GetModuleCount();
+            return Ok(count);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -156,5 +165,7 @@ namespace Exam_Portal.Controllers
 
             return Ok("Successfully Deleted");
         }
+
+
     }
 }
