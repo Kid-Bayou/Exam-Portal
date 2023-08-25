@@ -30,6 +30,7 @@ import DeleteChoice from "./pages/admin/choice/DeleteChoice";
 
 import MainPage from "./pages/admin/UserManagement/MainPage"
 import Admins from "./pages/admin/UserManagement/Admins"
+import ExamTakers from "./pages/admin/UserManagement/ExamTaker"
 import AHelp from "./pages/admin/Help"
 import AProfile from "./pages/admin/Profile"
 import Reports from "./pages/admin/Reports"
@@ -100,6 +101,7 @@ function App() {
               <Route path="questions/deletechoice/:id" element={<DeleteChoice />}/>
               <Route path="usermanagement" element={<MainPage />}/>
               <Route path="usermanagement/admins" element={<Admins />}/>
+              <Route path="usermanagement/examtakers" element={<ExamTakers />}/>
               <Route path="help" element={<AHelp />}/>
               <Route path="profile" element={<AProfile />}/>
               <Route path="reports" element={<Reports />}/>

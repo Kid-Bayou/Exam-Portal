@@ -10,7 +10,7 @@ function MainPage() {
         <Link to="/admindashboard/usermanagement/admins">
           <button className="button">Administrators</button>
         </Link>
-        <Link to="/">
+        <Link to="/admindashboard/usermanagement/examtakers">
           <button className="button">Exam Takers</button>
         </Link>
       </div>
