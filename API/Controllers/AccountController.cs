@@ -58,5 +58,20 @@ namespace Exam_Portal.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("role")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
+        public IActionResult GetUsersByRole(string roleName)
+        {
+            var users = _accountRepository.GetUsersByRole(roleName);
+
+            if (users == null || users.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(users);
+        }
+
     }
 }

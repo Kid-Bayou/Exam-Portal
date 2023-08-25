@@ -1,7 +1,13 @@
 function Reports() {
     return (
         <>
-            <p>This is your reports page.</p>
+        <h1>Reports</h1>
+            <p>Administrators</p>
+            <p>Exam Takers</p>
+            <p>Exams</p>
+            <p>Courses</p>
+            <p>Modules</p>
+            <p>Questions</p>
         </>
     )
 }

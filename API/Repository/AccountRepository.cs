@@ -106,5 +106,11 @@ namespace Exam_Portal.Repository
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public ICollection<User> GetUsersByRole(string roleName)
+        {
+            var usersInRole = _userManager.GetUsersInRoleAsync(roleName).Result;
+            return usersInRole.ToList();
+        }
     }
 }
