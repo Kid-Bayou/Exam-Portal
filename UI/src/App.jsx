@@ -29,6 +29,9 @@ import UpdateChoice from "./pages/admin/choice/UpdateChoice";
 import DeleteChoice from "./pages/admin/choice/DeleteChoice";
 
 import MainPage from "./pages/admin/UserManagement/MainPage"
+import AHelp from "./pages/admin/Help"
+import AProfile from "./pages/admin/Profile"
+import Reports from "./pages/admin/Reports"
 
 import Exam from "./pages/examTaker/examination/Exam";
 
@@ -92,6 +95,9 @@ function App() {
               <Route path="questions/updatechoice" element={<UpdateChoice />} />
               <Route path="questions/deletechoice/:id" element={<DeleteChoice />}/>
               <Route path="usermanagement" element={<MainPage />}/>
+              <Route path="help" element={<AHelp />}/>
+              <Route path="profile" element={<AProfile />}/>
+              <Route path="reports" element={<Reports />}/>
             </Route>
 
           </Routes>

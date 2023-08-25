@@ -19,7 +19,7 @@ function Sidebar({}) {
     {path: "/admindashboard", text: "Home", image: home},
     {path: "/admindashboard/courses", text: "Courses", image: courses},
     {path: "/admindashboard/usermanagement", text: "UserManagement", image: usermanagement},
-    {path: "/admindashboard/report", text: "Reports", image: reports},
+    {path: "/admindashboard/reports", text: "Reports", image: reports},
     {path: "/admindashboard/help", text: "Help", image: help},
     {path: "/admindashboard/profile", text: "Profile", image: profile},
   ];
