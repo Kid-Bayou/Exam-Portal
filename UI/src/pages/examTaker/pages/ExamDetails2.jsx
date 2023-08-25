@@ -7,41 +7,40 @@ import "../../../styles/Pages.css"
 function ExamDetails2() {
   const params = useParams();
   const navigate = useNavigate();
+  const currentDateTime = new Date();
   const [module, setModule] = useState(null);
 
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const responseData = await get(
-          `${API_BASE_URL}/api/Module/GetModule?id=${params.id}`
-        );
-        setModule(responseData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    try {
+      const responseData = await get(
+        `${API_BASE_URL}/api/Module/GetModule?id=${params.id}`
+      );
+      setModule(responseData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const handleStartExam = async () => {
     try {
       const response = await post(
         `${API_BASE_URL}/api/Examination/CreateExamination`,
         {
-          title: "",
-          startDateTime: "",
-          endDateTime: "",
-          moduleID: params.id, 
-          examTakerID: "",
+          title: "this",
+          startDateTime: `${currentDateTime.toISOString()}`,
+          endDateTime: `${currentDateTime.toISOString()}`,
+          moduleID: `${params.id}`, 
+          examTakerID: 1,
         }
       );
-
-    
-      if (response.success) {
-        navigate(`/examination/${params.id}`)
-      } else {
-        console.error("Failed to create examination:", response.message);
-      }
+  
+        navigate(`/examination/${params.id}`);
+      
     } catch (error) {
       console.error("Error creating examination:", error);
     }
