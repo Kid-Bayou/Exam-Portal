@@ -28,6 +28,8 @@ import DeleteQuestion from "./pages/admin/question/DeleteQuestion";
 import UpdateChoice from "./pages/admin/choice/UpdateChoice";
 import DeleteChoice from "./pages/admin/choice/DeleteChoice";
 
+import MainPage from "./pages/admin/UserManagement/MainPage"
+
 import Exam from "./pages/examTaker/examination/Exam";
 
 import Profile from "./pages/examTaker/pages/Profile"
@@ -89,6 +91,7 @@ function App() {
               <Route path="questions/deletequestion/:id" element={<DeleteQuestion />} />
               <Route path="questions/updatechoice" element={<UpdateChoice />} />
               <Route path="questions/deletechoice/:id" element={<DeleteChoice />}/>
+              <Route path="usermanagement" element={<MainPage />}/>
             </Route>
 
           </Routes>
