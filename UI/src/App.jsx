@@ -40,6 +40,7 @@ import UserHome from "./pages/examTaker/pages/Home"
 import History from "./pages/examTaker/pages/History"
 import Help from "./pages/examTaker/pages/Help"
 import Notification from "./pages/examTaker/pages/Notification"
+import Leaderboard from "./pages/examTaker/pages/Leaderboard"
 import Exams from "./pages/examTaker/pages/Exams"
 import ExamDetails from "./pages/examTaker/pages/ExamsDetails"
 import ExamDetails2 from "./pages/examTaker/pages/ExamDetails2"
@@ -72,6 +73,7 @@ function App() {
               <Route path="examdetail2/:id" element={<ExamDetails2 />} />
               <Route path="help" element={<Help />} />
               <Route path="notification" element={<Notification />} />
+              <Route path="leaderboard" element={<Leaderboard />} />
               <Route path="profile" element={<Profile />} />
               <Route path="examdetails/:id" element={<ExamDetails />} />
             </Route>

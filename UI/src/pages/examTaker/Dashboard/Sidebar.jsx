@@ -21,7 +21,7 @@ function Sidebar({}) {
     {path: "/userdashboard/exams", text: "Exams", image: exams},
     {path: "/userdashboard/history", text: "History", image: history},
     {path: "/userdashboard/notification", text: "Notification", image: notification},
-    {path: "/courses", text: "Leaderboad", image: leaderboard},
+    {path: "/userdashboard/leaderboard", text: "Leaderboad", image: leaderboard},
     {path: "/userdashboard/help", text: "Help", image: help},
     {path: "/userdashboard/profile", text: "Profile", image: profile},
   ];
