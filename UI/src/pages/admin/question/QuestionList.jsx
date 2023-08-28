@@ -12,9 +12,9 @@ import "../../../styles/Admin.css";
 
 function QuestionList() {
   const params = useParams();
-  const { question, setQuestion } = useContext(ExamContext);
+  const [question, setQuestion] = useState([]);
   const [visibleChoices, setVisibleChoices] = useState({});
-  var num = 0;
+  
 
   const questionElements = question.map((question, index) => (
     <div key={question.id} className="question-tile">
@@ -40,7 +40,7 @@ function QuestionList() {
           onClick={() => toggleChoices(question.id)}
         />
       </div>
-      {visibleChoices[question.id] && <ChoiceList qId={question.id} />}
+      {visibleChoices[question.id] && <ChoiceList selectedChoiceId={question.answerChoiceID} qId={question.id} />}
     </div>
   ));
 

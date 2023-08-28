@@ -49,7 +49,7 @@ function ChoiceList(props) {
         setChoices(
           responseData.map((choice) => ({
             ...choice,
-            selected: false,
+            selected: choice.id === props.selectedChoiceId,
           }))
         );
       } catch (error) {
@@ -60,7 +60,7 @@ function ChoiceList(props) {
       }
     };
     fetchData();
-  }, [props.qId]);
+  }, [props.qId, props.selectedChoiceId]);
 
   return (
     <>
