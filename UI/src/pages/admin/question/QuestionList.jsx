@@ -6,6 +6,7 @@ import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";
 import del from "../../../assets/icons/delete.png";
+import save from "../../../assets/icons/save.png"
 
 import "../../../styles/Admin.css";
 
@@ -39,7 +40,7 @@ function QuestionList() {
           onClick={() => toggleChoices(question.id)}
         />
       </div>
-      {visibleChoices[question.id] && <ChoiceList qId={question.id} selectedChoiceId={question.answerChoiceID}/>}
+      {visibleChoices[question.id] && <ChoiceList qId={question.id} />}
     </div>
   ));
 

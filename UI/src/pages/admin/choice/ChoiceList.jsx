@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
@@ -13,8 +14,6 @@ function ChoiceList(props) {
         selected: choice.id === choiceId,
       }))
     );
-
-    props.onChoiceSelected(choiceId);
   };
 
   const choiceElements = choices.map((choiceItem) => (
@@ -23,7 +22,7 @@ function ChoiceList(props) {
         <label className="radio-btn-label">
           <input
             type="radio"
-            name={`choice-${props.qId}`}
+            name="choice"
             value={choiceItem.id}
             className="radio-btn-input"
             checked={choiceItem.selected}
@@ -50,7 +49,7 @@ function ChoiceList(props) {
         setChoices(
           responseData.map((choice) => ({
             ...choice,
-            selected: choice.id === props.selectedChoiceId,
+            selected: false,
           }))
         );
       } catch (error) {
@@ -61,7 +60,7 @@ function ChoiceList(props) {
       }
     };
     fetchData();
-  }, [props.qId, props.selectedChoiceId]);
+  }, [props.qId]);
 
   return (
     <>
