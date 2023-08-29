@@ -1,15 +1,17 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get, post } from "../../../service/APIService";
+import { ExamContext } from "../../../context/ExamContext";
+import Exam from "../examination/Exam"
 
-import "../../../styles/Pages.css"
+import "../../../styles/Pages.css";
 
 function ExamDetails2() {
   const params = useParams();
   const navigate = useNavigate();
   const currentDateTime = new Date();
   const [module, setModule] = useState(null);
-
+  const { timer, setTimer } = useContext(ExamContext);
 
   useEffect(() => {
     fetchData();
@@ -26,6 +28,13 @@ function ExamDetails2() {
     }
   };
 
+const handleSetTimer = () => {
+  const time = module.duration * 60
+  console.log("min larg???", time)
+  setTimer(time);  
+};
+
+
   const handleStartExam = async () => {
     try {
       const response = await post(
@@ -34,17 +43,23 @@ function ExamDetails2() {
           title: "this",
           startDateTime: `${currentDateTime.toISOString()}`,
           endDateTime: `${currentDateTime.toISOString()}`,
-          moduleID: `${params.id}`, 
+          moduleID: `${params.id}`,
           examTakerID: 1,
         }
       );
-  
-        navigate(`/examination/${params.id}`);
+
+      handleSetTimer()
+      navigate(`/examination/${params.id}`); 
+      console.log("post request successful:", response);
       
     } catch (error) {
       console.error("Error creating examination:", error);
     }
   };
+
+  useEffect(() => {
+    console.log("final: ", timer);
+  }, [timer]);
 
   return (
     <>
@@ -64,7 +79,9 @@ function ExamDetails2() {
         )}
       </div>
       <div className="module-detail-buttons">
-          <button className="button" onClick={handleStartExam}>Start Exam</button>
+        <button className="button" onClick={handleStartExam}>
+          Start Exam
+        </button>
       </div>
     </>
   );

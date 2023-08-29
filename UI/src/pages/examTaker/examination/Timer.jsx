@@ -1,4 +1,7 @@
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { ExamContext } from "../../../context/ExamContext";
+import {useContext} from "react"
+
 
 
 const renderTime = ({ remainingTime }) => {
@@ -17,11 +20,12 @@ const renderTime = ({ remainingTime }) => {
 };
 
 function Timer() {
+  const { timer, setTimer } = useContext(ExamContext);
   return (
       <div className="timer-wrapper">
         <CountdownCircleTimer
           isPlaying
-          duration={40}
+          duration={timer}
           rotation = {"counterclockwise"}
           size={70}
           strokeWidth={5}

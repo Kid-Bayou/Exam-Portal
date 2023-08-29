@@ -7,9 +7,10 @@ const ExamProvider = ({ children }) => {
   const [module, setModule] = useState([]);
   const [question, setQuestion] = useState([]);
   const [choice, setChoice] = useState([]);
+  const [timer, setTimer] = useState(0);
 
   return (
-    <ExamContext.Provider value={{ course, setCourse, module, setModule, question, setQuestion, choice, setChoice }}>
+    <ExamContext.Provider value={{ timer, setTimer,course, setCourse, module, setModule, question, setQuestion, choice, setChoice }}>
       {children}
     </ExamContext.Provider>
   );
