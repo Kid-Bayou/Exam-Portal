@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { API_BASE_URL, get } from "../../../service/APIService";
+import { API_BASE_URL, get, put } from "../../../service/APIService";
 import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";
@@ -17,7 +17,41 @@ function QuestionList() {
   
   const handleChangedChoice = (qId, cId) => {
     console.log(qId, cId)
+
+    setChangedChoice((prevChangedChoice) => ({
+      ...prevChangedChoice,
+      id: qId,
+      answerChoiceID: cId,
+    } ));
+    console.log(changedChoice)
+    console.log(changedChoice.answerChoiceID)
+    console.log(changedChoice.id)
   };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSaveChoice = async (event) => {
+    event.preventDefault();
+  
+    try {
+      const response = await put(
+        `${API_BASE_URL}/api/Question/UpdateQuestion/${changedChoice.id}`,
+        changedChoice
+      );
+      console.log("put request successful:", response);
+      console.log(changedChoice.id);
+    } catch (error) {
+      console.error("Error making put request:", error);
+    }
+  };
+  
+
   const questionElements = question.map((question, index) => (
     <div key={question.id} className="question-tile">
       <div className="question-info">
@@ -41,6 +75,7 @@ function QuestionList() {
           className="toggle"
           onClick={() => toggleChoices(question.id)}
         />
+        <img src={save} className="edit" onClick={handleSaveChoice}/>
       </div>
       {visibleChoices[question.id] && <ChoiceList selectedChoiceId={question.answerChoiceID} qId={question.id} onValueChange={handleChangedChoice}/>}
     </div>
@@ -66,6 +101,8 @@ function QuestionList() {
       [questionId]: !prevVisibleChoices[questionId],
     }));
   };
+
+
 
   return (
     <>
