@@ -14,6 +14,7 @@ function ChoiceList(props) {
         selected: choice.id === choiceId,
       }))
     );
+    props.onValueChange(props.qId, choiceId)
   };
 
   const choiceElements = choices.map((choiceItem) => (

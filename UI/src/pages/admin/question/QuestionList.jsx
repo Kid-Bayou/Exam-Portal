@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get } from "../../../service/APIService";
-import { ExamContext } from "../../../context/ExamContext";
 import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";
@@ -14,8 +13,11 @@ function QuestionList() {
   const params = useParams();
   const [question, setQuestion] = useState([]);
   const [visibleChoices, setVisibleChoices] = useState({});
+  const [changedChoice, setChangedChoice] = useState([]);
   
-
+  const handleChangedChoice = (qId, cId) => {
+    console.log(qId, cId)
+  };
   const questionElements = question.map((question, index) => (
     <div key={question.id} className="question-tile">
       <div className="question-info">
@@ -40,7 +42,7 @@ function QuestionList() {
           onClick={() => toggleChoices(question.id)}
         />
       </div>
-      {visibleChoices[question.id] && <ChoiceList selectedChoiceId={question.answerChoiceID} qId={question.id} />}
+      {visibleChoices[question.id] && <ChoiceList selectedChoiceId={question.answerChoiceID} qId={question.id} onValueChange={handleChangedChoice}/>}
     </div>
   ));
 
