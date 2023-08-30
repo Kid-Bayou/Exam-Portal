@@ -37,6 +37,7 @@ import Reports from "./pages/admin/Reports"
 
 
 import Exam from "./pages/examTaker/examination/Exam";
+import Result from "./pages/examTaker/examination/Result"
 
 import Profile from "./pages/examTaker/pages/Profile"
 import UserHome from "./pages/examTaker/pages/Home"
@@ -67,6 +68,8 @@ function App() {
 
             <Route path="/examination" element={<ExamLayout />}>
               <Route path=":id" element={<Exam />} />
+              <Route path=":id" element={<Result />} />
+
             </Route>
 
             <Route path="/userdashboard" element={<UserDashboard />}>
