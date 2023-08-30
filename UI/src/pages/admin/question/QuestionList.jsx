@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API_BASE_URL, get, put } from "../../../service/APIService";
+import {toJSON, fromJSON} from 'flatted';
 import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";
@@ -13,7 +14,10 @@ function QuestionList() {
   const params = useParams();
   const [question, setQuestion] = useState([]);
   const [visibleChoices, setVisibleChoices] = useState({});
-  const [changedChoice, setChangedChoice] = useState([]);
+  const [changedChoice, setChangedChoice] = useState({
+    id: "",
+    answerChoiceID: "",
+  });
   
   const handleChangedChoice = (qId, cId) => {
     console.log(qId, cId)
@@ -23,33 +27,46 @@ function QuestionList() {
       id: qId,
       answerChoiceID: cId,
     } ));
-    console.log(changedChoice)
-    console.log(changedChoice.answerChoiceID)
-    console.log(changedChoice.id)
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {
+    
+    // console.log("changed choice", changedChoice)
+    // console.log("changed choice.answerChoiceID", changedChoice.answerChoiceID)
+    // console.log("changed choice.id", changedChoice.id)
 
-  const handleSaveChoice = async (event) => {
+    // console.log("ahhhhhhhhhhhhhhhh stayin aliveee aaaha ahahahahah")
+    // console.log("quest for truth", question)
+  }, [changedChoice]);
+
+
+  const handleChoiceSelected = async (event) => {
     event.preventDefault();
+    const qIndex = question.findIndex(q => q.id === changedChoice.id);
+    if (qIndex !== -1){
+      const updatedQuestion = [...question];
+      updatedQuestion[qIndex].answerChoiceID = changedChoice.answerChoiceID;
+      setQuestion(updatedQuestion)
+      
+      handleSaveChoice(updatedQuestion[qIndex])
+    }
+  }
+
+
+  const handleSaveChoice = async (updatedQuestion) => {
   
     try {
       const response = await put(
-        `${API_BASE_URL}/api/Question/UpdateQuestion/${changedChoice.id}`,
-        changedChoice
+        `${API_BASE_URL}/api/Question/UpdateQuestion/${updatedQuestion.id}`,
+        updatedQuestion
       );
       console.log("put request successful:", response);
-      console.log(changedChoice.id);
     } catch (error) {
       console.error("Error making put request:", error);
     }
   };
+
+
   
 
   const questionElements = question.map((question, index) => (
@@ -75,7 +92,7 @@ function QuestionList() {
           className="toggle"
           onClick={() => toggleChoices(question.id)}
         />
-        <img src={save} className="edit" onClick={handleSaveChoice}/>
+        <img src={save} className="edit" onClick={handleChoiceSelected}/>
       </div>
       {visibleChoices[question.id] && <ChoiceList selectedChoiceId={question.answerChoiceID} qId={question.id} onValueChange={handleChangedChoice}/>}
     </div>
