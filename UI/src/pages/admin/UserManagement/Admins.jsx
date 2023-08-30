@@ -37,7 +37,7 @@ function Admin() {
           <div className="um-list">{adminElements}</div>
         </div>
         <div className="um-admin-button-container">
-          <Link to="/admindashboard/admin/createcourse">
+          <Link to="/admindashboard/usermanagement/admins/addadmin">
             <button className="button">Add Admin</button>
           </Link>
         </div>

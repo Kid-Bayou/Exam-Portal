@@ -12,6 +12,7 @@ function ExamDetails2() {
   const currentDateTime = new Date();
   const [module, setModule] = useState(null);
   const { timer, setTimer } = useContext(ExamContext);
+  const { exam, setExam } = useContext(ExamContext);
 
   useEffect(() => {
     fetchData();
@@ -30,23 +31,26 @@ function ExamDetails2() {
 
 const handleSetTimer = () => {
   const time = module.duration * 60
-  console.log("min larg???", time)
   setTimer(time);  
 };
 
 
   const handleStartExam = async () => {
     try {
+      const newExam = {
+        title: "this",
+        startDateTime: `${currentDateTime.toISOString()}`,
+        endDateTime: `${currentDateTime.toISOString()}`,
+        moduleID: `${params.id}`,
+        examTakerID: 1,
+      }
       const response = await post(
         `${API_BASE_URL}/api/Examination/CreateExamination`,
-        {
-          title: "this",
-          startDateTime: `${currentDateTime.toISOString()}`,
-          endDateTime: `${currentDateTime.toISOString()}`,
-          moduleID: `${params.id}`,
-          examTakerID: 1,
-        }
+        newExam
       );
+      
+      
+        setExam(newExam);
 
       handleSetTimer()
       navigate(`/examination/${params.id}`); 
@@ -58,8 +62,12 @@ const handleSetTimer = () => {
   };
 
   useEffect(() => {
-    console.log("final: ", timer);
+    console.log("time set: ", timer);
   }, [timer]);
+
+  useEffect(() => {
+    console.log("exam set: ", exam);
+  }, [exam]);
 
   return (
     <>
