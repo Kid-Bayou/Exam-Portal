@@ -73,7 +73,7 @@ const handleSetTimer = () => {
     <>
       <div className="module-detail-container">
         {module ? (
-          <div className="module-detail">
+          <div className="e-module-detail">
             <h3 className="module-name">{module.title}</h3>
             <h4 className="module-description-header">
               Duration: {module.duration}

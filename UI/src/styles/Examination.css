@@ -9,7 +9,6 @@
 }
 
 .examination-header {
-  margin: 10px;
   height: 10vh;
   display: flex;
   justify-content: space-between;
@@ -18,11 +17,16 @@
   top: 0;
   z-index: 100;
   background-color: #fdfaf7;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 40px;
 }
 
 .examination-main {
   flex-grow: 1;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-left: 200px;
 }
 
 
