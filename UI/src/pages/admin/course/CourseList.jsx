@@ -11,7 +11,7 @@ function CourseList() {
     <div key={course.id} className="course-tile">
       <Link to={`/admindashboard/courses/${course.id}`}>
         <div className="course-info">
-          <h3 className="course-info-text">{course.title}</h3>
+          <p className="course-info-text">{course.title}</p>
         </div>
       </Link>
     </div>
