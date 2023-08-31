@@ -44,20 +44,22 @@
 /* ~~~~ COURSE DETAIL ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+.course-detail-container {
+  margin: 100px;
+}
+
 .course-name {
-  font-size: 80px;
-  padding-top: 70px;
+  font-size: 70px;
 }
 
 .course-description-header {
   font-size: 30px;
-  padding-top: 50px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .course-detail-buttons {
   margin-bottom: 150px;
-  padding-top: 100px;
   display: flex;
   gap: 100px;
   justify-content: center;
@@ -95,20 +97,20 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .module-header {
-  font-size: 80px;
+  font-size: 70px;
 }
 
 .module-info {
   margin: auto;
   background: rgb(246, 244, 244);
-  height: 200px;
-  width: 250px;
+  height: 150px;
+  width: 200px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
 }
 
 .module-info-text {
-  padding-top: 90px;
+  padding-top: 70px;
   font-size: 25px;
 }
 
@@ -118,7 +120,6 @@
 }
 
 .module-list-container {
-  padding-inline: 23px;
   margin: 100px;
 }
 
@@ -146,23 +147,35 @@
 /* ~~~~ MODULE DETAIL ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+.module-detail-container {
+  margin: 150px;
+}
+
+
 .module-name {
-  font-size: 80px;
-  padding-top: 70px;
+  font-size: 70px;
 }
 
 .module-description-header {
   font-size: 30px;
-  padding-top: 50px;
-  padding-bottom: 20px;
 }
 
 .module-detail-buttons {
-  margin-bottom: 150px;
-  padding-top: 100px;
+  margin: 80px;
   display: flex;
   gap: 100px;
   justify-content: center;
+}
+
+.module-detail-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.module-detail-detail-text{
+  font-size: 25px;
 }
 
 /*  ~~~~ QUESTION LIST ~~~~   */
