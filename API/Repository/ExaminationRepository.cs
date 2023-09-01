@@ -60,5 +60,11 @@ namespace Exam_Portal.Repository
             return _context.Examinations.Count();
         }
 
+        public Examination GetExamination(DateTime examStartDate, int examTakerId)
+        {
+            return _context.Examinations
+                .FirstOrDefault(e => e.StartDateTime == examStartDate && e.ExamTakerID == examTakerId);
+
+        }
     }
 }

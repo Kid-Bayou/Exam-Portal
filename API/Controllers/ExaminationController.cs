@@ -70,6 +70,26 @@ namespace Exam_Portal.Controllers
             return Ok(count);
         }
 
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(Examination))]
+        [ProducesResponseType(400)]
+        public IActionResult GetExaminationByStartDateAndTakerId(DateTime examStartDate, int examTakerId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var examination = _examinationRepository.GetExamination(examStartDate, examTakerId);
+
+            if (examination == null)
+            {
+                return NotFound();
+            }
+
+            var examinationDto = _mapper.Map<ExaminationDto>(examination);
+            return Ok(examinationDto);
+        }
 
         [HttpPost]
         [ProducesResponseType(204)]

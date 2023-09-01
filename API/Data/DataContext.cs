@@ -35,7 +35,7 @@ namespace Exam_Portal.Data
             modelBuilder.Entity<ExamTaker>().ToTable("ExamTaker")
                 .HasMany(e => e.Examinations)
                 .WithOne(t => t.ExamTaker)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Module>().ToTable("Module")
                 .HasMany(e => e.Examinations)
