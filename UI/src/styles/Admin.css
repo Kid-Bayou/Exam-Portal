@@ -148,7 +148,7 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .module-detail-container {
-  margin: 150px;
+  margin: 100px;
 }
 
 
@@ -158,6 +158,8 @@
 
 .module-description-header {
   font-size: 30px;
+  padding: 0;
+  margin: 0;
 }
 
 .module-detail-buttons {
@@ -181,9 +183,14 @@
 /*  ~~~~ QUESTION LIST ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
+.question-list-container{
+  margin: 150px;
+}
+
 .question-header {
-  font-size: 80px;
-  margin-bottom: 100px;
+  font-size: 70px;
+  margin-bottom: 70px;
+  margin-top: -25px;
 }
 
 .question-info {
@@ -191,10 +198,11 @@
   justify-content: flex-start;
   gap: 80px;
   flex-wrap: nowrap;
+  align-items: center;
 }
 
 .question-info-text {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .question-list-container {
@@ -205,7 +213,7 @@
 .question-list {
   display: flex;
   justify-items: flex-start;
-  gap: 40px;
+  gap: 10px;
   flex-wrap: nowrap;
   flex-direction: column;
 }
@@ -220,12 +228,11 @@
 }
 
 .edit {
-  height: 30px;
-  margin-top: 5px;
+  height: 27px;
 }
 
 .edit-container {
-  width: 30px;
+  width: 27px;
   margin-right: -50px;
 }
 
@@ -236,10 +243,18 @@
 /* ~~~~ UPDATE QUESTION ~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+.update-question-container{
+display: flex;
+justify-content: center;
+align-items: flex-start;
+margin: 50px;
+}
+
 .back {
   height: 70px;
-  margin: -50px;
   cursor: pointer;
+  margin-left: -65vw;
+  margin-top:20px;
 }
 
 .save {
@@ -367,34 +382,34 @@
 /*  ~~~~ FORM ~~~~   */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.form {
+.u-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
-.form-header {
+.u-form-header {
   font-size: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
-.form-label {
+.u-form-label {
   font-size: 23px;
   margin-top: 10px;
 }
 
-.form-box {
+.u-form-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   gap: 15px;
 }
 
-.form-input {
-  border: solid 1px black;
+.u-form-input {
+  border: solid 0.5px black;
   border-radius: 7px;
-  padding: 10px;
-  font-size: 20px;
+  padding: 1px;
+  font-size: 15px;
 }
 
 /* ~~~~ USER MANANGEMENT ~~~~ */

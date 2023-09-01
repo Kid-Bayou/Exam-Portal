@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect} from "react";
 import { API_BASE_URL, get, put } from "../../../service/APIService";
-import {toJSON, fromJSON} from 'flatted';
 import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";

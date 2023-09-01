@@ -67,41 +67,44 @@ function UpdateQuestion() {
   return (
     <>
       <img src={back} className="back" onClick={handleImageClick} />
-      <h1 className="form-header">Update Question</h1>
-      <div className="form">
-        <form onSubmit={handleSubmit} className="form">
-          <label className="form-box">
-            <p className="form-label">Question Content:</p>
-            <textarea
-              className="form-input"
-              name="questionContent"
-              value={formData.questionContent}
-              onChange={handleChange}
-            />
-          </label>
-          <label className="form-box">
-            <p className="form-label">Mark:</p>
-            <input
-              type="number"
-              className="form-input"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-            />
-          </label>
-          <button className="button" type="submit">
-            Save
-          </button>
-        </form>
-      </div>
-      <h2 className="form-header">Choices</h2>
-      <UpdateChoice qId={params.id} />
+      <h1 className="u-form-header">Update Question</h1>
+      <div className="update-question-container">
+        <div>
+          <form onSubmit={handleSubmit} className="form">
+            <label className="u-form-box">
+              <p className="u-form-label">Question Content:</p>
+              <textarea
+                className="u-form-input"
+                name="questionContent"
+                value={formData.questionContent}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="u-form-box">
+              <p className="u-form-label">Mark:</p>
+              <input
+                type="number"
+                className="u-form-input"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+              />
+            </label>
+            <button className="button" type="submit">
+              Save
+            </button>
+          </form>
+        </div>
+        <div>
+          <UpdateChoice qId={params.id} />
 
-      {showCreateChoice ? (
-        <CreateChoice qId={params.id} />
-      ) : (
-        <img src={add} onClick={handleCreateChoiceClick} className="add" />
-      )}
+          {showCreateChoice ? (
+            <CreateChoice qId={params.id} />
+          ) : (
+            <img src={add} onClick={handleCreateChoiceClick} className="add" />
+          )}
+        </div>
+      </div>
     </>
   );
 }
