@@ -46,7 +46,7 @@ function ExamHeader() {
         `${API_BASE_URL}/api/Examination/UpdateExamination/${newExam.id}`,
         newExam
       );
-      navigate("/examination/result/1");
+      navigate("/userdashboard/result/1");
       console.log("end exam request successful:", response);
     } catch (error) {
       console.error("Error making put request:", error);

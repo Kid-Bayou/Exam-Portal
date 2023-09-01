@@ -69,7 +69,6 @@ function App() {
 
             <Route path="/examination" element={<ExamLayout />}>
               <Route path=":id" element={<Exam />} />
-              <Route path="result/:id" element={<Result />} />
 
             </Route>
 
@@ -83,6 +82,7 @@ function App() {
               <Route path="leaderboard" element={<Leaderboard />} />
               <Route path="profile" element={<Profile />} />
               <Route path="examdetails/:id" element={<ExamDetails />} />
+              <Route path="result/:id" element={<Result />} />
             </Route>
 
             <Route path="/admindashboard" element={<AdminDashboard />}>
