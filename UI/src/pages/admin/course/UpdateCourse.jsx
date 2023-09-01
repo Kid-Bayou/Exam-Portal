@@ -33,6 +33,7 @@ function UpdateCourse() {
     event.preventDefault();
 
     try {
+      console.log("i am working", formData)
       const response = await put(
         `${API_BASE_URL}/api/Course/UpdateCourse/${params.id}`,
         formData
