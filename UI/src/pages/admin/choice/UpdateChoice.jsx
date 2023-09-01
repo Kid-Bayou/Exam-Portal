@@ -55,14 +55,13 @@ function UpdateChoice(props) {
 
   return (
     <>
-      <div className="form">
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="u-form">
           {formData.map((choiceData, index) => (
             <div className="update-choice-tile">
-              <div key={choiceData.id} className="form-box">
-                <p className="form-label">Choice Content:</p>
+              <div key={choiceData.id} className="u-form-box">
+                <p className="u-form-label">Choice Content:</p>
                 <input
-                  className="form-input"
+                  className="u-form-input"
                   type="text"
                   name="choiceContent"
                   value={choiceData.choiceContent}
@@ -80,7 +79,6 @@ function UpdateChoice(props) {
             Save
           </button>
         </form>
-      </div>
     </>
   );
 }

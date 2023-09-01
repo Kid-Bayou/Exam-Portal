@@ -468,3 +468,32 @@ margin: 50px;
 .um-admin-button-container {
   margin: 80px;
 }
+
+
+/* ~~~~ REPORTS ~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.reports-header {
+  font-size: 50px;
+}
+
+.reports {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reports-items {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.reports-name {
+font-size: 20px;
+}
+
+.reports-value {
+  font-size: 20px;
+  }
