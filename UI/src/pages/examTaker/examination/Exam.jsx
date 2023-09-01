@@ -6,6 +6,33 @@ import ChoiceList from "./Choices";
 function Exam() {
   const params = useParams();
   const [question, setQuestion] = useState([]);
+  const [answers, setAnswers] = useState([]);
+
+  
+  
+  const handleChoiceChange = (questionId, choiceId) => {
+    // Find the index of the answer for the current question, if it exists
+    const answerIndex = answers.findIndex((answer) => answer.questionID === questionId);
+
+    if (answerIndex !== -1) {
+      // If an answer for this question exists, update it
+      setAnswers((prevAnswers) =>
+        prevAnswers.map((answer, index) => {
+          if (index === answerIndex) {
+            return { ...answer, choiceID: choiceId };
+          } else {
+            return answer;
+          }
+        })
+      );
+    } else {
+      // If no answer for this question exists, add a new one
+      setAnswers((prevAnswers) => [
+        ...prevAnswers,
+        { examinationID: params.id, questionID: questionId, choiceID: choiceId },
+      ]);
+    }
+  };
 
   const questionElements = question.map((question, index) => (
     <div key={question.id} className="e-question-tile">
@@ -14,7 +41,7 @@ function Exam() {
           {index + 1}. {question.questionContent}
         </h3>
       </div>
-      <ChoiceList qId={question.id} />
+      <ChoiceList qId={question.id} onChoiceChange={handleChoiceChange}/>
     </div>
   ));
 
@@ -32,15 +59,11 @@ function Exam() {
     fetchData();
   }, []);
 
-  const submitAnswers = async () => {
-    const answers = question.map((q) => ({
-      questionId: q.id,
-      choiceId: q.choices.find((choice) => choice.selected)?.id,
-    }));
 
+  const submitAnswers = async () => {
     try {
-      const response = await post(`${API_BASE_URL}/api/SubmitAnswers`, answers);
-      console.log("Answers submitted:", response);
+      await post(`${API_BASE_URL}/api/ExamAnswer/CreateExamAnswer`, answers);
+      console.log("posting / submitting exam answers is worksing")
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
@@ -57,9 +80,7 @@ function Exam() {
           <h2>Loading</h2>
         )}
 
-        <Link to={`/admindashboard/modules/createmodule/${params.id}`}>
           <button className="button" onClick={submitAnswers}>Submit Exam</button>
-        </Link>
       </div>
     </>
   );
