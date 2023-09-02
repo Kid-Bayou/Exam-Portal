@@ -106,7 +106,6 @@
   position: absolute;
   border-radius: 70px;
   background-color: #fdfaf7;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border: none
 }
 
@@ -118,6 +117,7 @@
   padding-top: 7px;
   padding-bottom: 7px;
 }
+
 
 .sidebar-button.collapsed {
   top: 17vh;

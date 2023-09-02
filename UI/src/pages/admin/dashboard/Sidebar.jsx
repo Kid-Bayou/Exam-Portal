@@ -45,6 +45,7 @@ function Sidebar({}) {
           >
             {expanded ? <img className="left-arrow" src={left} /> : <img className="right-arrow" src={right} />}
           </button>
+          <div className="trial-circle"></div>
 
         <div className="sidebar-main">
           <ul className={`sidebar-main-ul ${expanded ? "expanded" : "collapsed"}`}>

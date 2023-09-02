@@ -12,7 +12,7 @@ function CourseExam() {
     <div key={course.id} className="exam-course-tile">
       <Link to={`/userdashboard/examdetails/${course.id}`}>
         <div className="exam-course-info">
-          <h3 className="exam-course-info-text">{course.title}</h3>
+          <p className="exam-course-info-text">{course.title}</p>
         </div>
       </Link>
     </div>
