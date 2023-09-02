@@ -62,8 +62,14 @@ function Exam() {
 
   const submitAnswers = async () => {
     try {
-      await post(`${API_BASE_URL}/api/ExamAnswer/CreateExamAnswer`, answers);
-      console.log("posting / submitting exam answers is worksing")
+      console.log("Answers data:", answers);
+
+      for (const answer of answers) {
+        await post(`${API_BASE_URL}/api/ExamAnswer/CreateExamAnswer`, answer);
+        console.log("Posted answer:", answer);
+      }
+  
+      console.log("All answers posted successfully");
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
