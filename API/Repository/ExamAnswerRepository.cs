@@ -43,6 +43,20 @@ namespace Exam_Portal.Repository
             return _context.ExamAnswers.ToList();
         }
 
+        public int GetTotalAnswersCount(int examinationId)
+        {
+            return _context.ExamAnswers
+        .Where(e => e.ExaminationID == examinationId)
+        .Count();
+        }
+
+        public int GetTotalCorrectAnswersCount(int examinationId)
+        {
+            return _context.ExamAnswers
+        .Where(e => e.ExaminationID == examinationId && e.IsCorrect)
+        .Count();
+        }
+
         public bool Save()
         {
             var saved = _context.SaveChanges();

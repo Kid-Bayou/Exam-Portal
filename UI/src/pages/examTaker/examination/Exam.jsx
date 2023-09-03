@@ -1,21 +1,20 @@
-import { Link, useParams } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { API_BASE_URL, get, post } from "../../../service/APIService";
 import ChoiceList from "./Choices";
 
 function Exam() {
   const params = useParams();
+  const navigate = useNavigate();
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
 
   
   
   const handleChoiceChange = (questionId, choiceId) => {
-    // Find the index of the answer for the current question, if it exists
     const answerIndex = answers.findIndex((answer) => answer.questionID === questionId);
 
     if (answerIndex !== -1) {
-      // If an answer for this question exists, update it
       setAnswers((prevAnswers) =>
         prevAnswers.map((answer, index) => {
           if (index === answerIndex) {
@@ -26,7 +25,6 @@ function Exam() {
         })
       );
     } else {
-      // If no answer for this question exists, add a new one
       setAnswers((prevAnswers) => [
         ...prevAnswers,
         { examinationID: params.id, questionID: questionId, choiceID: choiceId },
@@ -68,7 +66,7 @@ function Exam() {
         await post(`${API_BASE_URL}/api/ExamAnswer/CreateExamAnswer`, answer);
         console.log("Posted answer:", answer);
       }
-  
+      navigate("/userdashboard/result/1");
       console.log("All answers posted successfully");
     } catch (error) {
       console.error("Error submitting answers:", error);

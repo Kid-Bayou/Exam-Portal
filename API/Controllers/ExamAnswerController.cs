@@ -57,6 +57,20 @@ namespace Exam_Portal.Controllers
             return Ok(examAnswer);
         }
 
+        [HttpGet("TotalCorrectAnswersCount/{examinationId}")]
+        public IActionResult GetTotalCorrectAnswersCount(int examinationId)
+        {
+            var count = _examAnswerRepository.GetTotalCorrectAnswersCount(examinationId);
+            return Ok(count);
+        }
+
+        [HttpGet("TotalAnswersCount/{examinationId}")]
+        public IActionResult GetTotalAnswersCount(int examinationId)
+        {
+            var count = _examAnswerRepository.GetTotalAnswersCount(examinationId);
+            return Ok(count);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -72,9 +86,18 @@ namespace Exam_Portal.Controllers
                 return BadRequest(ModelState);
             }
 
+            var question = _questionRepository.GetQuestion(examAnswerCreate.QuestionID);
+            if (question == null)
+            {
+                return BadRequest("Invalid Question ID");
+            }
+
+            bool isCorrect = (question.AnswerChoiceID == examAnswerCreate.ChoiceID);
+
+            examAnswerCreate.IsCorrect = isCorrect;
+
             var examAnswerMap = _mapper.Map<ExamAnswer>(examAnswerCreate);
 
-           
 
             if (!_examAnswerRepository.CreateExamAnswer(examAnswerMap))
             {
