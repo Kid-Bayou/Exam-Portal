@@ -1,22 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { ExamContext } from "../../../context/ExamContext";
-import { API_BASE_URL, get, put } from "../../../service/APIService";
+import { API_BASE_URL, get, put, del } from "../../../service/APIService";
 import Timer from "./Timer";
 
 function ExamHeader() {
   const { exam, setExam } = useContext(ExamContext);
   const [examination, setExamination] = useState(null);
-  const [newExam, setNewExam] = useState({
-    id: "",
-    title: "",
-    startDateTime: "",
-    endDateTime: "",
-    moduleID: "",
-    examTakerID: "",
-  });
   const navigate = useNavigate();
-  const currentDateTime = new Date();
 
   useEffect(() => {
     fetchData();
@@ -40,34 +31,17 @@ function ExamHeader() {
     console.log("woahhoashhhaoahaoojldsjfoasjg:", exam);
 
     try {
-      console.log("when button is clicked", newExam);
-      console.log("when button is clicked", newExam.id);
-      const response = await put(
-        `${API_BASE_URL}/api/Examination/UpdateExamination/${newExam.id}`,
-        newExam
+      console.log("when button is clicked", examination);
+      const response = await del(
+        `${API_BASE_URL}/api/Examination/DeleteExamination/${examination.id}`
       );
-      navigate("/userdashboard/result/1");
+      navigate(-1);
       console.log("end exam request successful:", response);
     } catch (error) {
       console.error("Error making put request:", error);
     }
   };
 
-  useEffect(() => {
-    if (examination) {
-      setNewExam((prevNewExam) => ({
-        ...prevNewExam,
-        id: examination.id,
-        title: exam.title,
-        startDateTime: exam.startDateTime,
-        endDateTime: currentDateTime.toISOString(),
-        moduleID: exam.moduleID,
-        examTakerID: exam.examTakerID,
-      }));
-      console.log("i too am working!!!");
-      console.log("me?", newExam);
-    }
-  }, [examination]);
 
   return (
     <>

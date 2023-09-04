@@ -138,7 +138,7 @@ function Exam() {
         console.log("Posted answer:", answer);
       }
       handleEndExam();
-      navigate("/userdashboard/result/1");
+      navigate(`/userdashboard/result/${examination.id}`);
       console.log("All answers posted successfully");
     } catch (error) {
       console.error("Error submitting answers:", error);
