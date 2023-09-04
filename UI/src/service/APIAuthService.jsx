@@ -8,15 +8,23 @@ const axiosInstance = axios.create({
 });
 
 
-export const signup = async (formData) => {
+export const aSignup = async (formData) => {
   try {
-    const response = await axiosInstance.post("/signup", formData);
+    const response = await axiosInstance.post("/signup?admin=true", formData);
     return response.data;
   } catch (error) {
     throw error;
   }
 };
 
+export const eSignup = async (formData) => {
+  try {
+    const response = await axiosInstance.post("/signup?admin=false", formData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const login = async (userData) => {
   try {

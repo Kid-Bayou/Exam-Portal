@@ -1,6 +1,6 @@
 import {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signup } from "../../service/APIAuthService";
+import { eSignup } from "../../service/APIAuthService";
 
 function SignUp() {
   const [userData, setUserData] = useState({
@@ -69,7 +69,7 @@ const navigate = useNavigate();
     }
 
     try {
-      const response = await signup(userData);
+      const response = await eSignup(userData);
       console.log("Signup successful:", response);
       navigate("/")
     } catch (error) {
