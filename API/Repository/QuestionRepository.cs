@@ -3,6 +3,7 @@ using Exam_Portal.Data;
 using Exam_Portal.Interfaces;
 using Exam_Portal.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Exam_Portal.Repository
 {
@@ -70,6 +71,12 @@ namespace Exam_Portal.Repository
         {
             return _context.Questions.Count();
         }
+
+        public int GetQuestionCount(int mId)
+        {
+            return _context.Questions.Count(q => q.ModuleID == mId);
+        }
+
 
     }
 }

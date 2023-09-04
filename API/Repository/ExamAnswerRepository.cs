@@ -43,14 +43,8 @@ namespace Exam_Portal.Repository
             return _context.ExamAnswers.ToList();
         }
 
-        public int GetTotalAnswersCount(int examinationId)
-        {
-            return _context.ExamAnswers
-        .Where(e => e.ExaminationID == examinationId)
-        .Count();
-        }
 
-        public int GetTotalCorrectAnswersCount(int examinationId)
+        public int GetTotalCorrectAnswers(int examinationId)
         {
             return _context.ExamAnswers
         .Where(e => e.ExaminationID == examinationId && e.IsCorrect)

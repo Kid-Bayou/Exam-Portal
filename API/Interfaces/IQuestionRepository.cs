@@ -8,6 +8,7 @@ namespace Exam_Portal.Interfaces
         ICollection<Question> GetModuleQuestions(int id);
         Question GetQuestion(int id);
         int GetQuestionCount();
+        int GetQuestionCount(int mId);
         bool QuestionExists(int id);
 
         bool ModuleQuestionExists(int id);

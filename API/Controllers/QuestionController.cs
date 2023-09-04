@@ -4,6 +4,7 @@ using Exam_Portal.Interfaces;
 using Exam_Portal.Models;
 using Exam_Portal.Repository;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection;
 
 namespace Exam_Portal.Controllers
 {
@@ -48,6 +49,23 @@ namespace Exam_Portal.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             return Ok(questions);
+        }
+
+        [HttpGet("{mId}")]
+        public IActionResult GetQuestionCount(int mId)
+        {
+
+            int questionCount = _questionRepository.GetQuestionCount(mId);
+
+            if (questionCount >= 0)
+            {
+                return Ok(questionCount);
+            }
+            else
+            {
+                return NotFound();
+            }
+
         }
 
         [HttpGet]

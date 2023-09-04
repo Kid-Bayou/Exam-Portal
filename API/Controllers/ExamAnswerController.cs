@@ -57,17 +57,10 @@ namespace Exam_Portal.Controllers
             return Ok(examAnswer);
         }
 
-        [HttpGet("TotalCorrectAnswersCount/{examinationId}")]
-        public IActionResult GetTotalCorrectAnswersCount(int examinationId)
+        [HttpGet("{examinationId}")]
+        public IActionResult GetTotalCorrectAnswers(int examinationId)
         {
-            var count = _examAnswerRepository.GetTotalCorrectAnswersCount(examinationId);
-            return Ok(count);
-        }
-
-        [HttpGet("TotalAnswersCount/{examinationId}")]
-        public IActionResult GetTotalAnswersCount(int examinationId)
-        {
-            var count = _examAnswerRepository.GetTotalAnswersCount(examinationId);
+            var count = _examAnswerRepository.GetTotalCorrectAnswers(examinationId);
             return Ok(count);
         }
 

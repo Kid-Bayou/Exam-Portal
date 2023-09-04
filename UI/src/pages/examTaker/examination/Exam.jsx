@@ -98,7 +98,7 @@ function Exam() {
     } else {
       setAnswers((prevAnswers) => [
         ...prevAnswers,
-        { examinationID: params.id, questionID: questionId, choiceID: choiceId },
+        { examinationID: examination.id, questionID: questionId, choiceID: choiceId },
       ]);
     }
   };
