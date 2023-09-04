@@ -1,6 +1,7 @@
-import {Link, useNavigate} from "react-router-dom"
-import {useState} from "react"
-import {login} from "../../service/APIAuthService"
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { isExpired, decodeToken } from "react-jwt";
+import { login } from "../../service/APIAuthService";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -9,22 +10,24 @@ function Login() {
   });
 
   const [error, setError] = useState("");
+  const secretKey = "TopSecretSecret001=youWouldNotGuess+123";
+  var token = "";
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     try {
       const response = await login(formData);
       console.log("Signup successful:", response);
-      navigate("/")
+      token = response;
+      handleLogin(event);
     } catch (error) {
       console.error("Error signing up:", error);
       setError("An error occurred during signup. Please try again.");
     }
   };
-  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -34,40 +37,51 @@ function Login() {
     }));
   };
 
+  const handleLogin = (event) => {
+    const myDecodedToken = decodeToken(token);
+    const isMyTokenExpired = isExpired(token);
+
+    console.log("tis the season of the token:", myDecodedToken)
+    console.log("tis the season of the token:", myDecodedToken)
+  };
+
   return (
     <>
-    <div className="sign-in-up">
+      <div className="sign-in-up">
         <h1 className="sign-in-up-header">Login</h1>
         <form className="sign-in-up-form" onSubmit={handleSubmit}>
           <label className="sign-in-up-box">
             <p className="sign-in-up-label"> Email:</p>
-            <input 
-            className="sign-in-up-input" 
-            name="email" 
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
+            <input
+              className="sign-in-up-input"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
             />
           </label>
           <label className="sign-in-up-box">
             <p className="sign-in-up-label"> Password:</p>
-            <input 
-            className="sign-in-up-input" 
-            name="password" 
-            type="password"
-            value={formData.password}
-            onChange={handleChange}
-            
+            <input
+              className="sign-in-up-input"
+              name="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
             />
           </label>
           <button className="button sign-in-up-btn" type="submit">
             Login
           </button>
-        {error && <p>{error}</p>}
+          {error && <p>{error}</p>}
         </form>
-        <p className="sign-in-up-alternative">Don't Have An Account? <Link to="/signup" className="sign-in-up-other">Sign Up</Link></p>
-    </div>
-      
+        <p className="sign-in-up-alternative">
+          Don't Have An Account?{" "}
+          <Link to="/signup" className="sign-in-up-other">
+            Sign Up
+          </Link>
+        </p>
+      </div>
     </>
   );
 }
