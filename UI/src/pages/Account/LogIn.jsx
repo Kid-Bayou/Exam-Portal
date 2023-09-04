@@ -10,7 +10,6 @@ function Login() {
   });
 
   const [error, setError] = useState("");
-  const secretKey = "TopSecretSecret001=youWouldNotGuess+123";
   var token = "";
 
   const navigate = useNavigate();
@@ -40,9 +39,22 @@ function Login() {
   const handleLogin = (event) => {
     const myDecodedToken = decodeToken(token);
     const isMyTokenExpired = isExpired(token);
+  
+    console.log("tis the season of the token:", myDecodedToken);
+  
+    if (myDecodedToken && myDecodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']) {
+      const userRole = myDecodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+      console.log('User Role:', userRole);
+    } else {
+      console.error('Role claim not found in the token.');
+    }
 
-    console.log("tis the season of the token:", myDecodedToken)
-    console.log("tis the season of the token:", myDecodedToken)
+    if (myDecodedToken && myDecodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']) {
+    const userName = myDecodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+    console.log('User Name:', userName);
+  } else {
+    console.error('Name claim not found in the token.');
+  }
   };
 
   return (
