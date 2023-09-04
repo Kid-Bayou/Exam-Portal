@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { API_BASE_URL, get, post } from "../../../service/APIService";
+import { useState, useEffect, useContext } from "react";
+import { API_BASE_URL, get, post, put } from "../../../service/APIService";
+import { ExamContext } from "../../../context/ExamContext";
 import ChoiceList from "./Choices";
 
 function Exam() {
@@ -9,7 +10,77 @@ function Exam() {
   const [question, setQuestion] = useState([]);
   const [answers, setAnswers] = useState([]);
 
-  
+  const { exam, setExam } = useContext(ExamContext);
+  const [examination, setExamination] = useState(null);
+  const [newExam, setNewExam] = useState({
+    id: "",
+    title: "",
+    startDateTime: "",
+    endDateTime: "",
+    moduleID: "",
+    examTakerID: "",
+  });
+  const currentDateTime = new Date();
+
+  // End Exam Stuff 
+  // ```````````````````
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const responseData = await get(
+        `${API_BASE_URL}/api/Examination/GetExaminationByStartDateAndTakerId?examStartDate=${exam.startDateTime}&examTakerId=${exam.examTakerID}`
+      );
+      setExamination(responseData);
+      console.log("me(getting the data is worksing");
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleEndExam = async (event) => {
+    event.preventDefault();
+
+    console.log("woahhoashhhaoahaoojldsjfoasjg:", exam);
+
+    try {
+      console.log("when button is clicked", newExam);
+      console.log("when button is clicked", newExam.id);
+      const response = await put(
+        `${API_BASE_URL}/api/Examination/UpdateExamination/${newExam.id}`,
+        newExam
+      );
+      navigate("/userdashboard/result/1");
+      console.log("end exam request successful:", response);
+    } catch (error) {
+      console.error("Error making put request:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (examination) {
+      setNewExam((prevNewExam) => ({
+        ...prevNewExam,
+        id: examination.id,
+        title: exam.title,
+        startDateTime: exam.startDateTime,
+        endDateTime: currentDateTime.toISOString(),
+        moduleID: exam.moduleID,
+        examTakerID: exam.examTakerID,
+      }));
+      console.log("i too am working!!!");
+      console.log("me?", newExam);
+    }
+  }, [examination]);
+
+
+  // Choice Change Stuff
+  // ````````````````````
+
   
   const handleChoiceChange = (questionId, choiceId) => {
     const answerIndex = answers.findIndex((answer) => answer.questionID === questionId);
@@ -66,6 +137,7 @@ function Exam() {
         await post(`${API_BASE_URL}/api/ExamAnswer/CreateExamAnswer`, answer);
         console.log("Posted answer:", answer);
       }
+      handleEndExam();
       navigate("/userdashboard/result/1");
       console.log("All answers posted successfully");
     } catch (error) {
