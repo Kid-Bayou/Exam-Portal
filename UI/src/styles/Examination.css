@@ -196,7 +196,7 @@
 
 
 
-/** ~~~~~~~~~~~~~~~~~~~~~ CHOICE ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~ End Exam Button ~~~~~~~~~~~~~~~~~~~~~~~**/
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
 
  
@@ -217,4 +217,34 @@
   background: #FF4742;
   border: 1px solid #FF4742;
   color: #fdfaf7;
+}
+
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~ Examination Result ~~~~~~~~~~~~~~~~~~~~~~~**/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~**/
+
+.result-container {
+ display: flex;
+ flex-direction: column; 
+ margin-top: 70px;
+}
+
+.result-header {
+  font-size: 40px;
+}
+
+.result-mark {
+  font-size: 20px;
+}
+
+.result-percent {
+  font-size: 20px;
+  
+}
+
+.result-pass-status {
+  font-size: 25px;
+  font-weight: 700;
+  
 }

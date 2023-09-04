@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { ExamContext } from "../../../context/ExamContext";
 import { API_BASE_URL, get } from "../../../service/APIService";
 
+import "../../../styles/Examination.css";
+
 function Result() {
   const params = useParams();
   const [result, setResult] = useState(0);
@@ -78,12 +80,14 @@ function Result() {
 
   return (
     <>
-      <h1>You're Done Already?</h1>
-      <p>
-        {result} / {tQuestion}
-      </p>
-      <p>Percentage: {percentage}%</p>
-      <p>{getPassingStatus()}</p>
+      <div className="result-container">
+        <h1 className="result-header">You're Done Already?</h1>
+        <p className="result-mark">
+          {result} / {tQuestion}
+        </p>
+        <p className="result-percent">Percentage: {percentage}%</p>
+        <p className="result-pass-status">{getPassingStatus()}</p>
+      </div>
     </>
   );
 }
