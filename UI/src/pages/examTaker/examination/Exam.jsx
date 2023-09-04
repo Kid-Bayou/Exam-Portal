@@ -54,7 +54,7 @@ function Exam() {
         `${API_BASE_URL}/api/Examination/UpdateExamination/${newExam.id}`,
         newExam
       );
-      navigate("/userdashboard/result/1");
+      navigate(`/userdashboard/result/${examination.id}`);
       console.log("end exam request successful:", response);
     } catch (error) {
       console.error("Error making put request:", error);
@@ -129,7 +129,8 @@ function Exam() {
   }, []);
 
 
-  const submitAnswers = async () => {
+  const submitAnswers = async (event) => {
+    event.preventDefault();
     try {
       console.log("Answers data:", answers);
 
@@ -137,8 +138,7 @@ function Exam() {
         await post(`${API_BASE_URL}/api/ExamAnswer/CreateExamAnswer`, answer);
         console.log("Posted answer:", answer);
       }
-      handleEndExam();
-      navigate(`/userdashboard/result/${examination.id}`);
+      handleEndExam(event);
       console.log("All answers posted successfully");
     } catch (error) {
       console.error("Error submitting answers:", error);
