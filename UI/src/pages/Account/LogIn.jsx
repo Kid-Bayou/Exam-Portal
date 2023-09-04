@@ -42,26 +42,23 @@ function Login() {
 
     console.log("tis the season of the token:", myDecodedToken);
 
-      const userRole =
-        myDecodedToken[
-          "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-        ];
-      console.log("User Role:", userRole);
+    const userRole =
+      myDecodedToken[
+        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+      ];
+    console.log("User Role:", userRole);
 
-      
-      const userName =
-        myDecodedToken[
-          "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-        ];
-      console.log("User Name:", userName);
+    const userName =
+      myDecodedToken[
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+      ];
+    console.log("User Name:", userName);
 
-    
-  if (userRole == "ExamTaker"){
-    navigate("/userdashboard")
-  }
-  else (userRole == "Administrator")
-    navigate("/admindashboard")
-  
+    if (userRole == "ExamTaker") {
+      const encodedUserName = encodeURIComponent(userName);
+      navigate(`/admindashboard/${encodedUserName}`);
+    } else userRole == "Administrator";
+    navigate(`/admindashboard/${userName}`);
   };
 
   return (

@@ -1,6 +1,6 @@
 import {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signup } from "../../../service/APIAuthService";
+import { aSignup } from "../../../service/APIAuthService";
 
 function AddAdmin() {
   const [userData, setUserData] = useState({

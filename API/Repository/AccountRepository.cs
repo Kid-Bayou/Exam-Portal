@@ -129,6 +129,13 @@ namespace Exam_Portal.Repository
             return _userManager.GetUsersInRoleAsync("ExamTaker").Result.Count;
         }
 
+        public async Task<string> GetUserIdByEmailAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            return user?.Id;
+        }
+
 
     }
 }
