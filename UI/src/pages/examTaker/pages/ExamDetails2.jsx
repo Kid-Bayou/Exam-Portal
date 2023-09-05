@@ -46,7 +46,7 @@ const handleSetTimer = () => {
         startDateTime: `${currentDateTime.toISOString()}`,
         endDateTime: `${currentDateTime.toISOString()}`,
         moduleID: `${params.id}`,
-        examTakerID: 1,
+        userID: person.id,
       }
       const response = await post(
         `${API_BASE_URL}/api/Examination/CreateExamination`,

@@ -17,9 +17,6 @@ namespace Exam_Portal.Helper
             CreateMap<Question, QuestionDto>();
             CreateMap<QuestionDto, Question>();
 
-            CreateMap<ExamTaker, ExamTakerDto>();
-            CreateMap<ExamTakerDto, ExamTaker>();
-
             CreateMap<Choice, ChoiceDto>();
             CreateMap<ChoiceDto, Choice>();
 

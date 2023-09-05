@@ -14,21 +14,18 @@ namespace Exam_Portal.Controllers
         private readonly IExaminationRepository _examinationRepository;
         private readonly IModuleRepository _moduleRepository;
         private readonly ICourseRepository _courseRepository;
-        private readonly IExamTakerRepository _examTakerRepository;
         private readonly IResultRepository _resultRepository;
         private readonly IMapper _mapper;
 
         public ExaminationController(IExaminationRepository ExaminationRepository, 
             IModuleRepository moduleRepository, 
             ICourseRepository courseRepository,
-            IExamTakerRepository examTakerRepository,
             IResultRepository resultRepository,
             IMapper mapper)
         {
             _examinationRepository = ExaminationRepository;
             _moduleRepository = moduleRepository;
             _courseRepository = courseRepository;
-            _examTakerRepository = examTakerRepository;
             _resultRepository = resultRepository;
             _mapper = mapper;
         }
