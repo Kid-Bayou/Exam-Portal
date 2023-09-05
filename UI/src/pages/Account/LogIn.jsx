@@ -69,10 +69,11 @@ function Login() {
       localStorage.setItem("User", JSON.stringify(responseData));
       console.log(responseData);
 
-      if (userRole == "ExamTaker") {
-        navigate(`/userdashboard/`);
-      } else userRole == "Administrator";
-      navigate(`/admindashboard`);
+      if (userRole == "Administrator") {
+        navigate(`/admindashboard`);
+    } else {
+        navigate(`/userdashboard`);
+    }
     } catch (error) {
       console.error("Error fetching data:", error);
     }

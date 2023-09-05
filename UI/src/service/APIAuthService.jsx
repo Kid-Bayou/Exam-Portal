@@ -38,7 +38,7 @@ export const login = async (userData) => {
 
 export const logout = async () => {
   try {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem("User");
     return true;
   } catch (error) {
     throw error;
