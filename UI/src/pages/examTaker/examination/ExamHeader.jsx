@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { ExamContext } from "../../../context/ExamContext";
-import { API_BASE_URL, get, put, del } from "../../../service/APIService";
+import { API_BASE_URL, get, del } from "../../../service/APIService";
 import Timer from "./Timer";
 
 function ExamHeader() {
