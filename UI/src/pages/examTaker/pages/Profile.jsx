@@ -1,11 +1,14 @@
 function Profile() {
-    return (
-      <>
-        <div>
-          <h1>Welcome, Jane Doe to your Profile!</h1>
-        </div>
-      </>
-    );
+    
+  const person = JSON.parse(localStorage.getItem("User"));
+  console.log(person)
+      return (
+          <>
+              <h1>Profile page.</h1>
+              <p>Name: {person.firstName} {person.lastName}</p>
+              <p>Email: {person.email}</p>
+          </>
+      )
   }
   
   export default Profile

@@ -1,11 +1,12 @@
 function Profile() {
     
 const person = JSON.parse(localStorage.getItem("User"));
-console.log(person.id)
+console.log(person)
     return (
         <>
-            <p>This is your profile page.</p>
-            {person.id}
+            <h1>Profile page.</h1>
+            <p>Name: {person.firstName} {person.lastName}</p>
+            <p>Email: {person.email}</p>
         </>
     )
 }
