@@ -13,6 +13,8 @@ function ExamDetails2() {
   const [module, setModule] = useState(null);
   const { timer, setTimer } = useContext(ExamContext);
   const { exam, setExam } = useContext(ExamContext);
+  
+  const person = JSON.parse(localStorage.getItem("User"));
 
   useEffect(() => {
     fetchData();
@@ -36,6 +38,8 @@ const handleSetTimer = () => {
 
 
   const handleStartExam = async () => {
+    
+  console.log("whattttt",person.id)
     try {
       const newExam = {
         title: "this",

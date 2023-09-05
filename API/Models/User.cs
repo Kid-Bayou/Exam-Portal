@@ -6,5 +6,6 @@ namespace Exam_Portal.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public virtual ICollection<Examination> Examinations { get; set; }
     }
 }

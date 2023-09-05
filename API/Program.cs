@@ -48,7 +48,7 @@ builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
-builder.Services.AddScoped<IExamTakerRepository, ExamTakerRepository>();
+//builder.Services.AddScoped<IExamTakerRepository, ExamTakerRepository>();
 builder.Services.AddScoped<IChoiceRepository, ChoiceRepository>();
 builder.Services.AddScoped<IExamAnswerRepository, ExamAnswerRepository>();
 builder.Services.AddScoped<IExaminationRepository, ExaminationRepository>();

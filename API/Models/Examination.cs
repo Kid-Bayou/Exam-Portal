@@ -11,8 +11,8 @@ namespace Exam_Portal.Models
         [ForeignKey("Module")]
         public int ModuleID { get; set; }
         [ForeignKey("ExamTaker")]
-        public int ExamTakerID { get; set; }
-        public virtual ExamTaker ExamTaker { get; set; }
+        public string UserID { get; set; }
+        public virtual User User { get; set; }
         public virtual Module Module { get; set; }
         public virtual Result Result { get; set; }
 

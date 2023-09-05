@@ -31,13 +31,13 @@ namespace Exam_Portal
                 //////////////////////////////////////////////////////////////////////////////////
 
 
-                var examTakers = new ExamTaker[]
-                {
-                new ExamTaker() {Name="Abebs",},
-                new ExamTaker() { Name = "Kebebs", }
-                };
-                context.ExamTakers.AddRange(examTakers);
-                context.SaveChanges();
+                //var examTakers = new ExamTaker[]
+                //{
+                //new ExamTaker() {Name="Abebs",},
+                //new ExamTaker() { Name = "Kebebs", }
+                //};
+                //context.ExamTakers.AddRange(examTakers);
+                //context.SaveChanges();
 
 
                 /////////////////////////////////////////////////////////////////////////////////
@@ -81,8 +81,8 @@ namespace Exam_Portal
 
                 var examinations = new Examination[]
                 {
-                new Examination() {Title="This Persons Exam", StartDateTime=DateTime.Parse("09/14/2009 8:00"), EndDateTime=DateTime.Parse("09/14/2009 8:00"), ModuleID=1, ExamTakerID=1},
-                new Examination() {Title="That Persons Exam", StartDateTime=DateTime.Parse("09/14/2009 8:00"), EndDateTime=DateTime.Parse("09/14/2009 8:00"), ModuleID=2, ExamTakerID=2}
+                new Examination() {Title="This Persons Exam", StartDateTime=DateTime.Parse("09/14/2009 8:00"), EndDateTime=DateTime.Parse("09/14/2009 8:00"), ModuleID=1},
+                new Examination() {Title="That Persons Exam", StartDateTime=DateTime.Parse("09/14/2009 8:00"), EndDateTime=DateTime.Parse("09/14/2009 8:00"), ModuleID=2}
                 };
                 context.Examinations.AddRange(examinations);
                 context.SaveChanges();

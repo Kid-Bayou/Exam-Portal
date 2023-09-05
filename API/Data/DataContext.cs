@@ -14,7 +14,6 @@ namespace Exam_Portal.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<ExamAnswer> ExamAnswers { get; set; }
         public DbSet<Examination> Examinations { get; set; }
-        public DbSet<ExamTaker> ExamTakers { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Result> Results { get; set; }
@@ -32,9 +31,9 @@ namespace Exam_Portal.Data
                 .WithOne(c => c.Examination)
                 .HasForeignKey<Result>(k => k.ExaminationID);
 
-            modelBuilder.Entity<ExamTaker>().ToTable("ExamTaker")
+            modelBuilder.Entity<User>().ToTable("ExamTaker")
                 .HasMany(e => e.Examinations)
-                .WithOne(t => t.ExamTaker)
+                .WithOne(t => t.User)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Module>().ToTable("Module")

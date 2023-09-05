@@ -7,6 +7,6 @@
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public int ModuleID { get; set; }
-        public int ExamTakerID { get; set; }
+        public string UserID { get; set; }
     }
 }

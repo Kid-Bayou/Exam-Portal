@@ -73,7 +73,7 @@ namespace Exam_Portal.Controllers
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(Examination))]
         [ProducesResponseType(400)]
-        public IActionResult GetExaminationByStartDateAndTakerId(DateTime examStartDate, int examTakerId)
+        public IActionResult GetExaminationByStartDateAndTakerId(DateTime examStartDate, string examTakerId)
         {
             if (!ModelState.IsValid)
             {
