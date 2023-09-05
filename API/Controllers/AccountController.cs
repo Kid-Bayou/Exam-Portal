@@ -103,24 +103,26 @@ namespace Exam_Portal.Controllers
             return Ok(count);
         }
 
-        [HttpGet("email")]
-        [ProducesResponseType(200, Type = typeof(string))]
-        public async Task<IActionResult> GetUserIdByEmail([FromQuery] string email)
+        [HttpGet("user-by-email")]
+        [ProducesResponseType(200, Type = typeof(User))]
+        [ProducesResponseType(404)]
+        public IActionResult GetUserByEmail([FromQuery] string email)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
                 return BadRequest("Email is required.");
             }
 
-            var userId = await _accountRepository.GetUserIdByEmailAsync(email);
+            var user = _accountRepository.GetUserByEmail(email);
 
-            if (string.IsNullOrEmpty(userId))
+            if (user == null)
             {
                 return NotFound("User not found.");
             }
 
-            return Ok(userId);
+            return Ok(user);
         }
+
 
 
 

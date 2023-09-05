@@ -60,21 +60,23 @@ function Login() {
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+  const navigatePage = async (userName, userRole) => {
+    try {
+      const responseData = await get(
+        `${API_BASE_URL}/api/Account/user-by-email?email=${userName}`
+      );
 
-    const navigatePage = async (userName, userRole) => {
-      try {
-        const responseData = await get(
-          `${API_BASE_URL}/api/Account/email?email=${userName}`
-        );
-        console.log(responseData);
-        if (userRole == "ExamTaker") {
-          navigate(`/admindashboard/${responseData}`);
-        } else userRole == "Administrator";
+      localStorage.setItem("User", responseData);
+      console.log(responseData);
+
+      if (userRole == "ExamTaker") {
         navigate(`/admindashboard/${responseData}`);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+      } else userRole == "Administrator";
+      navigate(`/admindashboard/${responseData}`);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <>

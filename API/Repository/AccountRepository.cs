@@ -129,11 +129,11 @@ namespace Exam_Portal.Repository
             return _userManager.GetUsersInRoleAsync("ExamTaker").Result.Count;
         }
 
-        public async Task<string> GetUserIdByEmailAsync(string email)
+        public User GetUserByEmail(string email)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = _userManager.Users.FirstOrDefault(u => u.Email == email);
+            return user;
 
-            return user?.Id;
         }
 
 

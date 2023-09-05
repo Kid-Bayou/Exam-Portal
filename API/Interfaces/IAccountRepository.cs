@@ -8,7 +8,7 @@ namespace Exam_Portal.Interfaces
 
         ICollection<User> GetUsers();
         ICollection<User> GetUsersByRole(string roleName);
-        Task<string> GetUserIdByEmailAsync(string email);
+        User GetUserByEmail(string email);
         User GetUser(string firstName);
         int GetAdminCount();
         int GetExamTakerCount();
