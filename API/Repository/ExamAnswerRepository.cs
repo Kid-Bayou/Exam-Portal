@@ -62,5 +62,11 @@ namespace Exam_Portal.Repository
             _context.Update(examAnswer);
             return Save();
         }
+
+        public int GetTotalExamAnswers(int examinationId)
+        {
+            return _context.ExamAnswers.Count(ea => ea.ExaminationID == examinationId);
+        }
+
     }
 }

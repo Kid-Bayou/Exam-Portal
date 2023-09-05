@@ -11,6 +11,7 @@ namespace Exam_Portal.Interfaces
         bool CreateExamAnswer(ExamAnswer examAnswer);
         bool UpdateExamAnswer(ExamAnswer examAnswer);
         bool DeleteExamAnswer(ExamAnswer examAnswer);
+        int GetTotalExamAnswers(int examinationId);
         bool Save();
     }
 }

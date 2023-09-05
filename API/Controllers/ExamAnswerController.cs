@@ -14,16 +14,19 @@ namespace Exam_Portal.Controllers
         private readonly IExamAnswerRepository _examAnswerRepository;
         private readonly IExaminationRepository _examinationRepository;
         private readonly IQuestionRepository _questionRepository;
+        private readonly IResultRepository _resultRepository;
         private readonly IMapper _mapper;
 
         public ExamAnswerController(IExamAnswerRepository examAnswerRepository, 
             IExaminationRepository examinationRepository, 
             IQuestionRepository questionRepository,
+            IResultRepository resultRepository,
             IMapper mapper)
         {
             _examAnswerRepository = examAnswerRepository;
             _examinationRepository = examinationRepository;
             _questionRepository = questionRepository;
+            _resultRepository = resultRepository;
             _mapper = mapper;
         }
 
@@ -91,14 +94,42 @@ namespace Exam_Portal.Controllers
 
             var examAnswerMap = _mapper.Map<ExamAnswer>(examAnswerCreate);
 
-
             if (!_examAnswerRepository.CreateExamAnswer(examAnswerMap))
             {
                 ModelState.AddModelError("", "Something Went Wrong While Saving");
             }
 
+            // Return a success response here if needed
+
+            // Check if all ExamAnswers for the examination have been created
+            var examination = _examinationRepository.GetExamination(examAnswerCreate.ExaminationID);
+            var totalQuestions = _questionRepository.GetQuestionCount(examination.ModuleID);
+            var totalExamAnswers = _examAnswerRepository.GetTotalExamAnswers(examAnswerCreate.ExaminationID);
+
+            if (totalExamAnswers == totalQuestions)
+            {
+                // All ExamAnswers have been created, calculate TotalMark and create Result
+                int totalCorrectAnswers = _examAnswerRepository.GetTotalCorrectAnswers(examAnswerCreate.ExaminationID);
+                double percentage = (double)totalCorrectAnswers / totalQuestions * 100;
+
+                var results = new ResultDto
+                {
+                    ExaminationID = examAnswerCreate.ExaminationID,
+                    TotalMark = (int)percentage
+                };
+
+                var resultMap = _mapper.Map<Result>(results);
+
+                if (!_resultRepository.CreateResult(resultMap))
+                {
+                    ModelState.AddModelError("", "Something Went Wrong While Saving Results");
+                }
+            }
+
             return Ok("Successfully Created");
         }
+
+
 
         [HttpPut("{examAnswerId}")]
         [ProducesResponseType(400)]

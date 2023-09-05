@@ -1,4 +1,5 @@
-﻿using Exam_Portal.Models;
+﻿using Exam_Portal.Dto;
+using Exam_Portal.Models;
 
 namespace Exam_Portal.Interfaces
 {
