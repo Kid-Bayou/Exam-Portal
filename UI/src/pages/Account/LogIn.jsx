@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { isExpired, decodeToken } from "react-jwt";
 import { login } from "../../service/APIAuthService";
+import { API_BASE_URL, get } from "../../service/APIService";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -54,12 +55,26 @@ function Login() {
       ];
     console.log("User Name:", userName);
 
-    if (userRole == "ExamTaker") {
-      const encodedUserName = encodeURIComponent(userName);
-      navigate(`/admindashboard/${encodedUserName}`);
-    } else userRole == "Administrator";
-    navigate(`/admindashboard/${userName}`);
+    navigatePage(userName, userRole);
   };
+
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+    const navigatePage = async (userName, userRole) => {
+      try {
+        const responseData = await get(
+          `${API_BASE_URL}/api/Account/email?email=${userName}`
+        );
+        console.log(responseData);
+        if (userRole == "ExamTaker") {
+          navigate(`/admindashboard/${responseData}`);
+        } else userRole == "Administrator";
+        navigate(`/admindashboard/${responseData}`);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
   return (
     <>
