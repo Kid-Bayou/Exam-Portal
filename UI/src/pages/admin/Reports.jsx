@@ -3,7 +3,7 @@ import { API_BASE_URL, get } from "../../service/APIService";
 
 function Reports() {
   const [adminCount, setAdminCount] = useState(0);
-  const [examTakerCount, setExamTakerCount] = useState(0);
+  // const [examTakerCount, setExamTakerCount] = useState(0);
   const [examCount, setExamCount] = useState(0);
   const [courseCount, setCourseCount] = useState(0);
   const [moduleCount, setModuleCount] = useState(0);
@@ -18,13 +18,13 @@ function Reports() {
         console.error("Error fetching admin count:", error);
       });
 
-    get(`${API_BASE_URL}/api/account/exam-taker-count`)
-      .then((response) => {
-        setExamTakerCount(response);
-      })
-      .catch((error) => {
-        console.error("Error fetching exam taker count:", error);
-      });
+    // get(`${API_BASE_URL}/api/account/exam-taker-count`)
+    //   .then((response) => {
+    //     setExamTakerCount(response);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching exam taker count:", error);
+    //   });
 
     get(`${API_BASE_URL}/api/Examination/GetExaminationCount`)
       .then((response) => {

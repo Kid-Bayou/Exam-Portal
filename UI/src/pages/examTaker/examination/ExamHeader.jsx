@@ -16,7 +16,7 @@ function ExamHeader() {
   const fetchData = async () => {
     try {
       const responseData = await get(
-        `${API_BASE_URL}/api/Examination/GetExaminationByStartDateAndTakerId?examStartDate=${exam.startDateTime}&examTakerId=${exam.examTakerID}`
+        `${API_BASE_URL}/api/Examination/GetExaminationByStartDateAndTakerId?examStartDate=${exam.startDateTime}&examTakerId=${exam.userID}`
       );
       setExamination(responseData);
       console.log("me(getting the data is worksing");

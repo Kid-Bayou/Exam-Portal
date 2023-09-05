@@ -18,7 +18,7 @@ function Exam() {
     startDateTime: "",
     endDateTime: "",
     moduleID: "",
-    examTakerID: "",
+    userID: "",
   });
   const currentDateTime = new Date();
 
@@ -33,7 +33,7 @@ function Exam() {
   const fetchData = async () => {
     try {
       const responseData = await get(
-        `${API_BASE_URL}/api/Examination/GetExaminationByStartDateAndTakerId?examStartDate=${exam.startDateTime}&examTakerId=${exam.examTakerID}`
+        `${API_BASE_URL}/api/Examination/GetExaminationByStartDateAndTakerId?examStartDate=${exam.startDateTime}&examTakerId=${exam.userID}`
       );
       setExamination(responseData);
       console.log("me(getting the data is worksing");
@@ -70,7 +70,7 @@ function Exam() {
         startDateTime: exam.startDateTime,
         endDateTime: currentDateTime.toISOString(),
         moduleID: exam.moduleID,
-        examTakerID: exam.examTakerID,
+        userID: exam.userID,
       }));
       console.log("i too am working!!!");
       console.log("me?", newExam);
