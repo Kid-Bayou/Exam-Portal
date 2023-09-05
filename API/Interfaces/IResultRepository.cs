@@ -7,6 +7,7 @@ namespace Exam_Portal.Interfaces
     {
         ICollection<Result> GetResults();
         Result GetResult(int id);
+        Result GetExamResult(int eId);
         bool ResultExists(int id);
         bool CreateResult(Result result);
         bool UpdateResult(Result result);

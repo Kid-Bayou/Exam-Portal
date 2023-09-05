@@ -33,6 +33,11 @@ namespace Exam_Portal.Repository
             return _context.Results.Where(m => m.ID == id).FirstOrDefault();
         }
 
+        public Result GetExamResult(int eId)
+        {
+            return _context.Results.Where(r => r.ExaminationID == eId).FirstOrDefault();
+        }
+
         public ICollection<Result> GetResults()
         {
             return _context.Results.ToList();

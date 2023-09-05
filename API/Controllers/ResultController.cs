@@ -57,6 +57,21 @@ namespace Exam_Portal.Controllers
             return Ok(Result);
         }
 
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(Result))]
+        [ProducesResponseType(400)]
+        public IActionResult GetExamResult(int eId)
+        {
+
+            var Result = _mapper.Map<ResultDto>(_resultRepository.GetExamResult(eId));
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok(Result);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]

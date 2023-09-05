@@ -7,86 +7,79 @@ import "../../../styles/Examination.css";
 
 function Result() {
   const params = useParams();
-  const [result, setResult] = useState(0);
-  const [tQuestion, setTQuestion] = useState(0);
-  const { exam, setExam } = useContext(ExamContext);
-  const [percentage, setPercentage] = useState(0);
+  const [result, setResult] = useState(null);
   const [module, setModule] = useState(null);
+  const [examination, setExamination] = useState(null);
+  const [passStatus, setPassStatus] = useState("");
+
 
   useEffect(() => {
-    fetchResultData();
-  }, [params.id]);
+    fetchExamination();
+    fetchResult();
+  }, []);
+  
+  useEffect(() => {
+    fetchModule();
+  }, [examination]);
 
-  const fetchResultData = async () => {
+  useEffect(() => {
+    fetchPassStatus();
+  }, [module]);
+
+  
+
+  const fetchExamination = async () => {
     try {
       const responseData = await get(
-        `${API_BASE_URL}/api/ExamAnswer/GetTotalCorrectAnswers/${params.id}`
+        `${API_BASE_URL}/api/Examination/GetExamination?id=${params.id}`
       );
-      setResult(responseData);
-      console.log("whooppusikjfalk:", exam);
+      setExamination(responseData);
     } catch (error) {
       console.error("Error fetching result data:", error);
     }
   };
 
-  useEffect(() => {
-    fetchTResultData();
-  }, [params.id]);
-
-  const fetchTResultData = async () => {
+  const fetchModule = async () => {
     try {
       const responseData = await get(
-        `${API_BASE_URL}/api/Question/GetQuestionCount/${exam.moduleID}`
+        `${API_BASE_URL}/api/Module/GetModule?id=${examination.moduleID}`
       );
-      setTQuestion(responseData);
-      console.log("TResult data:", responseData);
+      setModule(responseData);
     } catch (error) {
-      console.error("Error fetching tResult data:", error);
+      console.error("Error fetching result data:", error);
     }
   };
 
-  useEffect(() => {
-    fetchModuleData();
-  }, [params.id]);
-
-  const fetchModuleData = async () => {
+  const fetchResult = async () => {
     try {
       const responseData = await get(
-        `${API_BASE_URL}/api/Module/GetModule?id=${exam.moduleID}`
+        `${API_BASE_URL}/api/Result/GetExamResult?eId=${params.id}`
       );
-      setModule(responseData);
+      setResult(responseData);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  useEffect(() => {
-    if (tQuestion !== 0) {
-      const calculatedPercentage = (result / tQuestion) * 100;
-      setPercentage(calculatedPercentage);
-    }
-  }, [result, tQuestion]);
 
-  const getPassingStatus = () => {
-    if (module && percentage !== null) {
-      if (percentage >= module.passingMark) {
-        return "You have passed";
+  const fetchPassStatus = () => {
+    if (module !== null && result !== null && result.totalMark !== null) {
+      if (result.totalMark >= module.passingMark) {
+        setPassStatus("You have passed");
       } else {
-        return "You have failed";
+        setPassStatus("You have failed");
       }
+    } else {
+      setPassStatus("Loading...");
     }
-    return "";
   };
 
   return (
     <>
       <div className="result-container">
         <h1 className="result-header">You're Done Already?</h1>
-        <p className="result-mark">
-          {result} / {tQuestion}
-        </p>
-        <p className="result-percent">Percentage: {percentage}%</p>
-        <p className="result-pass-status">{getPassingStatus()}</p>
+        {result && <p> {result.totalMark} % </p>}
+        {passStatus}
       </div>
     </>
   );
