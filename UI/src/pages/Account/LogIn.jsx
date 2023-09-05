@@ -66,13 +66,13 @@ function Login() {
         `${API_BASE_URL}/api/Account/user-by-email?email=${userName}`
       );
 
-      localStorage.setItem("User", responseData);
+      localStorage.setItem("User", JSON.stringify(responseData));
       console.log(responseData);
 
       if (userRole == "ExamTaker") {
-        navigate(`/admindashboard/${responseData}`);
+        navigate(`/userdashboard/`);
       } else userRole == "Administrator";
-      navigate(`/admindashboard/${responseData}`);
+      navigate(`/admindashboard`);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
