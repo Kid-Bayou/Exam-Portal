@@ -1,8 +1,12 @@
 function Home() {
+
+
+  const person = JSON.parse(localStorage.getItem("User"));
+
   return (
     <>
       <div>
-        <h1>Welcome, Jane Doe</h1>
+        <h1>Welcome, {person.firstName} {person.lastName}</h1>
         <p>We're thrilled to have you here on our Exam Portal.</p>
         <p>
           Explore your personalized dashboard, where you can access your exams,
