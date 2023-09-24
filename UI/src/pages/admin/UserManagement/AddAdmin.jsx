@@ -69,12 +69,12 @@ const navigate = useNavigate();
     }
 
     try {
-      const response = await signup(userData);
+      const response = await aSignup(userData);
       console.log("Signup successful:", response);
-      navigate("/")
+      navigate("/admindashboard/usermanagement/admins")
     } catch (error) {
       console.error("Error signing up:", error);
-      setError("An error occurred during signup. Please try again.");
+      setErrors("An error occurred during signup. Please try again.");
     }
   };
 

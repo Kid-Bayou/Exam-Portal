@@ -71,6 +71,7 @@ function UpdateQuestion() {
       <div className="update-question-container">
         <div>
           <form onSubmit={handleSubmit} className="form">
+            <div className="update-question-form">
             <label className="u-form-box">
               <p className="u-form-label">Question Content:</p>
               <textarea
@@ -90,6 +91,8 @@ function UpdateQuestion() {
                 onChange={handleChange}
               />
             </label>
+            </div>
+            
             <button className="button" type="submit">
               Save
             </button>
