@@ -35,6 +35,7 @@ import ExamTakers from "./pages/admin/UserManagement/ExamTaker"
 import AHelp from "./pages/admin/Help"
 import AProfile from "./pages/admin/Profile"
 import Reports from "./pages/admin/Reports"
+import AHome from "./pages/admin/Home"
 
 
 import Exam from "./pages/examTaker/examination/Exam";
@@ -86,7 +87,7 @@ function App() {
             </Route>
 
             <Route path="/admindashboard" element={<AdminDashboard />}>
-              <Route index element={<UserHome />} />
+              <Route index element={<AHome />} />
               <Route path="courses" element={<CourseList />} />
               <Route path="courses/:id" element={<CourseDetail />} />
               <Route path="courses/createcourse" element={<CreateCourse />} />
