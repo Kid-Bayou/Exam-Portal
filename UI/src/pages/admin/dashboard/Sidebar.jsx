@@ -23,6 +23,10 @@ function Sidebar({}) {
     {path: "/admindashboard/help", text: "Help", image: help},
     {path: "/admindashboard/profile", text: "Profile", image: profile},
   ];
+  
+const person = JSON.parse(localStorage.getItem("User"));
+const firstInitial = person.firstName.charAt(0).toUpperCase();
+const lastInitial = person.lastName.charAt(0).toUpperCase();
 
   return (
     <aside className={`sidebar ${expanded ? "expanded" : "collapsed"}`}>
@@ -63,9 +67,9 @@ function Sidebar({}) {
 
         <div className="sidebar-bottom">
           <div className="sidebar-bottom-box">
-            <h4 className="sidebar-bottom-box-text">JD</h4>
+            <h4 className="sidebar-bottom-box-text">{firstInitial}{lastInitial}</h4>
           </div>
-              <h4 className={`sidebar-bottom-name ${expanded ? "expanded" : ""}`}>Jane Doe</h4>
+              <h4 className={`sidebar-bottom-name ${expanded ? "expanded" : ""}`}>{person.firstName} {person.lastName}</h4>
         </div>
       </nav>
     </aside>
