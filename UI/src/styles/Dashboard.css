@@ -237,13 +237,24 @@ height: 30px;
 .dashboard-header{
   display: flex;
   justify-content: flex-end;
-  gap: 20px;
   padding: 15px;
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.dashboard-header-img {
-  height: 50px;
+.logout-btn {
+  margin: 2px;
+  margin-right: 20px;
+  border: solid #161616 2px;
+  background-color: #fdfaf7;
+  color: #161616;
+  width: 60px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  border: solid #7b7b7b 2px;
+  color: #7b7b7b;
 }
 
