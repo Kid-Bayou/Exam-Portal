@@ -12,7 +12,8 @@ function SignUp() {
   });
 
   const [errors, setErrors] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -74,7 +75,7 @@ const navigate = useNavigate();
       navigate("/")
     } catch (error) {
       console.error("Error signing up:", error);
-      setError("An error occurred during signup. Please try again.");
+      setErrors("An error occurred during signup. Please try again.");
     }
   };
 

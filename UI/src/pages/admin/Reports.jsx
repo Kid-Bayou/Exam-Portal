@@ -67,10 +67,10 @@ function Reports() {
           <p className="reports-name">Administrators </p>
           <p className="reports-value">  {adminCount}</p>
         </div>
-        <div className="reports-items">
+        {/* <div className="reports-items">
           <p className="reports-name">Exam Takers </p>
           <p className="reports-value"> {examTakerCount}</p>
-        </div>
+        </div> */}
         <div className="reports-items">
           <p className="reports-name">Exams </p>
           <p className="reports-value"> {examCount}</p>
