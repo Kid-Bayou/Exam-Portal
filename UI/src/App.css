@@ -109,11 +109,10 @@ body {
 /* ~~~~~~~~~~~~~~~~~~~~~~*/
 
 .about-page-container {
-  margin-top: 100px;
   display:flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .about-image {
