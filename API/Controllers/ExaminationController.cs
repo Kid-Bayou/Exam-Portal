@@ -88,6 +88,17 @@ namespace Exam_Portal.Controllers
             return Ok(examinationDto);
         }
 
+        [HttpGet]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Examination>))]
+        public IActionResult GetUserExams(string uId)
+        {
+            var examinations = _mapper.Map<List<ExaminationDto>>(_examinationRepository.GetUserExams(uId));
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(examinations);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]

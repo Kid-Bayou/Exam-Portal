@@ -66,5 +66,10 @@ namespace Exam_Portal.Repository
                 .FirstOrDefault(e => e.StartDateTime == examStartDate && e.UserID == examTakerId);
 
         }
+
+        public ICollection<Examination> GetUserExams(string uId)
+        {
+            return _context.Examinations.Where(m => m.UserID == uId).ToList();
+        }
     }
 }

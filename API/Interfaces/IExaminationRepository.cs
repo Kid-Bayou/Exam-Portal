@@ -5,6 +5,7 @@ namespace Exam_Portal.Interfaces
     public interface IExaminationRepository
     {
         ICollection<Examination> GetExaminations();
+        ICollection<Examination> GetUserExams(string uId);
         Examination GetExamination(int id);
         Examination GetExamination(DateTime examStartDate, string examTakerId);
         int GetExaminationCount();
