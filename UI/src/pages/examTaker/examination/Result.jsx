@@ -77,8 +77,8 @@ function Result() {
     <>
       <div className="result-container">
         <h1 className="result-header">You're Done Already?</h1>
-        {result && <p> {result.totalMark} % </p>}
-        {passStatus}
+        {result && <h3> {result.totalMark} % </h3>}
+        <h3>{passStatus}</h3>
       </div>
     </>
   );
