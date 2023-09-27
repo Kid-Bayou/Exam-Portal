@@ -78,11 +78,15 @@ body {
 
 .home-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .home-img {
-  margin-right: 7vw;
-  width: 35vw;
+  width: 30%;
   border-radius: 20px;
 }
 
@@ -93,7 +97,7 @@ body {
 }
 
 .home-header {
-  font-size: 5vw;
+  font-size: 4rem;
   font-weight: 1000;
   color: rgb(0, 0, 0);
   text-align: left;
@@ -102,7 +106,7 @@ body {
 
 .home-content {
   text-align: left;
-  font-size: 2vw;
+  font-size: 1.5rem;
 }
 
 /*  ~~~~ ABOUT ~~~~   */

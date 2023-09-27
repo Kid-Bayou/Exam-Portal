@@ -6,7 +6,7 @@ function Home() {
       <div className="home-container">
         <img src={Pic} className="home-img" />
         <div className="home-text-container">
-        <h1 className="home-header">Your go to online exam site</h1>
+          <h1 className="home-header">Your go to online exam site</h1>
           <p className="home-content">
             Discover Exam Portal: Your path to knowledge and opportunity. Our
             user-friendly platform empowers learners, ensuring growth through
