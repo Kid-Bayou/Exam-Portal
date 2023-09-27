@@ -71,9 +71,9 @@ function Login() {
 
       if (userRole == "Administrator") {
         navigate(`/admindashboard`);
-    } else {
+      } else {
         navigate(`/userdashboard`);
-    }
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
