@@ -41,7 +41,7 @@ function CreateQuestion() {
     <>
       <div className="create-question">
         <h1 className="form-header">Create Question</h1>
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSubmit} className="create-question-form">
           <label className="form-box">
             <p className="form-label">Question Content:</p>
             <textarea

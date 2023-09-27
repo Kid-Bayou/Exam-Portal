@@ -1,11 +1,11 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { API_BASE_URL, get, put } from "../../../service/APIService";
 import ChoiceList from "../choice/ChoiceList";
 import toggle from "../../../assets/icons/toggle.png";
 import edit from "../../../assets/icons/edit.png";
 import del from "../../../assets/icons/delete.png";
-import save from "../../../assets/icons/save.png"
+import save from "../../../assets/icons/save.png";
 
 import "../../../styles/Admin.css";
 
@@ -17,43 +17,39 @@ function QuestionList() {
     id: "",
     answerChoiceID: "",
   });
-  
+
   const handleChangedChoice = (qId, cId) => {
-    console.log(qId, cId)
+    console.log(qId, cId);
 
     setChangedChoice((prevChangedChoice) => ({
       ...prevChangedChoice,
       id: qId,
       answerChoiceID: cId,
-    } ));
+    }));
   };
+  const [visibleChoiceListId, setVisibleChoiceListId] = useState(null);
 
   useEffect(() => {
-    
     // console.log("changed choice", changedChoice)
     // console.log("changed choice.answerChoiceID", changedChoice.answerChoiceID)
     // console.log("changed choice.id", changedChoice.id)
-
     // console.log("ahhhhhhhhhhhhhhhh stayin aliveee aaaha ahahahahah")
     // console.log("quest for truth", question)
   }, [changedChoice]);
 
-
   const handleChoiceSelected = async (event) => {
     event.preventDefault();
-    const qIndex = question.findIndex(q => q.id === changedChoice.id);
-    if (qIndex !== -1){
+    const qIndex = question.findIndex((q) => q.id === changedChoice.id);
+    if (qIndex !== -1) {
       const updatedQuestion = [...question];
       updatedQuestion[qIndex].answerChoiceID = changedChoice.answerChoiceID;
-      setQuestion(updatedQuestion)
-      
-      handleSaveChoice(updatedQuestion[qIndex])
-    }
-  }
+      setQuestion(updatedQuestion);
 
+      handleSaveChoice(updatedQuestion[qIndex]);
+    }
+  };
 
   const handleSaveChoice = async (updatedQuestion) => {
-  
     try {
       const response = await put(
         `${API_BASE_URL}/api/Question/UpdateQuestion/${updatedQuestion.id}`,
@@ -65,35 +61,48 @@ function QuestionList() {
     }
   };
 
-
-  
-
   const questionElements = question.map((question, index) => (
     <div key={question.id} className="question-tile">
       <div className="question-info">
-        <h3 className="question-info-text">
-          {index + 1}. {question.questionContent}
-        </h3>
-        <Link
-          to={`/admindashboard/questions/updatequestion/${question.id}`}
-          className="edit-container"
-        >
-          <img src={edit} className="edit" />
-        </Link>
-        <Link
-          to={`/admindashboard/questions/deletequestion/${question.id}`}
-          className="edit-container"
-        >
-          <img src={del} className="edit" />
-        </Link>
-        <img
-          src={toggle}
-          className="toggle"
-          onClick={() => toggleChoices(question.id)}
-        />
-        <img src={save} className="edit" onClick={handleChoiceSelected}/>
+        <div className="question-info-container">
+          <h3 className="question-info-text">
+            {index + 1}. {question.questionContent}
+          </h3>
+        </div>
+        <div className="question-icons-container">
+          <Link
+            to={`/admindashboard/questions/updatequestion/${question.id}`}
+            className="edit-container"
+          >
+            <img src={edit} className="edit" />
+          </Link>
+          <Link
+            to={`/admindashboard/questions/deletequestion/${question.id}`}
+            className="edit-container"
+          >
+            <img src={del} className="edit" />
+          </Link>
+          <img
+            src={toggle}
+            className="toggle"
+            onClick={() => toggleChoices(question.id)}
+          />
+          <img
+            src={save}
+            className={`edit ${
+              visibleChoices[question.id] ? "visible" : "hidden"
+            }`}
+            onClick={() => handleChoiceSelected(question.id)}
+          />
+        </div>
       </div>
-      {visibleChoices[question.id] && <ChoiceList selectedChoiceId={question.answerChoiceID} qId={question.id} onValueChange={handleChangedChoice}/>}
+      {visibleChoices[question.id] && (
+        <ChoiceList
+          selectedChoiceId={question.answerChoiceID}
+          qId={question.id}
+          onValueChange={handleChangedChoice}
+        />
+      )}
     </div>
   ));
 
@@ -116,9 +125,11 @@ function QuestionList() {
       ...prevVisibleChoices,
       [questionId]: !prevVisibleChoices[questionId],
     }));
+
+    setVisibleChoiceListId(
+      questionId === visibleChoiceListId ? null : questionId
+    );
   };
-
-
 
   return (
     <>

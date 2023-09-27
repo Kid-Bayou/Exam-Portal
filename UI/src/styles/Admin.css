@@ -195,10 +195,15 @@
 
 .question-info {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 80px;
   flex-wrap: nowrap;
   align-items: center;
+}
+
+.question-icons-container {
+  display: flex;
+  gap: 70px;
 }
 
 .question-info-text {
@@ -214,7 +219,7 @@
   display: flex;
   justify-items: flex-start;
   gap: 10px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 
@@ -238,6 +243,23 @@
 
 .question-list-button {
   margin-top: 100px;
+}
+
+.edit.visible {
+  display: inline-block;
+}
+
+.edit.hidden {
+  display: none;
+}
+
+.create-question-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 80%;
+  gap: 50px;
 }
 
 /* ~~~~ UPDATE QUESTION ~~~~ */
