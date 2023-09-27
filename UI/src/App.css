@@ -35,8 +35,8 @@ body {
   height: 150px;
   display: flex;
   align-items: center;
-  padding-right: 40px;
-  padding-left: 20px;
+  padding-right: 80px;
+  padding-left: 50px;
 }
 
 .main-header a {
@@ -57,7 +57,7 @@ body {
 }
 
 .logo {
-  height: 4.5em;
+  height: 4em;
   padding: 0em;
 }
 
@@ -66,7 +66,7 @@ body {
   margin-left: 20px;
   margin-top: 25px;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .nav {
@@ -81,23 +81,31 @@ body {
   align-items: center;
   justify-content: center;
   gap: 70px;
-  margin-left: 5vw;
   margin-right: 5vw;
+  margin-left: 5vw;
 }
 
 .home-img {
-  width: 30%;
+  width: 30vw;
   border-radius: 20px;
 }
 
 .home-text-container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.home-img-container {
+display: flex;
+justify-content: flex-end;
+align-items: flex-end;
 }
 
 .home-header {
-  font-size: 4rem;
+  font-size: 4vw;
   font-weight: 1000;
   color: rgb(0, 0, 0);
   text-align: left;
@@ -106,7 +114,7 @@ body {
 
 .home-content {
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
 }
 
 /*  ~~~~ ABOUT ~~~~   */
@@ -179,6 +187,7 @@ body {
   width: 20vw;
   height: 4.5vh;
   border: solid rgb(167, 163, 163) 1px;
+  padding-left: 15px;
 }
 
 .sign-in-up-btn {

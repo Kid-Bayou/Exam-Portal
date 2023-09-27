@@ -4,7 +4,9 @@ function Home() {
   return (
     <>
       <div className="home-container">
-        <img src={Pic} className="home-img" />
+        <div className="home-img-container">
+          <img src={Pic} className="home-img" />
+        </div>
         <div className="home-text-container">
           <h1 className="home-header">Your go to online exam site</h1>
           <p className="home-content">
